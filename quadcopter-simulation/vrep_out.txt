@@ -1,0 +1,163 @@
+QSplitter::setCollapsible: Index 0 out of range
+Using the default Lua library.
+Loaded the video compression library.
+Add-on script 'vrepAddOnScript-addOnScriptDemo.lua' was loaded.
+Simulator launched.
+Plugin 'MeshCalc': loading...
+Plugin 'MeshCalc': load succeeded.
+Plugin 'BubbleRob': loading...
+Plugin 'BubbleRob': load succeeded.
+Plugin 'Bwf': loading...
+Plugin 'Bwf': load succeeded.
+Plugin 'Collada': loading...
+Plugin 'Collada': load succeeded.
+Plugin 'ConvexDecompose': loading...
+Plugin 'ConvexDecompose': load succeeded.
+Plugin 'CustomUI': loading...
+Plugin 'CustomUI': load succeeded.
+Plugin 'DynamicsBullet-2-78': loading...
+Plugin 'DynamicsBullet-2-78': load succeeded.
+Plugin 'DynamicsBullet-2-83': loading...
+Plugin 'DynamicsBullet-2-83': load succeeded.
+Plugin 'DynamicsNewton': loading...
+Plugin 'DynamicsNewton': load succeeded.
+Plugin 'DynamicsOde': loading...
+Plugin 'DynamicsOde': load succeeded.
+Plugin 'DynamicsVortex': loading...
+Plugin 'DynamicsVortex': load succeeded.
+Plugin 'ExternalRenderer': loading...
+Plugin 'ExternalRenderer': load succeeded.
+Plugin 'K3': loading...
+Plugin 'K3': load succeeded.
+Plugin 'LuaRemoteApiClient': loading...
+Plugin 'LuaRemoteApiClient': load succeeded.
+Plugin 'Mtb': loading...
+Plugin 'Mtb': load succeeded.
+Plugin 'OMPL': loading...
+Plugin 'OMPL': load succeeded.
+Plugin 'OpenMesh': loading...
+Plugin 'OpenMesh': load succeeded.
+Plugin 'PovRay': loading...
+Plugin 'PovRay': load succeeded.
+Plugin 'Qhull': loading...
+Plugin 'Qhull': load succeeded.
+Plugin 'RRS1': loading...
+Plugin 'RRS1': load succeeded.
+Plugin 'ReflexxesTypeII': loading...
+Plugin 'ReflexxesTypeII': load succeeded.
+Plugin 'RemoteApi': loading...
+Starting a remote API server on port 19999
+0x31407e0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x3140420 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313d3a0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313c4c0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313bfe0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313ac60 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313a390 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x28a7ba0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313a840 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313b140 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313bb00 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313cec0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+0x313dd60 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x25b9580) ): Attempt to set a screen on a child window.
+qt.network.ssl: QSslSocket: cannot resolve SSLv2_client_method
+qt.network.ssl: QSslSocket: cannot resolve SSLv2_server_method
+Plugin 'RemoteApi': load succeeded.
+Plugin 'SDF': loading...
+Plugin 'SDF': load succeeded.
+Plugin 'SimpleFilter': loading...
+Plugin 'SimpleFilter': load succeeded.
+Plugin 'SurfaceReconstruction': loading...
+Plugin 'SurfaceReconstruction': load succeeded.
+Plugin 'Urdf-a': loading...
+Plugin 'Urdf-a': load succeeded.
+Plugin 'Urdf': loading...
+Plugin 'Urdf': load succeeded.
+Plugin 'Vision': loading...
+Plugin 'Vision': load succeeded.
+Using the 'MeshCalc' plugin.
+Checking for an updated V-REP version...
+This V-REP version is up-to-date.
+Add-on script 'vrepAddOnScript-addOnScriptDemo.lua' was loaded.
+Add-on script 'vrepAddOnScript-addOnScriptDemo.lua' was loaded.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Simulator ended.
