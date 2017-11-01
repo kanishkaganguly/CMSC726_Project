@@ -47,3 +47,16 @@ Plugin 'ReflexxesTypeII': loading...
 Plugin 'ReflexxesTypeII': load succeeded.
 Plugin 'RemoteApi': loading...
 Starting a remote API server on port 19999
+0x18e75c0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e7200 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e4180 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e32a0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e2dc0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e1a40 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e1120 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x1299dc0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e1620 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e1f20 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e28e0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e3ca0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.
+0x18e4b40 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0xd5d480) ): Attempt to set a screen on a child window.

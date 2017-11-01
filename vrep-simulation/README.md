@@ -1,6 +1,3 @@
 ## V-REP Quadcopter Experiments
 ======
-- [x] Integrate camera on quadcopter with OpenCV
-- [x] Integrate accelerometer and gyroscope access from Python
-- [x] Integrate manual control over each propeller
-- [ ] Try RL based control of quadcopter
+Copy-paste remoteApiConnections.txt to your root V-REP folder. The port is 19999.
