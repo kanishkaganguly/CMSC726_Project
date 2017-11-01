@@ -22,10 +22,10 @@ def main():
             vrep_rotors.init_rotors(clientID)
             rotor_thrusts = [0.0, 0.0, 0.0, 0.0]
             while vrep.simxGetConnectionId(clientID) != -1:
-                rotor_thrusts[0] += 0.01
-                rotor_thrusts[1] += 0.01
-                rotor_thrusts[2] += 0.01
-                rotor_thrusts[3] += 0.01
+                rotor_thrusts[0] += 1e-5
+                rotor_thrusts[1] += 1e-5
+                rotor_thrusts[2] += 1e-5
+                rotor_thrusts[3] += 1e-5
                 vrep_rotors.move_rotors(clientID, rotor_thrusts)
 
         else:
