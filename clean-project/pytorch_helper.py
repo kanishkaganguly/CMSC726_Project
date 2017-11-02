@@ -34,6 +34,7 @@ class NN():
         self.model = torch.nn.Sequential(
             torch.nn.Linear(self.D_in, self.H1),
             torch.nn.ReLU(),
+            torch.nn.ReLU(),
             torch.nn.Linear(self.H3, self.D_out),
         )
         # Set optimizer
@@ -44,12 +45,14 @@ class NN():
         return
 
     def create_in_out_vars(self):
-        input = Variable(torch.zeros(self.D_in, 1), requires_grad=True)
-        output = Variable(torch.zeros(self.D_out, 1), requires_grad=True)
-        return input, output
+        input_var = Variable(torch.zeros(self.D_in, 1))
+        output_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
+        self.input_var = input_var
+        self.output_var = output_var
+        return
 
     def generate_output_combos(self):
-        delta_thrusts = np.linspace(-2, +2, 200, dtype=float)
+        delta_thrusts = np.linspace(-2, +2, 200, dtype=np.float32)
         rotor_combi = list(combinations_with_replacement(delta_thrusts, 4))
         return rotor_combi
 
@@ -60,8 +63,8 @@ class NN():
         return data.numpy()
 
     def get_predicted_data(self, state_data):
-        pred_data = self.model(state_data)
-        return pred_data
+        self.output_var = self.model(self.input_var)
+        return self.output_var
 
     def get_loss(self, pred, curr):
         loss = self.loss_fn(pred, curr)

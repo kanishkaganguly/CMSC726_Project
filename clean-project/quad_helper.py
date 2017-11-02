@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+import math
+
+import numpy as np
+
 import vrep_rotors
 import vrep_state
 
@@ -54,20 +58,19 @@ class RL(object):
         euler = vrep_state.get_quad_orientation(self.clientID, self.targetHandle)
         return pos, euler
 
-# '''
-# This function returns reward based on current and previous location data (x,y,z)
-# '''
-#
-# def get_reward(self):
-#     self.curr_location = self.get_state()
-#     deviation_x = np.linalg.norm(self.curr_location[0] - self.target_location[0])
-#     deviation_y = np.linalg.norm(self.curr_location[1] - self.target_location[1])
-#     deviation_z = np.linalg.norm(self.curr_location[2] - self.target_location[2])
-#     gaussian = norm(0, 2)
-#
-#     reward_x = gaussian.pdf(deviation_x)
-#     reward_y = gaussian.pdf(deviation_y)
-#     reward_z = 1 - math.exp(deviation_z)
-#
-#     total_reward = 2 * (0.5 * reward_x + 0.5 * reward_y + reward_z)
-#     return total_reward
+    '''
+    This function returns reward based on current and previous location data (x,y,z)
+    '''
+
+    def get_reward(self, curr_pos, curr_euler, target_pos, target_euler):
+        deviation_x = np.linalg.norm(self.curr_pos[0] - self.target_pos[0])
+        deviation_y = np.linalg.norm(self.curr_pos[1] - self.target_pos[1])
+        deviation_z = np.linalg.norm(self.curr_pos[2] - self.target_pos[2])
+        gaussian = math.norm(0, 2)
+
+        reward_x = gaussian.pdf(deviation_x)
+        reward_y = gaussian.pdf(deviation_y)
+        reward_z = 1 - math.exp(deviation_z)
+
+        total_reward = 2 * (0.5 * reward_x + 0.5 * reward_y + reward_z)
+        return total_reward
