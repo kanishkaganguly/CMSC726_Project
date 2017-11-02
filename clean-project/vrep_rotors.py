@@ -16,10 +16,10 @@ def init_rotors(clientID):
         vrep.simxSetFloatSignal(clientID, propellers[i], 1e-8, vrep.simx_opmode_oneshot)
 
 
-def move_rotors(clientID, propeller_vels):
-    thrust1_ret = vrep.simxSetFloatSignal(clientID, propellers[0], propeller_vels[0], vrep.simx_opmode_oneshot)
-    thrust2_ret = vrep.simxSetFloatSignal(clientID, propellers[1], propeller_vels[1], vrep.simx_opmode_oneshot)
-    thrust3_ret = vrep.simxSetFloatSignal(clientID, propellers[2], propeller_vels[2], vrep.simx_opmode_oneshot)
-    thrust4_ret = vrep.simxSetFloatSignal(clientID, propellers[3], propeller_vels[3], vrep.simx_opmode_oneshot)
-
-    # print(thrust1_ret, thrust2_ret, thrust3_ret, thrust4_ret)
+def set_rotors(clientID, propeller_vels):
+    [vrep.simxSetFloatSignal(clientID, prop, vels, vrep.simx_opmode_oneshot) for prop, vels in zip(propellers,
+                                                                                                   propeller_vels)]
+    # vrep.simxSetFloatSignal(clientID, propellers[0], propeller_vels[0], vrep.simx_opmode_oneshot)
+    # vrep.simxSetFloatSignal(clientID, propellers[1], propeller_vels[1], vrep.simx_opmode_oneshot)
+    # vrep.simxSetFloatSignal(clientID, propellers[2], propeller_vels[2], vrep.simx_opmode_oneshot)
+    # vrep.simxSetFloatSignal(clientID, propellers[3], propeller_vels[3], vrep.simx_opmode_oneshot)

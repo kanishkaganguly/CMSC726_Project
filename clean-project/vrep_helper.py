@@ -39,3 +39,11 @@ class Helper(object):
         self.stop_sim()
         vrep.simxFinish(self.clientID)
         return
+
+    ''' 
+    Fetch handle for object
+    '''
+
+    def get_handle(self, obj_name):
+        err, handle = vrep.simxGetObjectHandle(self.clientID, obj_name, vrep.simx_opmode_blocking)
+        return handle
