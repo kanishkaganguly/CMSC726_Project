@@ -20,7 +20,8 @@ def main():
         sim_functions = vrep_helper.Helper(clientID)
         quadHandle = sim_functions.get_handle("Quadricopter")
         targetHandle = sim_functions.get_handle("Quadricopter_target")
-        quad_functions = quad_helper.RL(clientID, quadHandle, targetHandle)
+        rootHandle = sim_functions.get_handle("Quadricopter_root")
+        quad_functions = quad_helper.QuadHelper(clientID, quadHandle, targetHandle, rootHandle)
 
         if clientID != -1:
             # Initialize Quad Variables
@@ -35,7 +36,7 @@ def main():
             nn_functions.D_out = len(output_vector)
             nn_functions.create_in_out_vars()
             batch_size = 1000
-            epoch = 500000
+            epoch = 10000
             nn_functions.create_model()
             print('Initialized Network')
 
@@ -46,14 +47,20 @@ def main():
             print('Quadrotor Initialized')
 
             while vrep.simxGetConnectionId(clientID) != -1:
-                for _ in range(epoch):
+                for i in range(epoch):
+                    print("EPOCH %d" % i)
+                    # INPUT CURRENT STATE
                     curr_pos, curr_euler = quad_functions.fetch_quad_state()
                     sim_functions.pause_sim()
                     curr_state = np.array(curr_pos + curr_euler +
                                           curr_rotor_thrusts, dtype=np.float32)
                     nn_functions.input_var.data = nn_functions.np_to_torch(curr_state)
+
+                    # GET Q VALUES
                     output_var = nn_functions.get_predicted_data(nn_functions.input_var)
                     q_vals = nn_functions.torch_to_np(output_var.data)
+
+                    # GET MAX Q VALUES
                     max_qval_idx = np.argmax(q_vals)
                     delta_thrust = output_vector[max_qval_idx]
                     new_rotor_thrusts[0] = curr_rotor_thrusts[0] + delta_thrust[0]
@@ -61,14 +68,29 @@ def main():
                     new_rotor_thrusts[2] = curr_rotor_thrusts[2] + delta_thrust[2]
                     new_rotor_thrusts[3] = curr_rotor_thrusts[3] + delta_thrust[3]
                     sim_functions.start_sim()
+
+                    # DO MAX Q VALUE ACTION
                     quad_functions.apply_rotor_thrust(new_rotor_thrusts)
                     for _ in range(batch_size):
                         pass
                     sim_functions.pause_sim()
+
+                    # GET NEW STATE
                     next_pos, next_euler = quad_functions.fetch_quad_state()
+                    # GET REWARD
+                    reward = quad_functions.get_reward(next_pos, next_euler, target_pos, target_euler)
 
+                    # GET ONE HOT ERROR
+                    onehot_err = nn_functions.onehot_from_reward(reward, len(q_vals), max_qval_idx)
 
-
+                    # DO BACKPROP
+                    nn_functions.error_var.data = nn_functions.np_to_torch(onehot_err)
+                    nn_functions.get_loss(nn_functions.output_var, nn_functions.error_var)
+                    nn_functions.do_backprop()
+                    print("Loss: %f" % nn_functions.loss.data[0])
+                    print("\n")
+                    quad_functions.reset_quad()
+                    sim_functions.start_sim()
         else:
             print("Failed to connect to remote API Server")
             sim_functions.exit_sim()

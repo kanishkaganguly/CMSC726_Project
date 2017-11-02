@@ -175,4 +175,4 @@ Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
 Engine version: 2.78
 Plugin version: 9
 Initialization successful.
-Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78/home/kanishka/Documents/Projects/VREP/V-REP/vrep.sh: line 33: 22271 Segmentation fault      "$dirname/$appname" "${PARAMETERS[@]}"

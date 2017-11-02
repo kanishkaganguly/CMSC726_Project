@@ -33,7 +33,7 @@ class NN():
         # Create model
         self.model = torch.nn.Sequential(
             torch.nn.Linear(self.D_in, self.H1),
-            torch.nn.ReLU(),
+            torch.nn.Sigmoid(),
             torch.nn.ReLU(),
             torch.nn.Linear(self.H3, self.D_out),
         )
@@ -45,10 +45,10 @@ class NN():
         return
 
     def create_in_out_vars(self):
-        input_var = Variable(torch.zeros(self.D_in, 1))
-        output_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
-        self.input_var = input_var
-        self.output_var = output_var
+        self.input_var = Variable(torch.zeros(self.D_in, 1))
+        self.output_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
+        self.error_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
+
         return
 
     def generate_output_combos(self):
@@ -66,12 +66,21 @@ class NN():
         self.output_var = self.model(self.input_var)
         return self.output_var
 
-    def get_loss(self, pred, curr):
-        loss = self.loss_fn(pred, curr)
-        return loss
+    def get_loss(self, pred, real):
+        self.loss = self.loss_fn(pred, real)
+        return
 
-    def do_backprop(self, loss):
+    def do_backprop(self):
         self.optimizer.zero_grad()
-        loss.backward()
+        self.loss.backward()
         self.optimizer.step()
         return
+
+    '''
+    Convert reward to one hot vector for backprop
+    '''
+
+    def onehot_from_reward(self, reward, vector_length, one_hot_idx):
+        vector = np.zeros((vector_length, 1), dtype=np.float32)
+        vector[one_hot_idx] = reward
+        return vector
