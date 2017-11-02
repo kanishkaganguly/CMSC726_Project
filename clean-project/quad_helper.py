@@ -28,15 +28,15 @@ class QuadHelper(object):
         vrep_state.init_state(self.clientID, self.quadHandle)
         return
 
-    '''
-    Reset Quadcopter Position
-    '''
-
-    def reset_quad(self):
-        vrep_state.set_quad_position(self.clientID, self.quadHandle, self.rootHandle, self.reset_pos)
-        vrep_state.set_quad_euler(self.clientID, self.quadHandle, self.rootHandle, self.reset_euler)
-        vrep_rotors.set_rotors(self.clientID, self.reset_rotor)
-        return
+        # '''
+        # Reset Quadcopter Position
+        # '''
+        #
+        # def reset_quad(self):
+        # vrep_state.set_quad_position(self.clientID, self.quadHandle, self.rootHandle, self.reset_pos)
+        # vrep_state.set_quad_euler(self.clientID, self.quadHandle, self.rootHandle, self.reset_euler)
+        # vrep_rotors.set_rotors(self.clientID, self.reset_rotor)
+        # return
 
     '''
     Apply thrust to rotors

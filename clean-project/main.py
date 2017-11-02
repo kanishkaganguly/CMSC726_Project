@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import time
+
 import numpy as np
 
 import pytorch_helper
@@ -35,8 +37,8 @@ def main():
             nn_functions.D_in = 10
             nn_functions.D_out = len(output_vector)
             nn_functions.create_in_out_vars()
-            batch_size = 1000
-            epoch = 10000
+            batch_size = 10000
+            epoch = 50000
             nn_functions.create_model()
             print('Initialized Network')
 
@@ -48,10 +50,10 @@ def main():
 
             while vrep.simxGetConnectionId(clientID) != -1:
                 for i in range(epoch):
+                    start_time = time.time()
                     print("EPOCH %d" % i)
                     # INPUT CURRENT STATE
                     curr_pos, curr_euler = quad_functions.fetch_quad_state()
-                    sim_functions.pause_sim()
                     curr_state = np.array(curr_pos + curr_euler +
                                           curr_rotor_thrusts, dtype=np.float32)
                     nn_functions.input_var.data = nn_functions.np_to_torch(curr_state)
@@ -67,16 +69,15 @@ def main():
                     new_rotor_thrusts[1] = curr_rotor_thrusts[1] + delta_thrust[1]
                     new_rotor_thrusts[2] = curr_rotor_thrusts[2] + delta_thrust[2]
                     new_rotor_thrusts[3] = curr_rotor_thrusts[3] + delta_thrust[3]
-                    sim_functions.start_sim()
 
                     # DO MAX Q VALUE ACTION
                     quad_functions.apply_rotor_thrust(new_rotor_thrusts)
-                    for _ in range(batch_size):
-                        pass
-                    sim_functions.pause_sim()
+                    # for _ in range(batch_size):
+                    #     pass
 
                     # GET NEW STATE
                     next_pos, next_euler = quad_functions.fetch_quad_state()
+                    sim_functions.stop_sim()
                     # GET REWARD
                     reward = quad_functions.get_reward(next_pos, next_euler, target_pos, target_euler)
 
@@ -88,9 +89,10 @@ def main():
                     nn_functions.get_loss(nn_functions.output_var, nn_functions.error_var)
                     nn_functions.do_backprop()
                     print("Loss: %f" % nn_functions.loss.data[0])
+                    print(("Time: %f") % (time.time() - start_time))
                     print("\n")
-                    quad_functions.reset_quad()
                     sim_functions.start_sim()
+
         else:
             print("Failed to connect to remote API Server")
             sim_functions.exit_sim()

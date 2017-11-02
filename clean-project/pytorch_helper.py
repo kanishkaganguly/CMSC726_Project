@@ -9,8 +9,6 @@ from torch.autograd import Variable
 
 class NN():
     def __init__(self):
-        # Tensor type
-        self.dtype = torch.FloatTensor
         # Minibatch size
         self.N = 1
         # Input dimension (Position + Orientation)
@@ -18,11 +16,11 @@ class NN():
         # Output dimension (Rotor Thrusts)
         self.D_out = 0
         # Hidden Layer 1 dimension
-        self.H1 = 12
+        self.H1 = 128
         # Hidden Layer 2 dimension
-        self.H2 = 40
+        self.H2 = 256
         # Hidden Layer 3 dimension
-        self.H3 = 12
+        self.H3 = 128
 
         # Reinforcement Learning Parameters
         self.learning_rate = 1e-4
@@ -37,6 +35,8 @@ class NN():
             torch.nn.ReLU(),
             torch.nn.Linear(self.H3, self.D_out),
         )
+        self.model.cuda()
+
         # Set optimizer
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
 
@@ -45,22 +45,22 @@ class NN():
         return
 
     def create_in_out_vars(self):
-        self.input_var = Variable(torch.zeros(self.D_in, 1))
-        self.output_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
-        self.error_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)
+        self.input_var = Variable(torch.zeros(self.D_in, 1).cuda())
+        self.output_var = Variable(torch.zeros(self.D_out, 1).cuda(), requires_grad=False)
+        self.error_var = Variable(torch.zeros(self.D_out, 1).cuda(), requires_grad=False)
 
         return
 
     def generate_output_combos(self):
-        delta_thrusts = np.linspace(-2, +2, 200, dtype=np.float32)
+        delta_thrusts = np.linspace(-2, +2, 95, dtype=np.float32)
         rotor_combi = list(combinations_with_replacement(delta_thrusts, 4))
         return rotor_combi
 
     def np_to_torch(self, data):
-        return torch.from_numpy(data)
+        return torch.from_numpy(data).cuda()
 
     def torch_to_np(self, data):
-        return data.numpy()
+        return data.cpu().numpy()
 
     def get_predicted_data(self, state_data):
         self.output_var = self.model(self.input_var)
@@ -75,6 +75,12 @@ class NN():
         self.loss.backward()
         self.optimizer.step()
         return
+
+    def save_model(self):
+        self.model.save_state_dict("quad_rl_model.pt")
+
+    def load_model(self):
+        self.model.load_state_dict("quad_rl_model.pt")
 
     '''
     Convert reward to one hot vector for backprop
