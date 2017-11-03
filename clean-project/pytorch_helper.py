@@ -5,25 +5,12 @@ from itertools import combinations_with_replacement
 import numpy as np
 import torch
 from torch.autograd import Variable
+from torch import nn
 
-
-class NN():
-    def __init__(self, cuda=False):
-        # Tensor type
-        self.dtype = torch.FloatTensor
-        # Minibatch size
-        self.N = 1
-        # Input dimension (Position + Orientation)
-        self.D_in = 0
-        # Output dimension (Rotor Thrusts)
-        self.D_out = 0
-        # Hidden Layer 1 dimension
-        self.H1 = 12
-        # Hidden Layer 2 dimension
-        self.H2 = 40
-        # Hidden Layer 3 dimension
-        self.H3 = 12
+class NNBase(object):
+    def __init__(self, model, cuda=False):
         self.cuda = cuda
+        self.model = model
 
         # Reinforcement Learning Parameters
         self.learning_rate = 1e-4
@@ -44,13 +31,6 @@ class NN():
         torch.save(saveme, savefile)
 
     def create_model(self):
-        # Create model
-        self.model = torch.nn.Sequential(
-            torch.nn.Linear(self.D_in, self.H1),
-            torch.nn.ReLU(),
-            torch.nn.Linear(self.H3, self.D_out),
-            torch.nn.ReLU()
-        )
         if self.cuda:
             self.model = torch.nn.DataParallel(self.model).cuda()
         # Set optimizer
@@ -58,7 +38,6 @@ class NN():
 
         # Loss function
         self.loss_fn = torch.nn.MSELoss(size_average=False)
-
 
     def generate_output_combos(self):
         delta_thrusts = np.linspace(-2, +2, 200, dtype=np.float32)
@@ -82,3 +61,17 @@ class NN():
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
+
+class MLP(nn.Module):  #multi layer perceptron
+    def __init__(self, n_inp, n_feature_list, n_class):
+        super(MLP, self).__init__()
+        self.layerlist = nn.ModuleList([])
+        for idx, num_hidden_units in enumerate(n_feature_list):
+            inp = n_inp if idx==0 else n_feature_list[idx-1]
+            out = n_class if idx==len(n_feature_list)-1 else num_hidden_units
+            self.layerlist += [nn.Linear(inp, out), nn.ReLU()]
+        self.m = nn.Sequential(*self.layerlist)
+
+    def forward(self, x):
+        return self.m(x)
+

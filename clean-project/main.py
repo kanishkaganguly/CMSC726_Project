@@ -2,7 +2,7 @@
 
 import numpy as np
 
-import pytorch_helper
+from pytorch_helper import *
 import quad_helper
 import vrep
 import vrep_helper
@@ -29,7 +29,8 @@ def main():
             target_pos, target_euler = quad_functions.fetch_target_state()
 
             # Initialize Network Variables
-            nn_functions = pytorch_helper.NN()
+            mdl = MLP(10, [20,10], 5)
+            nn_functions = NNBase(mdl)
             output_vector = nn_functions.generate_output_combos()
             nn_functions.D_in = 10
             nn_functions.D_out = len(output_vector)
