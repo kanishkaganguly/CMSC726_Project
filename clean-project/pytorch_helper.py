@@ -48,8 +48,8 @@ class NN():
         self.model = torch.nn.Sequential(
             torch.nn.Linear(self.D_in, self.H1),
             torch.nn.ReLU(),
-            torch.nn.ReLU(),
             torch.nn.Linear(self.H3, self.D_out),
+            torch.nn.ReLU()
         )
         if self.cuda:
             self.model = torch.nn.DataParallel(self.model).cuda()
@@ -59,12 +59,6 @@ class NN():
         # Loss function
         self.loss_fn = torch.nn.MSELoss(size_average=False)
 
-    def create_in_out_vars(self):  #TODO: are these needed? no need to init input_var and output_var
-        self.input_var = Variable(torch.zeros(self.D_in, 1))
-        self.output_var = Variable(torch.zeros(self.D_out, 1), requires_grad=False)  #TODO, check why require_grads = False
-        if self.cuda:
-            self.input_var = self.input_var.cuda()
-            self.output_var = self.output_var.cuda()
 
     def generate_output_combos(self):
         delta_thrusts = np.linspace(-2, +2, 200, dtype=np.float32)
@@ -79,8 +73,7 @@ class NN():
         return data.cpu().numpy() if self.cuda else data.numpy()
 
     def get_predicted_data(self, state_data):
-        self.output_var = self.model(self.input_var) #TODO: state_data is input but never used. model should predict on state_data right. self.input_var and self.output_var probably not needed?
-        return self.output_var
+        return self.model(Variable(state_data))
 
     def get_loss(self, pred, curr):
         return self.loss_fn(pred, curr)

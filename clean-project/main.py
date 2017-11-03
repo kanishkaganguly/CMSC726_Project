@@ -33,7 +33,6 @@ def main():
             output_vector = nn_functions.generate_output_combos()
             nn_functions.D_in = 10
             nn_functions.D_out = len(output_vector)
-            nn_functions.create_in_out_vars()
             batch_size = 1000
             epoch = 500000
             nn_functions.create_model()
@@ -51,8 +50,7 @@ def main():
                     sim_functions.pause_sim()
                     curr_state = np.array(curr_pos + curr_euler +
                                           curr_rotor_thrusts, dtype=np.float32)
-                    nn_functions.input_var.data = nn_functions.np_to_torch(curr_state)
-                    output_var = nn_functions.get_predicted_data(nn_functions.input_var)
+                    output_var = nn_functions.get_predicted_data(nn_functions.np_to_torch(curr_state))
                     q_vals = nn_functions.torch_to_np(output_var.data)
                     max_qval_idx = np.argmax(q_vals)
                     delta_thrust = output_vector[max_qval_idx]
