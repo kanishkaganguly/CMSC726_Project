@@ -18,16 +18,6 @@ def get_quad_orientation(clientID, quadHandle):
     return euler
 
 
-def set_quad_position(clientID, quadHandle, rootHandle, pos):
-    vrep.simxSetObjectPosition(clientID, quadHandle, rootHandle, pos, vrep.simx_opmode_oneshot_wait)
-    return
-
-
-def set_quad_euler(clientID, quadHandle, rootHandle, euler):
-    vrep.simxSetObjectPosition(clientID, quadHandle, rootHandle, euler, vrep.simx_opmode_oneshot_wait)
-    return
-
-
 def get_target_pos(clientID, targetHandle):
     err, pos = vrep.simxGetObjectPosition(clientID, targetHandle, -1, vrep.simx_opmode_buffer)
     return pos

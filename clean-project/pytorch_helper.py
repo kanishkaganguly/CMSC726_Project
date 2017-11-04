@@ -52,7 +52,7 @@ class NN():
         return
 
     def generate_output_combos(self):
-        delta_thrusts = np.linspace(-2, +2, 95, dtype=np.float32)
+        delta_thrusts = np.linspace(-1, +1, 95, dtype=np.float32)
         rotor_combi = list(combinations_with_replacement(delta_thrusts, 4))
         return rotor_combi
 

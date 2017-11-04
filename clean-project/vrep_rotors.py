@@ -19,6 +19,8 @@ def init_rotors(clientID):
 def set_rotors(clientID, propeller_vels):
     [vrep.simxSetFloatSignal(clientID, prop, vels, vrep.simx_opmode_oneshot) for prop, vels in zip(propellers,
                                                                                                    propeller_vels)]
+    print("Rotor Thrusts: " + str(propeller_vels))
+    return
     # vrep.simxSetFloatSignal(clientID, propellers[0], propeller_vels[0], vrep.simx_opmode_oneshot)
     # vrep.simxSetFloatSignal(clientID, propellers[1], propeller_vels[1], vrep.simx_opmode_oneshot)
     # vrep.simxSetFloatSignal(clientID, propellers[2], propeller_vels[2], vrep.simx_opmode_oneshot)

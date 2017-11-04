@@ -13,6 +13,7 @@ clientID = -1
 sim_functions = None
 quad_functions = None
 nn_functions = None
+dt = 0.05
 
 
 def main():
@@ -22,8 +23,7 @@ def main():
         sim_functions = vrep_helper.Helper(clientID)
         quadHandle = sim_functions.get_handle("Quadricopter")
         targetHandle = sim_functions.get_handle("Quadricopter_target")
-        rootHandle = sim_functions.get_handle("Quadricopter_root")
-        quad_functions = quad_helper.QuadHelper(clientID, quadHandle, targetHandle, rootHandle)
+        quad_functions = quad_helper.QuadHelper(clientID, quadHandle, targetHandle)
 
         if clientID != -1:
             # Initialize Quad Variables
@@ -37,8 +37,12 @@ def main():
             nn_functions.D_in = 10
             nn_functions.D_out = len(output_vector)
             nn_functions.create_in_out_vars()
-            batch_size = 10000
+
             epoch = 50000
+            batch_time = 5
+            time_count = 0
+            epochs_per_episode = 10
+
             nn_functions.create_model()
             print('Initialized Network')
 
@@ -72,14 +76,18 @@ def main():
 
                     # DO MAX Q VALUE ACTION
                     quad_functions.apply_rotor_thrust(new_rotor_thrusts)
-                    # for _ in range(batch_size):
-                    #     pass
+                    vrep.simxSynchronousTrigger(clientID)
+                    while time_count < batch_time:
+                        vrep.simxSynchronousTrigger(clientID)
+                        time_count += dt
+                    time_count = 0
 
                     # GET NEW STATE
                     next_pos, next_euler = quad_functions.fetch_quad_state()
-                    sim_functions.stop_sim()
+
                     # GET REWARD
-                    reward = quad_functions.get_reward(next_pos, next_euler, target_pos, target_euler)
+                    reward = quad_functions.get_reward(new_rotor_thrusts, next_pos, next_euler, target_pos,
+                                                       target_euler)
 
                     # GET ONE HOT ERROR
                     onehot_err = nn_functions.onehot_from_reward(reward, len(q_vals), max_qval_idx)
@@ -88,9 +96,16 @@ def main():
                     nn_functions.error_var.data = nn_functions.np_to_torch(onehot_err)
                     nn_functions.get_loss(nn_functions.output_var, nn_functions.error_var)
                     nn_functions.do_backprop()
+
                     print("Loss: %f" % nn_functions.loss.data[0])
                     print(("Time: %f") % (time.time() - start_time))
                     print("\n")
+
+                    # RESET QUAD PER EPISODE
+                    if i % epochs_per_episode == 0:
+                        print("Episode Finished. Resetting Quad.")
+                        print("\n")
+                        sim_functions.stop_sim()
                     sim_functions.start_sim()
 
         else:
