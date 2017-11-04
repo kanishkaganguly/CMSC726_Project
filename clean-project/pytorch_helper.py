@@ -3,7 +3,7 @@
 from itertools import combinations_with_replacement
 
 import numpy as np
-import torch
+import torch, os
 from torch.autograd import Variable
 from torch import nn
 
@@ -21,11 +21,15 @@ class NNBase(object):
             checkpoint = torch.load(modelfile)
             self.model.load_state_dict(checkpoint['state_dict'])
             self.optimizer.load_state_dict(checkpoint['optimizer'])
+            return checkpoint['epoch']
+        else:
+            return  0
 
-    def save_wts(self, savefile):
+    def save_wts(self, savefile, epoch):
         saveme = {  #TODO save other stuff too, like epoch etc
             'state_dict': self.model.state_dict(),
             'optimizer' : self.optimizer.state_dict(),
+            'epoch' : epoch
         }
         torch.save(saveme, savefile)
 

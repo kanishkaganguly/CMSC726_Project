@@ -43,6 +43,7 @@ def main():
             epochs_per_episode = 10
 
             nn_functions.create_model()
+            finished_epochs = nn_functions.load_wts("save.pth.tar")
             print('Initialized Network')
 
             # Initialize Simulator and Quadrotor
@@ -104,6 +105,7 @@ def main():
                         print("Episode Finished. Resetting Quad.")
                         print("\n")
                         sim_functions.stop_sim()
+                        nn_functions.save_wts("save.pth.tar", i+finished_epochs)
                     sim_functions.start_sim()
 
         else:
