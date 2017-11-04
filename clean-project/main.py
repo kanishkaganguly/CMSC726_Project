@@ -26,6 +26,13 @@ def main():
         quad_functions = quad_helper.QuadHelper(clientID, quadHandle, targetHandle)
 
         if clientID != -1:
+            # Set Simulator
+            vrep.simxSynchronous(clientID, True)
+            vrep.simxSetFloatingParameter(clientID,
+                                          vrep.sim_floatparam_simulation_time_step,
+                                          dt,  # specify a simulation time step
+                                          vrep.simx_opmode_oneshot)
+
             # Initialize Quad Variables
             curr_rotor_thrusts = [0.001, 0.001, 0.001, 0.001]
             new_rotor_thrusts = curr_rotor_thrusts
@@ -38,10 +45,11 @@ def main():
             nn_functions.D_out = len(output_vector)
             nn_functions.create_in_out_vars()
 
-            epoch = 50000
+            epoch = 100000
             batch_time = 5
             time_count = 0
-            epochs_per_episode = 10
+            epochs_per_episode = 20
+            eps = 0.8
 
             nn_functions.create_model()
             print('Initialized Network')
@@ -66,8 +74,16 @@ def main():
                     output_var = nn_functions.get_predicted_data(nn_functions.input_var)
                     q_vals = nn_functions.torch_to_np(output_var.data)
 
-                    # GET MAX Q VALUES
-                    max_qval_idx = np.argmax(q_vals)
+                    # EXPLORATION VS. EXPLOITATION
+                    if np.random.rand() - eps > 1e-6:
+                        print("EXPLORATION STAGE")
+                        max_qval_idx = np.random.randint(0, len(output_vector))
+                    else:
+                        print("EXPLOITATION STAGE")
+                        # GET MAX Q VALUES
+                        max_qval_idx = np.argmax(q_vals)
+
+                    # SET ACTION
                     delta_thrust = output_vector[max_qval_idx]
                     new_rotor_thrusts[0] = curr_rotor_thrusts[0] + delta_thrust[0]
                     new_rotor_thrusts[1] = curr_rotor_thrusts[1] + delta_thrust[1]
@@ -77,6 +93,8 @@ def main():
                     # DO MAX Q VALUE ACTION
                     quad_functions.apply_rotor_thrust(new_rotor_thrusts)
                     vrep.simxSynchronousTrigger(clientID)
+
+                    # LET ACTION DO SOME WORK
                     while time_count < batch_time:
                         vrep.simxSynchronousTrigger(clientID)
                         time_count += dt
@@ -103,6 +121,7 @@ def main():
 
                     # RESET QUAD PER EPISODE
                     if i % epochs_per_episode == 0:
+                        nn_functions.save_model()
                         print("Episode Finished. Resetting Quad.")
                         print("\n")
                         sim_functions.stop_sim()

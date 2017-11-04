@@ -12,13 +12,6 @@ class Helper(object):
     '''
 
     def start_sim(self):
-        # Set Simulator
-        vrep.simxSynchronous(self.clientID, True)
-        dt = .05
-        vrep.simxSetFloatingParameter(self.clientID,
-                                      vrep.sim_floatparam_simulation_time_step,
-                                      dt,  # specify a simulation time step
-                                      vrep.simx_opmode_oneshot)
         # vrep.simxStartSimulation(self.clientID, vrep.simx_opmode_oneshot_wait)
         vrep.simxStartSimulation(self.clientID, vrep.simx_opmode_blocking)
         return
@@ -28,8 +21,8 @@ class Helper(object):
     '''
 
     def stop_sim(self):
-        vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_oneshot_wait)
-        # vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_blocking)
+        # vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_oneshot_wait)
+        vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_blocking)
         return
 
     '''

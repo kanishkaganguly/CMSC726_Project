@@ -77,7 +77,8 @@ class NN():
         return
 
     def save_model(self):
-        self.model.save_state_dict("quad_rl_model.pt")
+        torch.save(self.model, "quad_rl_model.pth")
+        print("Model Saved")
 
     def load_model(self):
         self.model.load_state_dict("quad_rl_model.pt")
