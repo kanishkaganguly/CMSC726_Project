@@ -40,7 +40,7 @@ class NNBase(object):
         self.loss_fn = torch.nn.MSELoss(size_average=False)
 
     def generate_output_combos(self):
-        delta_thrusts = np.linspace(-2, +2, 200, dtype=np.float32)
+        delta_thrusts = np.linspace(-1, +1, 95, dtype=np.float32)
         rotor_combi = list(combinations_with_replacement(delta_thrusts, 4))
         return rotor_combi
 
