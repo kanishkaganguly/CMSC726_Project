@@ -33,11 +33,9 @@ def main():
             target_pos, target_euler = quad_functions.fetch_target_state()
 
             # Initialize Network Variables
-            mdl = pytorch_helper.MLP(10, [128, 256, 128], 4)
-            nn_functions = pytorch_helper.NNBase(mdl)
+            nn_functions = pytorch_helper.NNBase()
             output_vector = nn_functions.generate_output_combos()
-            nn_functions.D_in = 10
-            nn_functions.D_out = len(output_vector)
+            nn_functions.model = pytorch_helper.MLP(10, [128, 256, 128], len(output_vector))
 
             epoch = 50000
             batch_time = 5

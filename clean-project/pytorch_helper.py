@@ -8,9 +8,8 @@ from torch.autograd import Variable
 from torch import nn
 
 class NNBase(object):
-    def __init__(self, model, cuda=True):
+    def __init__(self, cuda=True):
         self.cuda = cuda
-        self.model = model
 
         # Reinforcement Learning Parameters
         self.learning_rate = 1e-4
@@ -40,7 +39,7 @@ class NNBase(object):
         self.loss_fn = torch.nn.MSELoss(size_average=False)
 
     def generate_output_combos(self):
-        delta_thrusts = np.linspace(-1, +1, 95, dtype=np.float32)
+        delta_thrusts = np.linspace(-1, +1, 50, dtype=np.float32)  #Ananya: changing from 95 to 50 as its not fitting in a K40 12GB single GPU
         rotor_combi = list(combinations_with_replacement(delta_thrusts, 4))
         return rotor_combi
 
