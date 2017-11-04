@@ -8,6 +8,7 @@ import pytorch_helper
 import quad_helper
 import vrep
 import vrep_helper
+from torch.autograd import Variable
 
 clientID = -1
 sim_functions = None
@@ -32,11 +33,11 @@ def main():
             target_pos, target_euler = quad_functions.fetch_target_state()
 
             # Initialize Network Variables
-            nn_functions = pytorch_helper.NN()
+            mdl = pytorch_helper.MLP(10, [128, 256, 128], 4)
+            nn_functions = pytorch_helper.NNBase(mdl)
             output_vector = nn_functions.generate_output_combos()
             nn_functions.D_in = 10
             nn_functions.D_out = len(output_vector)
-            nn_functions.create_in_out_vars()
 
             epoch = 50000
             batch_time = 5
@@ -60,10 +61,9 @@ def main():
                     curr_pos, curr_euler = quad_functions.fetch_quad_state()
                     curr_state = np.array(curr_pos + curr_euler +
                                           curr_rotor_thrusts, dtype=np.float32)
-                    nn_functions.input_var.data = nn_functions.np_to_torch(curr_state)
 
                     # GET Q VALUES
-                    output_var = nn_functions.get_predicted_data(nn_functions.input_var)
+                    output_var = nn_functions.get_predicted_data(nn_functions.np_to_torch(curr_state))
                     q_vals = nn_functions.torch_to_np(output_var.data)
 
                     # GET MAX Q VALUES
@@ -93,8 +93,8 @@ def main():
                     onehot_err = nn_functions.onehot_from_reward(reward, len(q_vals), max_qval_idx)
 
                     # DO BACKPROP
-                    nn_functions.error_var.data = nn_functions.np_to_torch(onehot_err)
-                    nn_functions.get_loss(nn_functions.output_var, nn_functions.error_var)
+                    error_var = nn_functions.np_to_torch(onehot_err)
+                    nn_functions.get_loss(nn_functions.output_var, Variable(error_var))
                     nn_functions.do_backprop()
 
                     print("Loss: %f" % nn_functions.loss.data[0])
