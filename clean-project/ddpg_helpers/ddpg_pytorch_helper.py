@@ -10,6 +10,7 @@ from torch import nn
 from ddpg_memory import SequentialMemory
 from ddpg_random_process import OrnsteinUhlenbeckProcess
 from ddpg_utils import *
+from ddpg_model import Actor, Critic
 
 
 class DDPG(object):
@@ -20,11 +21,23 @@ class DDPG(object):
         self.nb_actions = nb_actions
         
         #Init models
-        actor_kwargs = {'n_inp':self.nb_states, 'n_feature_list':[args.hidden1,args.hidden2], 'n_class':self.nb_actions}
-        self.actor = MLP(**actor_kwargs)
-        self.actor_target = MLP(**actor_kwargs)
-        self.critic = MLP(**actor_kwargs)  #TODO: actor and critic has same structure for now.
-        self.critic_target = MLP(**actor_kwargs)
+        #actor_kwargs = {'n_inp':self.nb_states, 'n_feature_list':[args.hidden1,args.hidden2], 'n_class':self.nb_actions}
+        #self.actor = MLP(**actor_kwargs)
+        #self.actor_target = MLP(**actor_kwargs)
+        #self.critic = MLP(**actor_kwargs)  #TODO: actor and critic has same structure for now.
+        #self.critic_target = MLP(**actor_kwargs)
+
+        net_cfg = {
+            'hidden1':args.hidden1,
+            'hidden2':args.hidden2,
+            'init_w':args.init_w
+        }
+        self.actor = Actor(self.nb_states, self.nb_actions, **net_cfg)
+        self.actor_target = Actor(self.nb_states, self.nb_actions, **net_cfg)
+
+        self.critic = Critic(self.nb_states, self.nb_actions, **net_cfg)
+        self.critic_target = Critic(self.nb_states, self.nb_actions, **net_cfg)
+
         self.criterion = nn.MSELoss()
         if self.cuda:
             self.actor = self.actor.cuda() # torch.nn.DataParallel(self.model).cuda()  #TODO dataparallel not working
@@ -75,7 +88,7 @@ class DDPG(object):
 
         q_batch = self.critic([ to_tensor(state_batch), to_tensor(action_batch) ])
         
-        value_loss = criterion(q_batch, target_q_batch)
+        value_loss = self.criterion(q_batch, target_q_batch)
         value_loss.backward()
         self.critic_optim.step()
 

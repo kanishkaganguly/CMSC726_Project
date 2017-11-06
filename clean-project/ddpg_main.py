@@ -22,7 +22,7 @@ from copy import deepcopy
 dt = 0.05
         
         
-        
+#https://github.com/ghliu/pytorch-ddpg
 def train(num_iterations, gent, env,  evaluate, validate_steps, output, max_episode_length=None, debug=False):
     agent.is_training = True
     step = episode = episode_steps = 0
@@ -124,20 +124,17 @@ class Env(object):
         self.curr_pos, self.curr_euler = self.quad_functions.fetch_quad_state()
         self.curr_state = np.array(self.curr_pos + self.curr_euler + self.curr_rotor_thrusts, dtype=np.float32)
 
-    def step(self, new_rotor_thrusts):
+    def step(self, delta_rotor_thrusts):
         if vrep.simxGetConnectionId(self.clientID) != -1:
-            self.quad_functions.apply_rotor_thrust(new_rotor_thrusts)
+            self.curr_rotor_thrusts = (np.array(self.curr_rotor_thrusts) + delta_rotor_thrusts).tolist()
+            self.quad_functions.apply_rotor_thrust(self.curr_rotor_thrusts)
             for i in range(self.run_time):
                 vrep.simxSynchronousTrigger(self.clientID)
-            #next_pos, next_euler = quad_functions.fetch_quad_state()
-            self.curr_rotor_thrusts = new_rotor_thrusts.tolist()
-            #self.curr_pos, self.curr_euler = self.quad_functions.fetch_quad_state()
-            #self.curr_state = np.array(self.curr_pos + self.curr_euler + self.curr_rotor_thrusts, dtype=np.float32)
             self.get_curr_state()
-            reward = self.quad_functions.get_reward(new_rotor_thrusts, self.curr_pos, self.curr_euler, self.target_pos, self.target_euler)
+            reward = self.quad_functions.get_reward(self.curr_rotor_thrusts, self.curr_pos, self.curr_euler, self.target_pos, self.target_euler)
             goaldiff = np.linalg.norm(np.array(self.curr_pos) - np.array(self.target_pos)) + np.linalg.norm(np.array(self.curr_euler) - np.array(self.target_euler))
             done = goaldiff < 0.1  #TODO set appropriate threshold
-            return self.curr_state, reward, done, None
+            return np.array(self.curr_state), reward, done, None
         
     def reset(self):
         self.curr_rotor_thrusts = [0.000, 0.000, 0.000, 0.000]
