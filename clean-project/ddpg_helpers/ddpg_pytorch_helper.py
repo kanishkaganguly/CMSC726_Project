@@ -9,7 +9,7 @@ from torch import nn
 
 from ddpg_memory import SequentialMemory
 from ddpg_random_process import OrnsteinUhlenbeckProcess
-from ddpg_util import *
+from ddpg_utils import *
 
 
 class DDPG(object):
@@ -23,8 +23,8 @@ class DDPG(object):
         actor_kwargs = {'n_inp':self.nb_states, 'n_feature_list':[args.hidden1,args.hidden2], 'n_class':self.nb_actions}
         self.actor = MLP(**actor_kwargs)
         self.actor_target = MLP(**actor_kwargs)
-        self.critic = critic_class(**actor_kwargs)  #TODO: actor and critic has same structure for now.
-        self.critic_target = critic_class(**actor_kwargs)
+        self.critic = MLP(**actor_kwargs)  #TODO: actor and critic has same structure for now.
+        self.critic_target = MLP(**actor_kwargs)
         self.criterion = nn.MSELoss()
         if self.cuda:
             self.actor = self.actor.cuda() # torch.nn.DataParallel(self.model).cuda()  #TODO dataparallel not working
@@ -34,12 +34,18 @@ class DDPG(object):
             self.criterion = self.criterion.cuda()
 
         # Set optimizer  
-        self.actor_optim = torch.optim.Adam(self.actor.parameters(), lr=self.learning_rate)
-        self.critic_optim = torch.optim.Adam(self.critic.parameters(), lr=self.learning_rate)
+        self.actor_optim = torch.optim.Adam(self.actor.parameters(), lr=args.prate)
+        self.critic_optim = torch.optim.Adam(self.critic.parameters(), lr=args.rate)
         # Loss function
         self.loss_fn = torch.nn.MSELoss(size_average=False)
+
+        hard_update(self.actor_target, self.actor) # Make sure target is with the same weight
+        hard_update(self.critic_target, self.critic)
         
-         # Hyper-parameters
+        self.memory = SequentialMemory(limit=args.rmsize, window_length=args.window_length)
+        self.random_process = OrnsteinUhlenbeckProcess(size=nb_actions, theta=args.ou_theta, mu=args.ou_mu, sigma=args.ou_sigma)
+
+        # Hyper-parameters
         self.batch_size = args.bsize
         self.tau = args.tau
         self.discount = args.discount
@@ -105,7 +111,7 @@ class DDPG(object):
             self.memory.append(self.s_t, self.a_t, r_t, done)
             self.s_t = s_t1
         
-     def select_action(self, s_t, decay_epsilon=True):
+    def select_action(self, s_t, decay_epsilon=True):
         action = to_numpy(
             self.actor(to_tensor(np.array([s_t])))
         ).squeeze(0)
@@ -123,23 +129,25 @@ class DDPG(object):
         self.random_process.reset_states()
 
     def load_wts(self, modelfile):
-        if os.path.isfile(modelfile):
+        if os.path.isfile(modelfile + 'model.pth.tar'):
             checkpoint = torch.load(modelfile)
             self.actor.load_state_dict(checkpoint['actor_state_dict'])
             self.critic.load_state_dict(checkpoint['critic_state_dict'])
-            self.optimizer.load_state_dict(checkpoint['optimizer']) #TODO 2 optimizers?
-            return checkpoint['epoch']
+            self.actor_optim.load_state_dict(checkpoint['actor_optim'])
+            self.critic_optim.load_state_dict(checkpoint['critic_optim'])
+            return checkpoint['step']
         else:
             return  0
 
-    def save_wts(self, savefile, epoch):
+    def save_wts(self, savefile, step):
         saveme = {  #TODO save other stuff too, like epoch etc
             'actor_state_dict': self.actor.state_dict(),
             'critic_state_dict': self.critic.state_dict(),
-            'optimizer' : self.optimizer.state_dict(),
-            'epoch' : epoch
+            'actor_optim' : self.actor_optim.state_dict(),
+            'critic_optim' : self.critic_optim.state_dict(),
+            'step' : step
         }
-        torch.save(saveme, savefile)
+        torch.save(saveme, savefile + 'model.pth.tar')
 
 class MLP(nn.Module):  #multi layer perceptron
     def __init__(self, n_inp, n_feature_list, n_class):
