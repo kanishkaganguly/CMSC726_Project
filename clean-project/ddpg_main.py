@@ -31,6 +31,7 @@ def train(num_iterations, gent, env,  evaluate, validate_steps, output, max_epis
     while step < num_iterations:
         print (step, '/', num_iterations)
         # reset if it is the start of episode
+        #pdb.set_trace()
         if observation is None:
             observation = deepcopy(env.reset())
             agent.reset(observation)
@@ -113,6 +114,8 @@ class Env(object):
         if self.clientID == -1:
             print("Failed to connect to remote API Server")
             self.sim_functions.exit_sim()
+        self.quad_functions.init_quad()
+        print('Quadrotor Initialized')
 
         self.reset()
         self.run_time = 3  #TODO check
@@ -126,14 +129,17 @@ class Env(object):
 
     def step(self, delta_rotor_thrusts):
         if vrep.simxGetConnectionId(self.clientID) != -1:
+            #pdb.set_trace()
             self.curr_rotor_thrusts = (np.array(self.curr_rotor_thrusts) + delta_rotor_thrusts).tolist()
             self.quad_functions.apply_rotor_thrust(self.curr_rotor_thrusts)
             for i in range(self.run_time):
                 vrep.simxSynchronousTrigger(self.clientID)
             self.get_curr_state()
             reward = self.quad_functions.get_reward(self.curr_rotor_thrusts, self.curr_pos, self.curr_euler, self.target_pos, self.target_euler)
-            goaldiff = np.linalg.norm(np.array(self.curr_pos) - np.array(self.target_pos)) + np.linalg.norm(np.array(self.curr_euler) - np.array(self.target_euler))
-            done = goaldiff < 0.1  #TODO set appropriate threshold
+            goaldiffpos = np.linalg.norm(np.array(self.curr_pos) - np.array(self.target_pos)) 
+            goaldiffeuler = np.linalg.norm(np.array(self.curr_euler) - np.array(self.target_euler))
+            pdb.set_trace()
+            done = goaldiffpos < 0.1 and goaldiffeuler < 0.01  #TODO set appropriate threshold
             return np.array(self.curr_state), reward, done, None
         
     def reset(self):
@@ -142,11 +148,11 @@ class Env(object):
         #self.curr_pos, self.curr_euler = quad_functions.fetch_quad_state()
         print('In reset', self.quad_functions.fetch_quad_state())
         self.sim_functions.stop_sim()
+        self.quad_functions.set_target([0,0,0.5], [0.0]*3, [0.0]*4)
+        self.quad_functions.set_quad_pos([1,1,1], [0.0]*3, [0.0]*4)
         self.sim_functions.start_sim()
         print(self.quad_functions.fetch_quad_state())
 
-        self.quad_functions.init_quad()
-        print('Quadrotor Initialized')
         self.get_curr_state()
         return self.curr_state
             

@@ -49,6 +49,12 @@ class QuadHelper(object):
         euler = vrep_state.get_quad_orientation(self.clientID, self.targetHandle)
         return pos, euler
 
+    def set_target(self, pos, euler, rotor_data):
+        vrep_state.set_pos_and_euler(self.clientID, self.targetHandle, pos=pos, euler=euler, rotor_data=rotor_data)
+
+    def set_quad_pos(self, pos, euler, rotor_data):
+        vrep_state.set_pos_and_euler(self.clientID, self.quadHandle, pos=pos, euler=euler, rotor_data=rotor_data)
+
     '''
     This function returns reward based on current state and target state (x,y,z,yaw,pitch,roll)
     '''
