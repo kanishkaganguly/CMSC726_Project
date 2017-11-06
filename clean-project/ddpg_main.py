@@ -138,7 +138,6 @@ class Env(object):
             reward = self.quad_functions.get_reward(self.curr_rotor_thrusts, self.curr_pos, self.curr_euler, self.target_pos, self.target_euler)
             goaldiffpos = np.linalg.norm(np.array(self.curr_pos) - np.array(self.target_pos)) 
             goaldiffeuler = np.linalg.norm(np.array(self.curr_euler) - np.array(self.target_euler))
-            pdb.set_trace()
             done = goaldiffpos < 0.1 and goaldiffeuler < 0.01  #TODO set appropriate threshold
             return np.array(self.curr_state), reward, done, None
         
