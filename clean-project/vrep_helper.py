@@ -56,3 +56,11 @@ class Helper(object):
     def get_handle(self, obj_name):
         err, handle = vrep.simxGetObjectHandle(self.clientID, obj_name, vrep.simx_opmode_blocking)
         return handle
+
+    '''
+    Load V-REP scene
+    '''
+
+    def load_scene(self, scene_name):
+        vrep.simxLoadScene(self.clientID, scene_name + ".ttt", 0xFF, vrep.simx_opmode_blocking)
+        return
