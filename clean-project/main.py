@@ -13,7 +13,7 @@ clientID = -1
 sim_functions = None
 quad_functions = None
 nn_functions = None
-dt = 0.05
+dt = 0.01
 
 
 def main():
@@ -48,12 +48,14 @@ def main():
             epoch = 100000
             batch_time = 5
             time_count = 0
-            epochs_per_episode = 20
+            epochs_per_episode = 10
             eps = 0.8
 
             nn_functions.create_model()
             print('Initialized Network')
 
+            # Load scene
+            sim_functions.load_scene("vrep-quad-scene")
             # Initialize Simulator and Quadrotor
             sim_functions.start_sim()
             print('Simulator Started')
@@ -121,9 +123,10 @@ def main():
 
                     # RESET QUAD PER EPISODE
                     if i % epochs_per_episode == 0:
-                        nn_functions.save_model()
+                        # nn_functions.save_model()
                         print("Episode Finished. Resetting Quad.")
                         print("\n")
+                        curr_rotor_thrusts = [0.001, 0.001, 0.001, 0.001]
                         sim_functions.stop_sim()
                     sim_functions.start_sim()
 
