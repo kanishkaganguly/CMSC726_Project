@@ -23,7 +23,7 @@ dt = 0.05
 
 
 # https://github.com/ghliu/pytorch-ddpg
-def train(num_iterations, gent, env, evaluate, validate_steps, output, max_episode_length=None, debug=False):
+def train(num_iterations, agent, env, evaluate, validate_steps, output, max_episode_length=None, debug=False):
     agent.is_training = True
     step = episode = episode_steps = 0
     episode_reward = 0.
@@ -71,6 +71,7 @@ def train(num_iterations, gent, env, evaluate, validate_steps, output, max_episo
         episode_reward += reward
         observation = deepcopy(observation2)
 
+        print("Reward %f" % episode_reward)
         print("\n")
 
         if done:  # end of episode
@@ -122,7 +123,7 @@ class Env(object):
         print('Quadrotor Initialized')
 
         self.reset()
-        self.run_time = 3  # TODO check
+        self.run_time = 20  # TODO check
 
         self.observation_space = 10  # 3 + 3 + 4
         self.action_space = 4
@@ -147,13 +148,10 @@ class Env(object):
             return np.array(self.curr_state), reward, done, None
 
     def reset(self):
+        print("Reset Quadrotor")
         self.curr_rotor_thrusts = [0.001, 0.001, 0.001, 0.001]
-        # TODO: how to reset?
-        # self.curr_pos, self.curr_euler = quad_functions.fetch_quad_state()
-        print('In reset', self.quad_functions.fetch_quad_state())
         self.sim_functions.stop_sim()
         self.quad_functions.set_target([0, 0, 0.5], [0.0] * 3, [0.0] * 4)
-        # self.quad_functions.set_quad_pos([1, 1, 1], [0.0] * 3, [0.0] * 4)
         self.sim_functions.start_sim()
         print(self.quad_functions.fetch_quad_state())
         self.get_curr_state()
@@ -190,8 +188,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', default=-1, type=int, help='')
     parser.add_argument('--resume', default='default', type=str, help='Resuming model path for testing')
     # parser.add_argument('--l2norm', default=0.01, type=float, help='l2 weight decay') # TODO
-    # parser.add_argument('--cuda', dest='cuda', action='store_true') # TODO
-
+    parser.add_argument('--cuda', dest='cuda', action='store_false')  # TODO
 
     args = parser.parse_args()
     argsenv = 'Quad_DDPG'

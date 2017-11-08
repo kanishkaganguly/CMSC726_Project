@@ -15,7 +15,8 @@ from ddpg_model import Actor, Critic
 
 class DDPG(object):
     def __init__(self,  nb_states, nb_actions, args):
-        self.cuda = USE_CUDA #args.cuda
+        # self.cuda = USE_CUDA #args.cuda
+        self.cuda = args.cuda
 
         self.nb_states = nb_states
         self.nb_actions = nb_actions
