@@ -13,7 +13,7 @@ clientID = -1
 sim_functions = None
 quad_functions = None
 nn_functions = None
-dt = 0.01
+dt = 0.5
 
 
 def main():
@@ -21,6 +21,8 @@ def main():
         vrep.simxFinish(-1)
         clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
         sim_functions = vrep_helper.Helper(clientID)
+        # Load scene
+        sim_functions.load_scene("vrep-quad-scene")
         quadHandle = sim_functions.get_handle("Quadricopter")
         targetHandle = sim_functions.get_handle("Quadricopter_target")
         quad_functions = quad_helper.QuadHelper(clientID, quadHandle, targetHandle)
@@ -48,14 +50,12 @@ def main():
             epoch = 100000
             batch_time = 5
             time_count = 0
-            epochs_per_episode = 10
+            epochs_per_episode = 20
             eps = 0.8
 
             nn_functions.create_model()
             print('Initialized Network')
 
-            # Load scene
-            sim_functions.load_scene("vrep-quad-scene")
             # Initialize Simulator and Quadrotor
             sim_functions.start_sim()
             print('Simulator Started')
