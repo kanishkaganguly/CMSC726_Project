@@ -8,7 +8,7 @@ from torch.autograd import Variable
 from torch import nn
 
 class NNBase(object):
-    def __init__(self, cuda=True):
+    def __init__(self, cuda=False):
         self.cuda = cuda
 
         # Reinforcement Learning Parameters
