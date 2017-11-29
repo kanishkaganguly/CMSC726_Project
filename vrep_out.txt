@@ -47,3 +47,122 @@ Plugin 'ReflexxesTypeII': loading...
 Plugin 'ReflexxesTypeII': load succeeded.
 Plugin 'RemoteApi': loading...
 Starting a remote API server on port 19999
+Plugin 'RemoteApi': load succeeded.
+Plugin 'SDF': loading...
+Plugin 'SDF': load succeeded.
+Plugin 'SimpleFilter': loading...
+Plugin 'SimpleFilter': load succeeded.
+Plugin 'SurfaceReconstruction': loading...
+Plugin 'SurfaceReconstruction': load succeeded.
+Plugin 'Urdf-a': loading...
+Plugin 'Urdf-a': load succeeded.
+Plugin 'Urdf': loading...
+Plugin 'Urdf': load succeeded.
+Plugin 'Vision': loading...
+Plugin 'Vision': load succeeded.
+Using the 'MeshCalc' plugin.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
+Engine version: 2.78
+Plugin version: 9
+Initialization successful.
+Simulator ended.
