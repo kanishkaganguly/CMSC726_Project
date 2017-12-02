@@ -9,7 +9,7 @@ import rospy
 class QuadHelper(object):
     def __init__(self):
         self.curr_state = [0.0, 0.0, 0.0, 0.0]
-        self.target_state = [0.5, 0.0, 0.0, 0.0]
+        self.target_state = [0.5, 0.0, 0.5, 0.0]
 
         self.vel_msg = Twist()
         rospy.init_node('bebop_move', anonymous=True)
