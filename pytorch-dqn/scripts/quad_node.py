@@ -64,9 +64,17 @@ def main():
                 print("Backpropagation")
                 dqn_quad.backprop()
                 print('\n')
-
+            if i % 100 == 0:
+                with open('dqn_outputs.txt', 'a') as the_file:
+                    the_file.write('Epoch: %d Episode: %d\n' % (epoch, i))
+                    the_file.write('Epsilon Greedy: %f\n' % dqn_quad.eps)
+                    the_file.write('Reward: %f\n' % reward)
+                    the_file.write('Loss: %f\n' % float(dqn_quad.loss.data[0]))
+                    the_file.write('\n')
         print("Epoch reset")
         epoch += 1
+        if epoch % 100 == 0:
+            dqn_quad.save_wts('dqn_quad.pth', epoch)
         if epoch % 50 == 0:
             dqn_quad.eps += 0.01
             control_quad.reset(rand_target=True)
