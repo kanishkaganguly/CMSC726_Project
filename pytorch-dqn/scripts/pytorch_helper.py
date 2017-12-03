@@ -12,6 +12,8 @@ class QuadDQN(object):
         self.input = 4
         self.action = 8
         self.hidden = 16
+        self.x = Variable(torch.randn(1, self.input))
+        self.y = Variable(torch.randn(1, self.action), requires_grad=False)
         self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
                                          torch.nn.Linear(self.hidden, self.action))
         self.loss_fn = torch.nn.MSELoss(size_average=False)
@@ -29,8 +31,9 @@ class QuadDQN(object):
 
     # Get distance loss after action
     def get_loss(self, target, predicted):
-        self.loss = self.loss_fn(Variable(torch.from_numpy(predicted), requires_grad=True),
-                                 Variable(torch.from_numpy(target), requires_grad=False))
+        self.y_pred = Variable(torch.from_numpy(predicted), requires_grad=True)
+        self.y_tgt = Variable(torch.from_numpy(target), requires_grad=False)
+        self.loss = self.loss_fn(self.y_pred, self.y_tgt)
         print("Loss: %f" % self.loss.data[0])
         return
 

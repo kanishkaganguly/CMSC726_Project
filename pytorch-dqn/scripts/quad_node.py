@@ -40,7 +40,7 @@ def main():
                 reward = -50
                 # Set target q_values for backprop
                 print("Setting target values")
-                target_q = pred_q
+                target_q = np.copy(pred_q)
                 target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
                 print("Computing loss")
                 dqn_quad.get_loss(target_q, pred_q)
@@ -55,7 +55,7 @@ def main():
                 reward = dqn_quad.get_reward(new_state, control_quad.target_state)
                 # Set target q_values for backprop
                 print("Setting target values")
-                target_q = pred_q
+                target_q = np.copy(pred_q)
                 target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
                 print("Computing loss")
                 dqn_quad.get_loss(target_q, pred_q)
