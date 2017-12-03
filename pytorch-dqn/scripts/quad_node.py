@@ -33,7 +33,7 @@ def main():
 
             # Test out of bounds
             test_state = control_quad.get_state()
-            if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or abs(test_state[2]) > 10.0:
+            if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or test_state[2] > 5.0 or test_state[2] < 0.0:
                 print("Quadcopter out of bounds")
                 # Get reward
                 print("Getting reward")
@@ -52,7 +52,7 @@ def main():
             else:
                 # Get reward
                 print("Getting reward")
-                reward = dqn_quad.get_reward(curr_state, control_quad.target_state)
+                reward = dqn_quad.get_reward(new_state, control_quad.target_state)
                 # Set target q_values for backprop
                 print("Setting target values")
                 target_q = pred_q
@@ -66,7 +66,10 @@ def main():
 
         print("Epoch reset")
         epoch += 1
-        control_quad.reset()
+        if epoch % 50 == 0:
+            control_quad.reset(rand_target=True)
+        else:
+            control_quad.reset()
         print('\n')
 
 

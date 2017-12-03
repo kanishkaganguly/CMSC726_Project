@@ -9,7 +9,7 @@ from vrep_state import StateHelper
 class QuadHelper(object):
     def __init__(self):
         self.quad_state = np.zeros(4)
-        self.target_state = np.zeros(4)
+        self.target_state = np.array([2.0, 0.0, 3.0, 0.0])
 
         print("Initializing simulator")
         self.sim_quad = SimHelper()
@@ -22,9 +22,7 @@ class QuadHelper(object):
         print("Initializing state functions")
         self.states_quad = StateHelper(self.sim_quad.clientID, [self.quad_handle, self.target_handle])
         self.quad_state = self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)
-        self.target_state = self.states_quad.get_state(self.sim_quad.clientID, self.target_handle)
-        print(self.target_state)
-        print(self.quad_state)
+        self.states_quad.set_state(self.sim_quad.clientID, self.target_handle, self.target_state)
 
         self.sim_quad.start_sim()
         print("Ready to fly...")
@@ -62,10 +60,16 @@ class QuadHelper(object):
     def step(self):
         self.sim_quad.step_sim(self.sim_quad.clientID)
 
-    def reset(self):
+    def reset(self, rand_target=False):
         self.sim_quad.reset()
         self.quad_state = np.zeros(4)
-        self.target_state = np.array([2.0, 0.0, 3.0, 0.0])
+        if not rand_target:
+            self.target_state = np.array([2.0, 0.0, 3.0, 0.0])
+        else:
+            x_rand = (10 + 10) * np.random.random_sample() - 10
+            y_rand = (10 + 10) * np.random.random_sample() - 10
+            z_rand = (10) * np.random.random_sample() - 0
+            self.target_state = np.array([x_rand, y_rand, z_rand, 0.0])
 
     def get_state(self):
         return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)
