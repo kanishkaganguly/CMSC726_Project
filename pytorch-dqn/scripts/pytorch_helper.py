@@ -18,7 +18,7 @@ class QuadDQN(object):
                                          torch.nn.Linear(self.hidden, self.action))
         self.loss_fn = torch.nn.MSELoss(size_average=False)
         self.learning_rate = 1e-4
-        self.eps = 0.2
+        self.eps = 0.1
         self.gamma = 0.9
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.loss = 0.0
@@ -83,7 +83,7 @@ class QuadDQN(object):
 
     # Do action
     def do_action(self, action_val):
-        if self.eps > np.random.rand():
+        if self.eps < np.random.rand():
             print("Picking random action")
             return self.convert_action(np.random.randint(0, self.action))
         else:

@@ -14,6 +14,7 @@ def main():
     while epoch < epoch_size:
         for i in range(dqn_quad.episode_size):
             print("Epoch: %d Episode %d" % (epoch, i))
+            print("Epsilon Greedy: %f" % dqn_quad.eps)
             # Get current state
             print("Getting current state")
             curr_state = np.array(control_quad.get_state(), dtype=np.float32)
@@ -67,6 +68,7 @@ def main():
         print("Epoch reset")
         epoch += 1
         if epoch % 50 == 0:
+            dqn_quad.eps += 0.01
             control_quad.reset(rand_target=True)
         else:
             control_quad.reset()
