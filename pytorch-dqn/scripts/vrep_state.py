@@ -14,7 +14,8 @@ class StateHelper(object):
     def get_state(self, clientID, objHandle):
         err, pos = vrep.simxGetObjectPosition(clientID, objHandle, -1, vrep.simx_opmode_buffer)
         err, euler = vrep.simxGetObjectOrientation(clientID, objHandle, -1, vrep.simx_opmode_buffer)
-        return np.array([pos[0], pos[1], pos[2], euler[2]])
+        state = np.array([pos[0], pos[1], pos[2], euler[2]])
+        return state
 
     def set_state(self, clientID, objHandle, state):
         pos = [state[0], state[1], state[2]]

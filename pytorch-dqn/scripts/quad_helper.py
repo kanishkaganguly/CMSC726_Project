@@ -14,7 +14,6 @@ class QuadHelper(object):
         print("Initializing simulator")
         self.sim_quad = SimHelper()
         self.sim_quad.load_scene('quad_scene')
-        self.sim_quad.start_sim()
 
         print("Fetching quad, target handles")
         self.quad_handle = self.sim_quad.get_handle('Quadricopter_target')
@@ -24,6 +23,10 @@ class QuadHelper(object):
         self.states_quad = StateHelper(self.sim_quad.clientID, [self.quad_handle, self.target_handle])
         self.quad_state = self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)
         self.target_state = self.states_quad.get_state(self.sim_quad.clientID, self.target_handle)
+        print(self.target_state)
+        print(self.quad_state)
+
+        self.sim_quad.start_sim()
         print("Ready to fly...")
 
     def move_quad(self, direction):
@@ -52,11 +55,17 @@ class QuadHelper(object):
             move_to = self.quad_state
             move_to[3] -= 0.05
 
+        print("Moving %s" % direction)
         self.states_quad.set_state(self.sim_quad.clientID, self.quad_handle, move_to)
         self.step()
 
     def step(self):
         self.sim_quad.step_sim(self.sim_quad.clientID)
+
+    def reset(self):
+        self.sim_quad.reset()
+        self.quad_state = np.zeros(4)
+        self.target_state = np.array([2.0, 0.0, 3.0, 0.0])
 
     def get_state(self):
         return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)

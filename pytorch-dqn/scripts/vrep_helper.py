@@ -10,11 +10,11 @@ class SimHelper(object):
         try:
             vrep.simxFinish(-1)
             self.clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+            if self.clientID == -1:
+                print("Failed to connect to remote API Server")
+                self.sim_functions.exit_sim()
         except KeyboardInterrupt:
             self.exit_sim()
-        if self.clientID == -1:
-            print("Failed to connect to remote API Server")
-            self.sim_functions.exit_sim()
 
     '''
     Start V-REP simulation
@@ -37,7 +37,6 @@ class SimHelper(object):
 
     def stop_sim(self):
         vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_oneshot_wait)
-        # vrep.simxStopSimulation(self.clientID, vrep.simx_opmode_blocking)
         return
 
     '''

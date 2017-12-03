@@ -11,14 +11,12 @@ def main():
 
     epoch = 0
     epoch_size = 10000
-
     while epoch < epoch_size:
         for i in range(dqn_quad.episode_size):
             print("Epoch: %d Episode %d" % (epoch, i))
             # Get current state
             print("Getting current state")
             curr_state = np.array(control_quad.get_state(), dtype=np.float32)
-            print(curr_state)
             # Get action q_values
             print("Getting predicted q_values")
             pred_q = dqn_quad.predict_action(curr_state)
@@ -32,30 +30,43 @@ def main():
             # Get new state
             print("Getting new state")
             new_state = control_quad.get_state()
-            print(new_state)
-            # Get reward
-            print("Getting reward")
-            reward = dqn_quad.get_reward(curr_state, control_quad.target_state)
-            # Set target q_values for backprop
-            print("Setting target values")
-            target_q = pred_q
-            target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
-            print(target_q)
-            print("Computing loss")
-            dqn_quad.get_loss(target_q, pred_q)
-            # Do backprop
-            print("Backpropagation")
-            dqn_quad.backprop()
-            print('\n')
 
+            # Test out of bounds
             test_state = control_quad.get_state()
-            if any(abs(test_state[0:2])) > 10.0:
+            if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or abs(test_state[2]) > 10.0:
                 print("Quadcopter out of bounds")
+                # Get reward
+                print("Getting reward")
+                reward = -50
+                # Set target q_values for backprop
+                print("Setting target values")
+                target_q = pred_q
+                target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
+                print("Computing loss")
+                dqn_quad.get_loss(target_q, pred_q)
+                # Do backprop
+                print("Backpropagation")
+                dqn_quad.backprop()
+                print('\n')
                 break
+            else:
+                # Get reward
+                print("Getting reward")
+                reward = dqn_quad.get_reward(curr_state, control_quad.target_state)
+                # Set target q_values for backprop
+                print("Setting target values")
+                target_q = pred_q
+                target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
+                print("Computing loss")
+                dqn_quad.get_loss(target_q, pred_q)
+                # Do backprop
+                print("Backpropagation")
+                dqn_quad.backprop()
+                print('\n')
 
         print("Epoch reset")
         epoch += 1
-        control_quad.sim_quad.reset()
+        control_quad.reset()
         print('\n')
 
 
