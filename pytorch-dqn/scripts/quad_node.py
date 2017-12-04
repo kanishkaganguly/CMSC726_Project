@@ -12,7 +12,7 @@ def main():
     parser.add_argument("--epoch_size", type=int, default=10000, help="Total training epochs")
     parser.add_argument("--episode_size", type=int, default=100000, help="Training episodes per epoch")
     parser.add_argument("--epsilon", type=float, default=0.01, help="Greedy Epsilon starting value")
-    parser.add_argument("--gamma", type=float, default=0.9, help="DQN gamma starting value")
+    parser.add_argument("--gamma", type=float, default=0.6, help="DQN gamma starting value")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
 
     args = parser.parse_args()
@@ -33,6 +33,7 @@ def main():
         for i in range(dqn_quad.episode_size):
             print("Epoch: %d Episode %d" % (epoch, i))
             print("Epsilon Greedy: %f" % dqn_quad.eps)
+            print("DQN Discounted Reward: %f" % dqn_quad.gamma)
             # Get current state
             print("Getting current state")
             curr_state = np.array(control_quad.get_state(), dtype=np.float32)
