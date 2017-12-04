@@ -55,7 +55,9 @@ class QuadHelper(object):
 
         print("Moving %s" % direction)
         self.states_quad.set_state(self.sim_quad.clientID, self.quad_handle, move_to)
-        self.step()
+        # Allow quadcopter to settle down to new position
+        for i in range(5):
+            self.step()
 
     def step(self):
         self.sim_quad.step_sim(self.sim_quad.clientID)

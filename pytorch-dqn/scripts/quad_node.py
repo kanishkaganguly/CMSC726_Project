@@ -1,4 +1,6 @@
 #! /usr/bin/env python3
+import argparse
+
 import numpy as np
 
 from pytorch_helper import QuadDQN
@@ -6,11 +8,27 @@ from quad_helper import QuadHelper
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--epoch_size", type=int, default=10000, help="Total training epochs")
+    parser.add_argument("--episode_size", type=int, default=100000, help="Training episodes per epoch")
+    parser.add_argument("--epsilon", type=float, default=0.01, help="Greedy Epsilon starting value")
+    parser.add_argument("--gamma", type=float, default=0.9, help="DQN gamma starting value")
+    parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
+
+    args = parser.parse_args()
+
     control_quad = QuadHelper()
     dqn_quad = QuadDQN()
 
+    # Argument parsing
+    epoch_size = args.epoch_size
+    dqn_quad.episode_size = args.episode_size
+    dqn_quad.eps = args.epsilon
+    dqn_quad.gamma = args.gamma
+    if args.load_model:
+        dqn_quad.load_wts('dqn_quad.pth')
+
     epoch = 0
-    epoch_size = 10000
     while epoch < epoch_size:
         for i in range(dqn_quad.episode_size):
             print("Epoch: %d Episode %d" % (epoch, i))
@@ -76,7 +94,7 @@ def main():
         if epoch % 100 == 0:
             dqn_quad.save_wts('dqn_quad.pth', epoch)
         if epoch % 50 == 0:
-            dqn_quad.eps += 0.01
+            dqn_quad.eps += 0.001
             control_quad.reset(rand_target=True)
         else:
             control_quad.reset()

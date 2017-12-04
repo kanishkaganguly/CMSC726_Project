@@ -22,13 +22,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="quad_node.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quad_node.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/quad_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="71" column="79" lean-forward="false" selection-start-line="71" selection-start-column="79" selection-end-line="71" selection-end-column="79" />
+            <state relative-caret-position="-427">
+              <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
               <folding>
-                <element signature="e#24#42#0" expanded="true" />
+                <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quad_helper.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/quad_helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="57" column="57" lean-forward="false" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+              <folding>
+                <element signature="e#25#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,8 +49,8 @@
       <file leaf-file-name="pytorch_helper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/pytorch_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="788">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -60,10 +72,12 @@
       <find>msg</find>
       <find>move</find>
       <find>step</find>
+      <find>args</find>
     </findStrings>
     <replaceStrings>
       <replace>vel_msg</replace>
       <replace>control</replace>
+      <replace>parser</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -73,9 +87,9 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/scripts/vrep_helper.py" />
         <option value="$PROJECT_DIR$/scripts/vrep_state.py" />
-        <option value="$PROJECT_DIR$/scripts/quad_helper.py" />
-        <option value="$PROJECT_DIR$/scripts/pytorch_helper.py" />
         <option value="$PROJECT_DIR$/scripts/quad_node.py" />
+        <option value="$PROJECT_DIR$/scripts/pytorch_helper.py" />
+        <option value="$PROJECT_DIR$/scripts/quad_helper.py" />
       </list>
     </option>
   </component>
@@ -225,7 +239,7 @@
         <state relative-caret-position="690">
           <caret line="49" column="51" lean-forward="true" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
           <folding>
-            <element signature="e#24#42#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -234,9 +248,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1905">
           <caret line="131" column="55" lean-forward="true" selection-start-line="131" selection-start-column="55" selection-end-line="131" selection-end-column="55" />
-          <folding>
-            <element signature="e#25#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -253,7 +265,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#42#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -262,9 +274,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding>
-            <element signature="e#25#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -281,7 +291,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#42#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -290,9 +300,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
           <caret line="136" column="27" lean-forward="true" selection-start-line="136" selection-start-column="27" selection-end-line="136" selection-end-column="27" />
-          <folding>
-            <element signature="e#25#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -303,7 +311,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#42#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -312,9 +320,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1605">
           <caret line="110" column="14" lean-forward="false" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
-          <folding>
-            <element signature="e#25#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -332,16 +338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/quad_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="23" lean-forward="true" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-          <folding>
-            <element signature="e#25#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/vrep_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -352,8 +348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/pytorch_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="788">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>
@@ -362,10 +358,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/quad_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="71" column="79" lean-forward="false" selection-start-line="71" selection-start-column="79" selection-end-line="71" selection-end-column="79" />
+        <state relative-caret-position="-427">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
-            <element signature="e#24#42#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/quad_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="57" column="57" lean-forward="false" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+          <folding>
+            <element signature="e#25#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

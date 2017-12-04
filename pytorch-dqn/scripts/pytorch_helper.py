@@ -94,17 +94,19 @@ class QuadDQN(object):
     def save_wts(self, savefile, epoch):
         saveme = {
             'state_dict': self.model.state_dict(),
-            'optimizer' : self.optimizer.state_dict(),
-            'epoch'     : epoch
+            'optimizer' : self.optim.state_dict(),
+            'epoch'     : epoch,
+            'epsilon'   : self.eps
         }
         torch.save(saveme, savefile)
 
     # Load weights
     def load_wts(self, savefile):
+        print("Loading saved model: %s" % savefile)
         if os.path.isfile(savefile):
             checkpoint = torch.load(savefile)
             self.model.load_state_dict(checkpoint['state_dict'])
-            self.optimizer.load_state_dict(checkpoint['optimizer'])
-            return checkpoint['epoch']
+            self.optim.load_state_dict(checkpoint['optimizer'])
+            self.eps = checkpoint['epsilon']
         else:
             return 0
