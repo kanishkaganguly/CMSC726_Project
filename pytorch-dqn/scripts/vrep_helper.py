@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import subprocess as sp
+import threading
 import time
 
 import vrep
@@ -7,6 +9,37 @@ import vrep
 
 class SimHelper(object):
     def __init__(self):
+        self.start_vrep()
+        self.setup_vrep_remote()
+        self.check_vrep()
+
+    '''
+    Turn on V-REP application
+    '''
+
+    def start_vrep(self):
+        try:
+            check_vrep_running = sp.check_output(["pidof", "vrep"])
+            self.pid = int(check_vrep_running.split()[0])
+            print("V-REP already running...")
+            launch_vrep = False
+        except sp.CalledProcessError:
+            launch_vrep = True
+            pass
+
+        if launch_vrep:
+            print("Starting V-REP...")
+            sp.call(['/bin/bash', '-i', '-c', "vrep"])
+            time.sleep(5.0)
+            check_vrep_running = sp.check_output(["pidof", "vrep"])
+            self.pid = int(check_vrep_running.split()[0])
+            pass
+
+    '''
+    Setup V-REP remote connection
+    '''
+
+    def setup_vrep_remote(self):
         try:
             vrep.simxFinish(-1)
             self.clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
@@ -15,6 +48,17 @@ class SimHelper(object):
                 self.sim_functions.exit_sim()
         except KeyboardInterrupt:
             self.exit_sim()
+
+    '''
+    Check V-REP running
+    '''
+
+    def check_vrep(self):
+        t = threading.Timer(5.0, self.check_vrep)
+        t.daemon = True
+        print("Checking V-REP")
+        t.start()
+        self.start_vrep()
 
     '''
     Start V-REP simulation
