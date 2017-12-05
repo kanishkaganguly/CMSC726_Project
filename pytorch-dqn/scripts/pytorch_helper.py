@@ -66,8 +66,8 @@ class QuadDQN(object):
         reward_z = math.exp(-deviation_z ** 2 / (2 * sigma_z))
         reward_yaw = math.exp(-deviation_yaw ** 2 / (2 * sigma_yaw))
 
-        reward = self.sigmoid(reward_x + reward_y + reward_z + reward_yaw)
-        print("Position Reward: %f" % reward)
+        reward = self.sigmoid(0.6 * reward_x + 0.6 * reward_y + 0.9 * reward_z + 0.2 * reward_yaw)
+        print("Reward: %f" % reward)
         return reward
 
     # Sigmoid

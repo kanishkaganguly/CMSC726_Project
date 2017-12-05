@@ -39,7 +39,7 @@ def main():
             for i in range(dqn_quad.episode_size):
                 print("Epoch: %d Episode %d" % (epoch, i))
                 print("Epsilon Greedy: %f" % dqn_quad.eps)
-                print("DQN Discounted Reward: %f" % dqn_quad.gamma)
+                print("DQN Discount Factor: %f" % dqn_quad.gamma)
                 # Get current state
                 print("Getting current state")
                 curr_state = np.array(control_quad.get_state(), dtype=np.float32)

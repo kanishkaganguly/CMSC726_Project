@@ -54,7 +54,7 @@ class SimHelper(object):
     '''
 
     def check_vrep(self):
-        t = threading.Timer(5.0, self.check_vrep)
+        t = threading.Timer(60.0, self.check_vrep)
         t.daemon = True
         print("Checking V-REP")
         t.start()
