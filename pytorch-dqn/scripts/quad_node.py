@@ -27,8 +27,10 @@ def main():
     dqn_quad.episode_size = args.episode_size
     dqn_quad.eps = args.epsilon
     dqn_quad.gamma = args.gamma
+
     if args.load_model:
         dqn_quad.load_wts('dqn_quad.pth')
+
     while (vrep.simxGetConnectionId(control_quad.sim_quad.clientID) != -1):
         with open('dqn_outputs.txt', 'a') as the_file:
             log_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
