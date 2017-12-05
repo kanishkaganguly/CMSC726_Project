@@ -72,6 +72,8 @@ class QuadHelper(object):
             y_rand = (10 + 10) * np.random.random_sample() - 10
             z_rand = (10) * np.random.random_sample() - 0
             self.target_state = np.array([x_rand, y_rand, z_rand, 0.0])
+        print("New target state: (%f,%f,%f,%f)" % (
+            self.target_state[0], self.target_state[2], self.target_state[2], self.target_state[3]))
 
     def get_state(self):
         return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)

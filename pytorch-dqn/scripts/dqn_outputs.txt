@@ -300,3 +300,2783 @@ Reward: 0.654217
 Loss: 0.351574
 Learning Rate: 0.010000
 
+Epoch: 40 Episode: 800
+Epsilon Greedy: 0.089208
+Reward: 0.610480
+Loss: 0.293034
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 900
+Epsilon Greedy: 0.089208
+Reward: 0.541231
+Loss: 0.230156
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1000
+Epsilon Greedy: 0.089208
+Reward: 0.589841
+Loss: 0.266743
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1100
+Epsilon Greedy: 0.089208
+Reward: 0.571140
+Loss: 0.263035
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1200
+Epsilon Greedy: 0.089208
+Reward: 0.530197
+Loss: 0.201994
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1300
+Epsilon Greedy: 0.089208
+Reward: 0.500336
+Loss: 0.191785
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1400
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.189677
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1500
+Epsilon Greedy: 0.089208
+Reward: 0.500014
+Loss: 0.186922
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1600
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.196070
+Learning Rate: 0.010000
+
+Epoch: 40 Episode: 1700
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.192199
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 1800
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.180968
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 1900
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.101225
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.106805
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.112338
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2200
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.129467
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2300
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.114161
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2400
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.153851
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2500
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.147878
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2600
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.140872
+Learning Rate: 0.001000
+
+Epoch: 40 Episode: 2700
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.132957
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 2800
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.137190
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 2900
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.180732
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.194485
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.174209
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3200
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.180841
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3300
+Epsilon Greedy: 0.089208
+Reward: 0.500009
+Loss: 0.170925
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3400
+Epsilon Greedy: 0.089208
+Reward: 0.507771
+Loss: 0.169852
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3500
+Epsilon Greedy: 0.089208
+Reward: 0.503213
+Loss: 0.157207
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3600
+Epsilon Greedy: 0.089208
+Reward: 0.500018
+Loss: 0.141099
+Learning Rate: 0.000100
+
+Epoch: 40 Episode: 3700
+Epsilon Greedy: 0.089208
+Reward: 0.500066
+Loss: 0.117209
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 3800
+Epsilon Greedy: 0.089208
+Reward: 0.501202
+Loss: 0.119104
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 3900
+Epsilon Greedy: 0.089208
+Reward: 0.500018
+Loss: 0.117193
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.116028
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.130537
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4200
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.113292
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4300
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.105608
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4400
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.098231
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4500
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.086633
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4600
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.093444
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 4700
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.088467
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 4800
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.089528
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 4900
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.078756
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.000779
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.082899
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5200
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.087872
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5300
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.001078
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5400
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.059124
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5500
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.077188
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5600
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.085151
+Learning Rate: 0.000001
+
+Epoch: 40 Episode: 5700
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.001409
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 5800
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.000074
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 5900
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.000253
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.068599
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.077452
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6200
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.001374
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6300
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.070716
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6400
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.063436
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6500
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.061699
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6600
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.046858
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6700
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.000003
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6800
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.049836
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 6900
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.000529
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 7000
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.048800
+Learning Rate: 0.000000
+
+Epoch: 40 Episode: 7100
+Epsilon Greedy: 0.089208
+Reward: 0.500000
+Loss: 0.001148
+Learning Rate: 0.000000
+
+Epoch: 41 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.879487
+Loss: 0.659457
+Learning Rate: 0.000000
+
+Epoch: 42 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.880797
+Loss: 0.661587
+Learning Rate: 0.000000
+
+Epoch: 43 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.880797
+Loss: 0.661587
+Learning Rate: 0.000000
+
+Epoch: 44 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.880797
+Loss: 0.661587
+Learning Rate: 0.000000
+
+Epoch: 44 Episode: 100
+Epsilon Greedy: 0.089208
+Reward: 0.858915
+Loss: 0.646263
+Learning Rate: 0.000000
+
+Epoch: 45 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.731059
+Loss: 0.443186
+Learning Rate: 0.000000
+
+Epoch: 46 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.662841
+Learning Rate: 0.000000
+
+Epoch: 47 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.880797
+Loss: 0.664976
+Learning Rate: 0.000000
+
+Epoch: 48 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.662841
+Learning Rate: 0.000000
+
+Epoch: 49 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.662841
+Learning Rate: 0.000000
+
+Epoch: 50 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.728609
+Loss: 0.442696
+Learning Rate: 0.000000
+
+Epoch: 53 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.880797
+Loss: 0.668374
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.879487
+Loss: 0.666233
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 100
+Epsilon Greedy: 0.109010
+Reward: 0.822186
+Loss: 0.610195
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 200
+Epsilon Greedy: 0.109010
+Reward: 0.849619
+Loss: 0.650872
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 300
+Epsilon Greedy: 0.109010
+Reward: 0.807975
+Loss: 0.568332
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 400
+Epsilon Greedy: 0.109010
+Reward: 0.596353
+Loss: 0.270209
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 500
+Epsilon Greedy: 0.109010
+Reward: 0.571239
+Loss: 0.226252
+Learning Rate: 0.000000
+
+Epoch: 54 Episode: 600
+Epsilon Greedy: 0.109010
+Reward: 0.506746
+Loss: 0.158509
+Learning Rate: 0.000000
+
+Epoch: 55 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.731059
+Loss: 0.448744
+Learning Rate: 0.000000
+
+Epoch: 56 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.879487
+Loss: 0.669634
+Learning Rate: 0.000000
+
+Epoch: 58 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.880797
+Loss: 0.671781
+Learning Rate: 0.000000
+
+Epoch: 59 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.879487
+Loss: 0.669634
+Learning Rate: 0.000000
+
+Epoch: 60 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.731059
+Loss: 0.451536
+Learning Rate: 0.000000
+
+Epoch: 62 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.879487
+Loss: 0.673044
+Learning Rate: 0.000000
+
+Epoch: 63 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.879487
+Loss: 0.673044
+Learning Rate: 0.000000
+
+Epoch: 65 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.731059
+Loss: 0.454337
+Learning Rate: 0.000000
+
+Epoch: 66 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.879487
+Loss: 0.676463
+Learning Rate: 0.000000
+
+Epoch: 67 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.880797
+Loss: 0.678620
+Learning Rate: 0.000000
+
+Epoch: 68 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.880797
+Loss: 0.678620
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.728609
+Loss: 0.453840
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 100
+Epsilon Greedy: 0.148614
+Reward: 0.675160
+Loss: 0.388575
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 200
+Epsilon Greedy: 0.148614
+Reward: 0.632276
+Loss: 0.311594
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 300
+Epsilon Greedy: 0.148614
+Reward: 0.675160
+Loss: 0.308265
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 400
+Epsilon Greedy: 0.148614
+Reward: 0.504355
+Loss: 0.118986
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 500
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.087340
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 600
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.114001
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 700
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.121843
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 800
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.101291
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 900
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.091459
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1000
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.080446
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1100
+Epsilon Greedy: 0.148614
+Reward: 0.500066
+Loss: 0.054604
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1200
+Epsilon Greedy: 0.148614
+Reward: 0.517001
+Loss: 0.054009
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1300
+Epsilon Greedy: 0.148614
+Reward: 0.624876
+Loss: 0.078636
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1400
+Epsilon Greedy: 0.148614
+Reward: 0.500489
+Loss: 0.019035
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1500
+Epsilon Greedy: 0.148614
+Reward: 0.500001
+Loss: 0.015128
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1600
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.007052
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1700
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.001364
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1800
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.064907
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 1900
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.001496
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 2000
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.065273
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 2100
+Epsilon Greedy: 0.148614
+Reward: 0.500000
+Loss: 0.049828
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.880797
+Loss: 0.682052
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.879487
+Loss: 0.679890
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 100
+Epsilon Greedy: 0.148614
+Reward: 0.875581
+Loss: 0.683573
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 200
+Epsilon Greedy: 0.148614
+Reward: 0.863519
+Loss: 0.646267
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 300
+Epsilon Greedy: 0.148614
+Reward: 0.797258
+Loss: 0.483567
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 400
+Epsilon Greedy: 0.148614
+Reward: 0.706570
+Loss: 0.338084
+Learning Rate: 0.000000
+
+Epoch: 73 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.879487
+Loss: 0.679890
+Learning Rate: 0.000000
+
+Epoch: 74 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.880797
+Loss: 0.682052
+Learning Rate: 0.000000
+
+Epoch: 75 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.731059
+Loss: 0.459965
+Learning Rate: 0.000000
+
+Epoch: 75 Episode: 100
+Epsilon Greedy: 0.158515
+Reward: 0.654217
+Loss: 0.404244
+Learning Rate: 0.000000
+
+Epoch: 75 Episode: 200
+Epsilon Greedy: 0.158515
+Reward: 0.571140
+Loss: 0.259012
+Learning Rate: 0.000000
+
+Epoch: 76 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.683325
+Learning Rate: 0.000000
+
+Epoch: 77 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.683325
+Learning Rate: 0.000000
+
+Epoch: 78 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.880797
+Loss: 0.685494
+Learning Rate: 0.000000
+
+Epoch: 79 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.880797
+Loss: 0.685494
+Learning Rate: 0.000000
+
+Epoch: 80 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.736670
+Loss: 0.470458
+Learning Rate: 0.000000
+
+Epoch: 81 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.880797
+Loss: 0.688944
+Learning Rate: 0.000000
+
+Epoch: 83 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.879487
+Loss: 0.686770
+Learning Rate: 0.000000
+
+Epoch: 84 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.880797
+Loss: 0.688944
+Learning Rate: 0.000000
+
+Epoch: 85 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.769774
+Loss: 0.519963
+Learning Rate: 0.000000
+
+Epoch: 86 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.880797
+Loss: 0.692402
+Learning Rate: 0.000000
+
+Epoch: 87 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.879487
+Loss: 0.690223
+Learning Rate: 0.000000
+
+Epoch: 87 Episode: 100
+Epsilon Greedy: 0.178317
+Reward: 0.869165
+Loss: 0.698252
+Learning Rate: 0.000000
+
+Epoch: 88 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.879487
+Loss: 0.690223
+Learning Rate: 0.000000
+
+Epoch: 89 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.880797
+Loss: 0.692402
+Learning Rate: 0.000000
+
+Epoch: 91 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.880797
+Loss: 0.695869
+Learning Rate: 0.000000
+
+Epoch: 92 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.879487
+Loss: 0.693685
+Learning Rate: 0.000000
+
+Epoch: 93 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.879487
+Loss: 0.693685
+Learning Rate: 0.000000
+
+Epoch: 93 Episode: 100
+Epsilon Greedy: 0.188218
+Reward: 0.669803
+Loss: 0.414696
+Learning Rate: 0.000000
+
+Epoch: 93 Episode: 200
+Epsilon Greedy: 0.188218
+Reward: 0.511198
+Loss: 0.220322
+Learning Rate: 0.000000
+
+Epoch: 93 Episode: 300
+Epsilon Greedy: 0.188218
+Reward: 0.501010
+Loss: 0.196270
+Learning Rate: 0.000000
+
+Epoch: 94 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.879487
+Loss: 0.693685
+Learning Rate: 0.000000
+
+Epoch: 95 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.731059
+Loss: 0.471324
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.880797
+Loss: 0.699345
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 100
+Epsilon Greedy: 0.198119
+Reward: 0.810975
+Loss: 0.624972
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 200
+Epsilon Greedy: 0.198119
+Reward: 0.611068
+Loss: 0.297359
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 300
+Epsilon Greedy: 0.198119
+Reward: 0.719032
+Loss: 0.383939
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 400
+Epsilon Greedy: 0.198119
+Reward: 0.541258
+Loss: 0.183991
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 500
+Epsilon Greedy: 0.198119
+Reward: 0.541231
+Loss: 0.160592
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 600
+Epsilon Greedy: 0.198119
+Reward: 0.506746
+Loss: 0.151705
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 700
+Epsilon Greedy: 0.198119
+Reward: 0.515009
+Loss: 0.153075
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 800
+Epsilon Greedy: 0.198119
+Reward: 0.506746
+Loss: 0.117924
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 900
+Epsilon Greedy: 0.198119
+Reward: 0.521560
+Loss: 0.115735
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1000
+Epsilon Greedy: 0.198119
+Reward: 0.610480
+Loss: 0.151232
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1100
+Epsilon Greedy: 0.198119
+Reward: 0.632276
+Loss: 0.149859
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1200
+Epsilon Greedy: 0.198119
+Reward: 0.617846
+Loss: 0.117374
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1300
+Epsilon Greedy: 0.198119
+Reward: 0.733195
+Loss: 0.195418
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1400
+Epsilon Greedy: 0.198119
+Reward: 0.725159
+Loss: 0.175353
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1500
+Epsilon Greedy: 0.198119
+Reward: 0.632276
+Loss: 0.079867
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1600
+Epsilon Greedy: 0.198119
+Reward: 0.610480
+Loss: 0.070427
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1700
+Epsilon Greedy: 0.198119
+Reward: 0.721362
+Loss: 0.280917
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1800
+Epsilon Greedy: 0.198119
+Reward: 0.709632
+Loss: 0.223783
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 1900
+Epsilon Greedy: 0.198119
+Reward: 0.710037
+Loss: 0.193101
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2000
+Epsilon Greedy: 0.198119
+Reward: 0.847146
+Loss: 0.262606
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2100
+Epsilon Greedy: 0.198119
+Reward: 0.728613
+Loss: 0.130473
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2200
+Epsilon Greedy: 0.198119
+Reward: 0.571140
+Loss: 0.027827
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2300
+Epsilon Greedy: 0.198119
+Reward: 0.632276
+Loss: 0.157019
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2400
+Epsilon Greedy: 0.198119
+Reward: 0.721374
+Loss: 0.189554
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2500
+Epsilon Greedy: 0.198119
+Reward: 0.669900
+Loss: 0.120210
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2600
+Epsilon Greedy: 0.198119
+Reward: 0.569598
+Loss: 0.042234
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2700
+Epsilon Greedy: 0.198119
+Reward: 0.521561
+Loss: 0.015828
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2800
+Epsilon Greedy: 0.198119
+Reward: 0.530197
+Loss: 0.010078
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 2900
+Epsilon Greedy: 0.198119
+Reward: 0.506746
+Loss: 0.054285
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3000
+Epsilon Greedy: 0.198119
+Reward: 0.501047
+Loss: 0.040016
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3100
+Epsilon Greedy: 0.198119
+Reward: 0.729167
+Loss: 0.138886
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3200
+Epsilon Greedy: 0.198119
+Reward: 0.534051
+Loss: 0.022989
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3300
+Epsilon Greedy: 0.198119
+Reward: 0.510464
+Loss: 0.018848
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3400
+Epsilon Greedy: 0.198119
+Reward: 0.554868
+Loss: 0.025348
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3500
+Epsilon Greedy: 0.198119
+Reward: 0.541231
+Loss: 0.012589
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 3600
+Epsilon Greedy: 0.198119
+Reward: 0.541231
+Loss: 0.079247
+Learning Rate: 0.000000
+
+
+************* SAVE FILE 2017-12-04 20:35:33 *************
+Epoch: 0 Episode: 0
+Epsilon Greedy: 0.010000
+Reward: 0.880797
+Loss: 0.167025
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 0
+Epsilon Greedy: 0.010000
+Reward: 0.879487
+Loss: 0.670318
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 100
+Epsilon Greedy: 0.010000
+Reward: 0.796297
+Loss: 0.532717
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 200
+Epsilon Greedy: 0.010000
+Reward: 0.752866
+Loss: 0.415579
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 300
+Epsilon Greedy: 0.010000
+Reward: 0.629158
+Loss: 0.235737
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 400
+Epsilon Greedy: 0.010000
+Reward: 0.595237
+Loss: 0.218473
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 500
+Epsilon Greedy: 0.010000
+Reward: 0.681864
+Loss: 0.282076
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 600
+Epsilon Greedy: 0.010000
+Reward: 0.648996
+Loss: 0.246083
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 700
+Epsilon Greedy: 0.010000
+Reward: 0.721512
+Loss: 0.288489
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 800
+Epsilon Greedy: 0.010000
+Reward: 0.624071
+Loss: 0.210317
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 900
+Epsilon Greedy: 0.010000
+Reward: 0.599666
+Loss: 0.218694
+Learning Rate: 1.000000
+
+Epoch: 1 Episode: 1000
+Epsilon Greedy: 0.010000
+Reward: 0.543954
+Loss: 0.152527
+Learning Rate: 0.100000
+
+Epoch: 1 Episode: 1100
+Epsilon Greedy: 0.010000
+Reward: 0.512930
+Loss: 0.138228
+Learning Rate: 0.100000
+
+Epoch: 1 Episode: 1200
+Epsilon Greedy: 0.010000
+Reward: 0.529991
+Loss: 0.160783
+Learning Rate: 0.100000
+
+Epoch: 1 Episode: 1300
+Epsilon Greedy: 0.010000
+Reward: 0.573825
+Loss: 0.220430
+Learning Rate: 0.100000
+
+Epoch: 1 Episode: 1400
+Epsilon Greedy: 0.010000
+Reward: 0.632370
+Loss: 0.303401
+Learning Rate: 0.100000
+
+Epoch: 3 Episode: 0
+Epsilon Greedy: 0.010000
+Reward: 0.880797
+Loss: 0.672465
+Learning Rate: 0.100000
+
+Epoch: 4 Episode: 0
+Epsilon Greedy: 0.010000
+Reward: 0.879487
+Loss: 0.670318
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 0
+Epsilon Greedy: 0.019901
+Reward: 0.731059
+Loss: 0.451322
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 100
+Epsilon Greedy: 0.019901
+Reward: 0.728609
+Loss: 0.407220
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 200
+Epsilon Greedy: 0.019901
+Reward: 0.571140
+Loss: 0.212806
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 300
+Epsilon Greedy: 0.019901
+Reward: 0.521560
+Loss: 0.184344
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 400
+Epsilon Greedy: 0.019901
+Reward: 0.515009
+Loss: 0.156865
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 500
+Epsilon Greedy: 0.019901
+Reward: 0.501009
+Loss: 0.149187
+Learning Rate: 0.100000
+
+Epoch: 5 Episode: 600
+Epsilon Greedy: 0.019901
+Reward: 0.500014
+Loss: 0.158484
+Learning Rate: 0.010000
+
+Epoch: 5 Episode: 700
+Epsilon Greedy: 0.019901
+Reward: 0.500000
+Loss: 0.160720
+Learning Rate: 0.010000
+
+Epoch: 5 Episode: 800
+Epsilon Greedy: 0.019901
+Reward: 0.500000
+Loss: 0.167721
+Learning Rate: 0.010000
+
+Epoch: 5 Episode: 900
+Epsilon Greedy: 0.019901
+Reward: 0.500000
+Loss: 0.166570
+Learning Rate: 0.010000
+
+Epoch: 5 Episode: 1000
+Epsilon Greedy: 0.019901
+Reward: 0.500000
+Loss: 0.163769
+Learning Rate: 0.010000
+
+Epoch: 5 Episode: 1100
+Epsilon Greedy: 0.019901
+Reward: 0.500000
+Loss: 0.173171
+Learning Rate: 0.010000
+
+Epoch: 6 Episode: 0
+Epsilon Greedy: 0.019901
+Reward: 0.879487
+Loss: 0.672783
+Learning Rate: 0.010000
+
+Epoch: 7 Episode: 0
+Epsilon Greedy: 0.019901
+Reward: 0.879487
+Loss: 0.672783
+Learning Rate: 0.010000
+
+Epoch: 8 Episode: 0
+Epsilon Greedy: 0.019901
+Reward: 0.879487
+Loss: 0.672783
+Learning Rate: 0.010000
+
+Epoch: 9 Episode: 0
+Epsilon Greedy: 0.019901
+Reward: 0.879487
+Loss: 0.672783
+Learning Rate: 0.010000
+
+Epoch: 9 Episode: 100
+Epsilon Greedy: 0.019901
+Reward: 0.830456
+Loss: 0.543657
+Learning Rate: 0.010000
+
+Epoch: 10 Episode: 0
+Epsilon Greedy: 0.029802
+Reward: 0.731059
+Loss: 0.453345
+Learning Rate: 0.010000
+
+Epoch: 11 Episode: 0
+Epsilon Greedy: 0.029802
+Reward: 0.880797
+Loss: 0.677407
+Learning Rate: 0.010000
+
+Epoch: 12 Episode: 0
+Epsilon Greedy: 0.029802
+Reward: 0.879487
+Loss: 0.675252
+Learning Rate: 0.010000
+
+Epoch: 13 Episode: 0
+Epsilon Greedy: 0.029802
+Reward: 0.880797
+Loss: 0.677407
+Learning Rate: 0.010000
+
+Epoch: 13 Episode: 100
+Epsilon Greedy: 0.029802
+Reward: 0.824964
+Loss: 0.582017
+Learning Rate: 0.010000
+
+Epoch: 14 Episode: 0
+Epsilon Greedy: 0.029802
+Reward: 0.879487
+Loss: 0.675252
+Learning Rate: 0.001000
+
+Epoch: 15 Episode: 0
+Epsilon Greedy: 0.039703
+Reward: 0.731059
+Loss: 0.455373
+Learning Rate: 0.001000
+
+Epoch: 16 Episode: 0
+Epsilon Greedy: 0.039703
+Reward: 0.879487
+Loss: 0.677726
+Learning Rate: 0.001000
+
+Epoch: 16 Episode: 100
+Epsilon Greedy: 0.039703
+Reward: 0.843281
+Loss: 0.611325
+Learning Rate: 0.001000
+
+Epoch: 17 Episode: 0
+Epsilon Greedy: 0.039703
+Reward: 0.879487
+Loss: 0.677726
+Learning Rate: 0.001000
+
+Epoch: 19 Episode: 0
+Epsilon Greedy: 0.039703
+Reward: 0.879487
+Loss: 0.677726
+Learning Rate: 0.001000
+
+Epoch: 20 Episode: 0
+Epsilon Greedy: 0.049604
+Reward: 0.823984
+Loss: 0.591734
+Learning Rate: 0.001000
+
+Epoch: 21 Episode: 0
+Epsilon Greedy: 0.049604
+Reward: 0.879487
+Loss: 0.680204
+Learning Rate: 0.001000
+
+Epoch: 22 Episode: 0
+Epsilon Greedy: 0.049604
+Reward: 0.879487
+Loss: 0.680204
+Learning Rate: 0.001000
+
+Epoch: 23 Episode: 0
+Epsilon Greedy: 0.049604
+Reward: 0.879487
+Loss: 0.680204
+Learning Rate: 0.001000
+
+Epoch: 24 Episode: 0
+Epsilon Greedy: 0.049604
+Reward: 0.879487
+Loss: 0.680204
+Learning Rate: 0.001000
+
+Epoch: 25 Episode: 0
+Epsilon Greedy: 0.059505
+Reward: 0.728609
+Loss: 0.456127
+Learning Rate: 0.001000
+
+Epoch: 26 Episode: 0
+Epsilon Greedy: 0.059505
+Reward: 0.879487
+Loss: 0.682687
+Learning Rate: 0.001000
+
+Epoch: 27 Episode: 0
+Epsilon Greedy: 0.059505
+Reward: 0.880797
+Loss: 0.684854
+Learning Rate: 0.001000
+
+Epoch: 28 Episode: 0
+Epsilon Greedy: 0.059505
+Reward: 0.879487
+Loss: 0.682687
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 0
+Epsilon Greedy: 0.059505
+Reward: 0.880797
+Loss: 0.684854
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 100
+Epsilon Greedy: 0.059505
+Reward: 0.837212
+Loss: 0.581276
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 200
+Epsilon Greedy: 0.059505
+Reward: 0.753344
+Loss: 0.467061
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 300
+Epsilon Greedy: 0.059505
+Reward: 0.709909
+Loss: 0.419037
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 400
+Epsilon Greedy: 0.059505
+Reward: 0.556531
+Loss: 0.251877
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 500
+Epsilon Greedy: 0.059505
+Reward: 0.589939
+Loss: 0.246953
+Learning Rate: 0.001000
+
+Epoch: 29 Episode: 600
+Epsilon Greedy: 0.059505
+Reward: 0.515009
+Loss: 0.156814
+Learning Rate: 0.000100
+
+Epoch: 29 Episode: 700
+Epsilon Greedy: 0.059505
+Reward: 0.502743
+Loss: 0.138576
+Learning Rate: 0.000100
+
+Epoch: 29 Episode: 800
+Epsilon Greedy: 0.059505
+Reward: 0.500028
+Loss: 0.143743
+Learning Rate: 0.000100
+
+Epoch: 29 Episode: 900
+Epsilon Greedy: 0.059505
+Reward: 0.500101
+Loss: 0.118579
+Learning Rate: 0.000100
+
+Epoch: 30 Episode: 0
+Epsilon Greedy: 0.069406
+Reward: 0.731059
+Loss: 0.461482
+Learning Rate: 0.000100
+
+Epoch: 31 Episode: 0
+Epsilon Greedy: 0.069406
+Reward: 0.879487
+Loss: 0.685175
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 0
+Epsilon Greedy: 0.069406
+Reward: 0.879487
+Loss: 0.685175
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 100
+Epsilon Greedy: 0.069406
+Reward: 0.835512
+Loss: 0.586361
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 200
+Epsilon Greedy: 0.069406
+Reward: 0.702555
+Loss: 0.363409
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 300
+Epsilon Greedy: 0.069406
+Reward: 0.722173
+Loss: 0.365193
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 400
+Epsilon Greedy: 0.069406
+Reward: 0.654386
+Loss: 0.305404
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 500
+Epsilon Greedy: 0.069406
+Reward: 0.632289
+Loss: 0.301693
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 600
+Epsilon Greedy: 0.069406
+Reward: 0.721362
+Loss: 0.402686
+Learning Rate: 0.000100
+
+Epoch: 32 Episode: 700
+Epsilon Greedy: 0.069406
+Reward: 0.654218
+Loss: 0.285002
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 800
+Epsilon Greedy: 0.069406
+Reward: 0.731061
+Loss: 0.366922
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 900
+Epsilon Greedy: 0.069406
+Reward: 0.675163
+Loss: 0.277554
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 1000
+Epsilon Greedy: 0.069406
+Reward: 0.721362
+Loss: 0.362098
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 1100
+Epsilon Greedy: 0.069406
+Reward: 0.728609
+Loss: 0.353947
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 1200
+Epsilon Greedy: 0.069406
+Reward: 0.731059
+Loss: 0.347622
+Learning Rate: 0.000010
+
+Epoch: 32 Episode: 1300
+Epsilon Greedy: 0.069406
+Reward: 0.728609
+Loss: 0.294767
+Learning Rate: 0.000010
+
+Epoch: 33 Episode: 0
+Epsilon Greedy: 0.069406
+Reward: 0.880797
+Loss: 0.687346
+Learning Rate: 0.000010
+
+Epoch: 34 Episode: 0
+Epsilon Greedy: 0.069406
+Reward: 0.880797
+Loss: 0.687346
+Learning Rate: 0.000010
+
+Epoch: 36 Episode: 0
+Epsilon Greedy: 0.079307
+Reward: 0.879487
+Loss: 0.687666
+Learning Rate: 0.000010
+
+Epoch: 37 Episode: 0
+Epsilon Greedy: 0.079307
+Reward: 0.880797
+Loss: 0.689842
+Learning Rate: 0.000010
+
+Epoch: 38 Episode: 0
+Epsilon Greedy: 0.079307
+Reward: 0.879487
+Loss: 0.687666
+Learning Rate: 0.000010
+
+Epoch: 39 Episode: 0
+Epsilon Greedy: 0.079307
+Reward: 0.880797
+Loss: 0.689842
+Learning Rate: 0.000010
+
+Epoch: 40 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.731059
+Loss: 0.465578
+Learning Rate: 0.000010
+
+Epoch: 41 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.880797
+Loss: 0.692342
+Learning Rate: 0.000010
+
+Epoch: 42 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.879487
+Loss: 0.690163
+Learning Rate: 0.000010
+
+Epoch: 43 Episode: 0
+Epsilon Greedy: 0.089208
+Reward: 0.879487
+Loss: 0.690163
+Learning Rate: 0.000010
+
+Epoch: 45 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.731059
+Loss: 0.467632
+Learning Rate: 0.000010
+
+Epoch: 46 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.692664
+Learning Rate: 0.000010
+
+Epoch: 48 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.692664
+Learning Rate: 0.000010
+
+Epoch: 49 Episode: 0
+Epsilon Greedy: 0.099109
+Reward: 0.879487
+Loss: 0.692664
+Learning Rate: 0.000010
+
+Epoch: 50 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.731059
+Loss: 0.469691
+Learning Rate: 0.000010
+
+Epoch: 51 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.879487
+Loss: 0.695170
+Learning Rate: 0.000001
+
+Epoch: 52 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.880797
+Loss: 0.697356
+Learning Rate: 0.000001
+
+Epoch: 53 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.879487
+Loss: 0.695170
+Learning Rate: 0.000001
+
+Epoch: 54 Episode: 0
+Epsilon Greedy: 0.109010
+Reward: 0.879487
+Loss: 0.695170
+Learning Rate: 0.000001
+
+Epoch: 55 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.728620
+Loss: 0.468411
+Learning Rate: 0.000001
+
+Epoch: 56 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.879487
+Loss: 0.697680
+Learning Rate: 0.000001
+
+Epoch: 57 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.879487
+Loss: 0.697680
+Learning Rate: 0.000001
+
+Epoch: 58 Episode: 0
+Epsilon Greedy: 0.118911
+Reward: 0.879487
+Loss: 0.697680
+Learning Rate: 0.000001
+
+Epoch: 58 Episode: 100
+Epsilon Greedy: 0.118911
+Reward: 0.600474
+Loss: 0.296530
+Learning Rate: 0.000001
+
+Epoch: 58 Episode: 200
+Epsilon Greedy: 0.118911
+Reward: 0.504427
+Loss: 0.193880
+Learning Rate: 0.000001
+
+Epoch: 58 Episode: 300
+Epsilon Greedy: 0.118911
+Reward: 0.500591
+Loss: 0.195729
+Learning Rate: 0.000001
+
+Epoch: 58 Episode: 400
+Epsilon Greedy: 0.118911
+Reward: 0.501011
+Loss: 0.196133
+Learning Rate: 0.000001
+
+Epoch: 60 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.731059
+Loss: 0.473823
+Learning Rate: 0.000001
+
+Epoch: 61 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.879487
+Loss: 0.700194
+Learning Rate: 0.000001
+
+Epoch: 62 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.880797
+Loss: 0.702389
+Learning Rate: 0.000001
+
+Epoch: 64 Episode: 0
+Epsilon Greedy: 0.128812
+Reward: 0.879487
+Loss: 0.700194
+Learning Rate: 0.000001
+
+Epoch: 64 Episode: 100
+Epsilon Greedy: 0.128812
+Reward: 0.638824
+Loss: 0.336347
+Learning Rate: 0.000001
+
+Epoch: 64 Episode: 200
+Epsilon Greedy: 0.128812
+Reward: 0.554874
+Loss: 0.234947
+Learning Rate: 0.000001
+
+Epoch: 65 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.731059
+Loss: 0.475896
+Learning Rate: 0.000001
+
+Epoch: 65 Episode: 100
+Epsilon Greedy: 0.138713
+Reward: 0.728609
+Loss: 0.458640
+Learning Rate: 0.000000
+
+Epoch: 66 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.879487
+Loss: 0.702713
+Learning Rate: 0.000000
+
+Epoch: 67 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.879487
+Loss: 0.702713
+Learning Rate: 0.000000
+
+Epoch: 68 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.879487
+Loss: 0.702713
+Learning Rate: 0.000000
+
+Epoch: 69 Episode: 0
+Epsilon Greedy: 0.138713
+Reward: 0.880797
+Loss: 0.704912
+Learning Rate: 0.000000
+
+Epoch: 70 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.728609
+Loss: 0.474592
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.879487
+Loss: 0.705237
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 100
+Epsilon Greedy: 0.148614
+Reward: 0.781360
+Loss: 0.528736
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 200
+Epsilon Greedy: 0.148614
+Reward: 0.547923
+Loss: 0.210549
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 300
+Epsilon Greedy: 0.148614
+Reward: 0.515010
+Loss: 0.185515
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 400
+Epsilon Greedy: 0.148614
+Reward: 0.510189
+Loss: 0.163193
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 500
+Epsilon Greedy: 0.148614
+Reward: 0.521560
+Loss: 0.144842
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 600
+Epsilon Greedy: 0.148614
+Reward: 0.571140
+Loss: 0.151416
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 700
+Epsilon Greedy: 0.148614
+Reward: 0.693967
+Loss: 0.215075
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 800
+Epsilon Greedy: 0.148614
+Reward: 0.589841
+Loss: 0.072645
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 900
+Epsilon Greedy: 0.148614
+Reward: 0.554868
+Loss: 0.072639
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1000
+Epsilon Greedy: 0.148614
+Reward: 0.632276
+Loss: 0.098109
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1100
+Epsilon Greedy: 0.148614
+Reward: 0.654217
+Loss: 0.107145
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1200
+Epsilon Greedy: 0.148614
+Reward: 0.541231
+Loss: 0.034326
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1300
+Epsilon Greedy: 0.148614
+Reward: 0.610480
+Loss: 0.053206
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1400
+Epsilon Greedy: 0.148614
+Reward: 0.554868
+Loss: 0.029022
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1500
+Epsilon Greedy: 0.148614
+Reward: 0.571140
+Loss: 0.024530
+Learning Rate: 0.000000
+
+Epoch: 71 Episode: 1600
+Epsilon Greedy: 0.148614
+Reward: 0.541231
+Loss: 0.006311
+Learning Rate: 0.000000
+
+Epoch: 72 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.879487
+Loss: 0.705237
+Learning Rate: 0.000000
+
+Epoch: 73 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.880797
+Loss: 0.707440
+Learning Rate: 0.000000
+
+Epoch: 74 Episode: 0
+Epsilon Greedy: 0.148614
+Reward: 0.879487
+Loss: 0.705237
+Learning Rate: 0.000000
+
+Epoch: 75 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.731059
+Loss: 0.480055
+Learning Rate: 0.000000
+
+Epoch: 76 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.707765
+Learning Rate: 0.000000
+
+Epoch: 77 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.707765
+Learning Rate: 0.000000
+
+Epoch: 77 Episode: 100
+Epsilon Greedy: 0.158515
+Reward: 0.731243
+Loss: 0.458406
+Learning Rate: 0.000000
+
+Epoch: 77 Episode: 200
+Epsilon Greedy: 0.158515
+Reward: 0.654386
+Loss: 0.335510
+Learning Rate: 0.000000
+
+Epoch: 77 Episode: 300
+Epsilon Greedy: 0.158515
+Reward: 0.721362
+Loss: 0.431460
+Learning Rate: 0.000000
+
+Epoch: 78 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.707765
+Learning Rate: 0.000000
+
+Epoch: 79 Episode: 0
+Epsilon Greedy: 0.158515
+Reward: 0.879487
+Loss: 0.707765
+Learning Rate: 0.000000
+
+Epoch: 81 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.879487
+Loss: 0.710298
+Learning Rate: 0.000000
+
+Epoch: 82 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.879487
+Loss: 0.710298
+Learning Rate: 0.000000
+
+Epoch: 84 Episode: 0
+Epsilon Greedy: 0.168416
+Reward: 0.879487
+Loss: 0.710298
+Learning Rate: 0.000000
+
+Epoch: 85 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.843870
+Loss: 0.653962
+Learning Rate: 0.000000
+
+Epoch: 86 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.879487
+Loss: 0.712835
+Learning Rate: 0.000000
+
+Epoch: 87 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.879487
+Loss: 0.712835
+Learning Rate: 0.000000
+
+Epoch: 88 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.880797
+Loss: 0.715049
+Learning Rate: 0.000000
+
+Epoch: 89 Episode: 0
+Epsilon Greedy: 0.178317
+Reward: 0.879487
+Loss: 0.712835
+Learning Rate: 0.000000
+
+Epoch: 89 Episode: 100
+Epsilon Greedy: 0.178317
+Reward: 0.724851
+Loss: 0.468586
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.731059
+Loss: 0.486327
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 100
+Epsilon Greedy: 0.188218
+Reward: 0.728609
+Loss: 0.477472
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 200
+Epsilon Greedy: 0.188218
+Reward: 0.589841
+Loss: 0.294861
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 300
+Epsilon Greedy: 0.188218
+Reward: 0.500053
+Loss: 0.190788
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 400
+Epsilon Greedy: 0.188218
+Reward: 0.500007
+Loss: 0.200333
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 500
+Epsilon Greedy: 0.188218
+Reward: 0.500007
+Loss: 0.201677
+Learning Rate: 0.000000
+
+Epoch: 90 Episode: 600
+Epsilon Greedy: 0.188218
+Reward: 0.500002
+Loss: 0.195632
+Learning Rate: 0.000000
+
+Epoch: 91 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.880797
+Loss: 0.717595
+Learning Rate: 0.000000
+
+Epoch: 91 Episode: 100
+Epsilon Greedy: 0.188218
+Reward: 0.835513
+Loss: 0.612202
+Learning Rate: 0.000000
+
+Epoch: 91 Episode: 200
+Epsilon Greedy: 0.188218
+Reward: 0.706570
+Loss: 0.443768
+Learning Rate: 0.000000
+
+Epoch: 92 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.879487
+Loss: 0.715377
+Learning Rate: 0.000000
+
+Epoch: 93 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.879487
+Loss: 0.715377
+Learning Rate: 0.000000
+
+Epoch: 94 Episode: 0
+Epsilon Greedy: 0.188218
+Reward: 0.880797
+Loss: 0.717595
+Learning Rate: 0.000000
+
+Epoch: 96 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.879487
+Loss: 0.717923
+Learning Rate: 0.000000
+
+Epoch: 97 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.879487
+Loss: 0.717923
+Learning Rate: 0.000000
+
+Epoch: 98 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.880797
+Loss: 0.720145
+Learning Rate: 0.000000
+
+Epoch: 99 Episode: 0
+Epsilon Greedy: 0.198119
+Reward: 0.879487
+Loss: 0.717923
+Learning Rate: 0.000000
+
+Epoch: 99 Episode: 100
+Epsilon Greedy: 0.198119
+Reward: 0.581094
+Loss: 0.284730
+Learning Rate: 0.000000
+
+Epoch: 99 Episode: 200
+Epsilon Greedy: 0.198119
+Reward: 0.541234
+Loss: 0.236228
+Learning Rate: 0.000000
+
+Epoch: 100 Episode: 0
+Epsilon Greedy: 0.208020
+Reward: 0.728609
+Loss: 0.487106
+Learning Rate: 0.000000
+
+Epoch: 101 Episode: 0
+Epsilon Greedy: 0.208020
+Reward: 0.879487
+Loss: 0.720474
+Learning Rate: 0.000000
+
+Epoch: 103 Episode: 0
+Epsilon Greedy: 0.208020
+Reward: 0.879487
+Loss: 0.720474
+Learning Rate: 0.000000
+
+Epoch: 104 Episode: 0
+Epsilon Greedy: 0.208020
+Reward: 0.879487
+Loss: 0.720474
+Learning Rate: 0.000000
+
+Epoch: 105 Episode: 0
+Epsilon Greedy: 0.217921
+Reward: 0.728609
+Loss: 0.489207
+Learning Rate: 0.000000
+
+Epoch: 106 Episode: 0
+Epsilon Greedy: 0.217921
+Reward: 0.879487
+Loss: 0.723029
+Learning Rate: 0.000000
+
+Epoch: 107 Episode: 0
+Epsilon Greedy: 0.217921
+Reward: 0.879487
+Loss: 0.723029
+Learning Rate: 0.000000
+
+Epoch: 107 Episode: 100
+Epsilon Greedy: 0.217921
+Reward: 0.867746
+Loss: 0.685861
+Learning Rate: 0.000000
+
+Epoch: 108 Episode: 0
+Epsilon Greedy: 0.217921
+Reward: 0.880797
+Loss: 0.725259
+Learning Rate: 0.000000
+
+Epoch: 109 Episode: 0
+Epsilon Greedy: 0.217921
+Reward: 0.880797
+Loss: 0.725259
+Learning Rate: 0.000000
+
+Epoch: 110 Episode: 0
+Epsilon Greedy: 0.227822
+Reward: 0.731059
+Loss: 0.494753
+Learning Rate: 0.000000
+
+Epoch: 111 Episode: 0
+Epsilon Greedy: 0.227822
+Reward: 0.879487
+Loss: 0.725589
+Learning Rate: 0.000000
+
+Epoch: 112 Episode: 0
+Epsilon Greedy: 0.227822
+Reward: 0.879487
+Loss: 0.725589
+Learning Rate: 0.000000
+
+Epoch: 113 Episode: 0
+Epsilon Greedy: 0.227822
+Reward: 0.880797
+Loss: 0.727823
+Learning Rate: 0.000000
+
+Epoch: 114 Episode: 0
+Epsilon Greedy: 0.227822
+Reward: 0.879487
+Loss: 0.725589
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 0
+Epsilon Greedy: 0.237723
+Reward: 0.880797
+Loss: 0.730391
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 100
+Epsilon Greedy: 0.237723
+Reward: 0.721368
+Loss: 0.459830
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 200
+Epsilon Greedy: 0.237723
+Reward: 0.632276
+Loss: 0.324614
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 300
+Epsilon Greedy: 0.237723
+Reward: 0.675160
+Loss: 0.329140
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 400
+Epsilon Greedy: 0.237723
+Reward: 0.632289
+Loss: 0.262407
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 500
+Epsilon Greedy: 0.237723
+Reward: 0.554921
+Loss: 0.171378
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 600
+Epsilon Greedy: 0.237723
+Reward: 0.504357
+Loss: 0.114606
+Learning Rate: 0.000000
+
+Epoch: 116 Episode: 700
+Epsilon Greedy: 0.237723
+Reward: 0.510196
+Loss: 0.098551
+Learning Rate: 0.000000
+
+Epoch: 117 Episode: 0
+Epsilon Greedy: 0.237723
+Reward: 0.880797
+Loss: 0.730391
+Learning Rate: 0.000000
+
+Epoch: 118 Episode: 0
+Epsilon Greedy: 0.237723
+Reward: 0.879487
+Loss: 0.728153
+Learning Rate: 0.000000
+
+Epoch: 118 Episode: 100
+Epsilon Greedy: 0.237723
+Reward: 0.629158
+Loss: 0.354359
+Learning Rate: 0.000000
+
+Epoch: 119 Episode: 0
+Epsilon Greedy: 0.237723
+Reward: 0.879487
+Loss: 0.728153
+Learning Rate: 0.000000
+
+Epoch: 120 Episode: 0
+Epsilon Greedy: 0.247624
+Reward: 0.731059
+Loss: 0.498994
+Learning Rate: 0.000000
+
+Epoch: 121 Episode: 0
+Epsilon Greedy: 0.247624
+Reward: 0.879487
+Loss: 0.730722
+Learning Rate: 0.000000
+
+Epoch: 122 Episode: 0
+Epsilon Greedy: 0.247624
+Reward: 0.879487
+Loss: 0.730722
+Learning Rate: 0.000000
+
+Epoch: 123 Episode: 0
+Epsilon Greedy: 0.247624
+Reward: 0.879487
+Loss: 0.730722
+Learning Rate: 0.000000
+
+Epoch: 124 Episode: 0
+Epsilon Greedy: 0.247624
+Reward: 0.879487
+Loss: 0.730722
+Learning Rate: 0.000000
+
+Epoch: 125 Episode: 0
+Epsilon Greedy: 0.257525
+Reward: 0.731059
+Loss: 0.501120
+Learning Rate: 0.000000
+
+Epoch: 126 Episode: 0
+Epsilon Greedy: 0.257525
+Reward: 0.879487
+Loss: 0.733295
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 0
+Epsilon Greedy: 0.257525
+Reward: 0.879487
+Loss: 0.733295
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 100
+Epsilon Greedy: 0.257525
+Reward: 0.736594
+Loss: 0.499662
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 200
+Epsilon Greedy: 0.257525
+Reward: 0.554874
+Loss: 0.255091
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 300
+Epsilon Greedy: 0.257525
+Reward: 0.530532
+Loss: 0.201329
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 400
+Epsilon Greedy: 0.257525
+Reward: 0.654750
+Loss: 0.295854
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 500
+Epsilon Greedy: 0.257525
+Reward: 0.521567
+Loss: 0.135984
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 600
+Epsilon Greedy: 0.257525
+Reward: 0.589845
+Loss: 0.164848
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 700
+Epsilon Greedy: 0.257525
+Reward: 0.589841
+Loss: 0.135729
+Learning Rate: 0.000000
+
+Epoch: 127 Episode: 800
+Epsilon Greedy: 0.257525
+Reward: 0.554874
+Loss: 0.095548
+Learning Rate: 0.000000
+
+Epoch: 128 Episode: 0
+Epsilon Greedy: 0.257525
+Reward: 0.879487
+Loss: 0.733295
+Learning Rate: 0.000000
+
+Epoch: 129 Episode: 0
+Epsilon Greedy: 0.257525
+Reward: 0.880797
+Loss: 0.735541
+Learning Rate: 0.000000
+
+Epoch: 129 Episode: 100
+Epsilon Greedy: 0.257525
+Reward: 0.681042
+Loss: 0.425030
+Learning Rate: 0.000000
+
+Epoch: 130 Episode: 0
+Epsilon Greedy: 0.267426
+Reward: 0.728609
+Loss: 0.499783
+Learning Rate: 0.000000
+
+Epoch: 131 Episode: 0
+Epsilon Greedy: 0.267426
+Reward: 0.879487
+Loss: 0.735873
+Learning Rate: 0.000000
+
+Epoch: 132 Episode: 0
+Epsilon Greedy: 0.267426
+Reward: 0.879487
+Loss: 0.735873
+Learning Rate: 0.000000
+
+Epoch: 134 Episode: 0
+Epsilon Greedy: 0.267426
+Reward: 0.880797
+Loss: 0.738123
+Learning Rate: 0.000000
+
+Epoch: 136 Episode: 0
+Epsilon Greedy: 0.277327
+Reward: 0.879487
+Loss: 0.738456
+Learning Rate: 0.000000
+
+Epoch: 137 Episode: 0
+Epsilon Greedy: 0.277327
+Reward: 0.879487
+Loss: 0.738456
+Learning Rate: 0.000000
+
+Epoch: 138 Episode: 0
+Epsilon Greedy: 0.277327
+Reward: 0.880797
+Loss: 0.740710
+Learning Rate: 0.000000
+
+Epoch: 139 Episode: 0
+Epsilon Greedy: 0.277327
+Reward: 0.880797
+Loss: 0.740710
+Learning Rate: 0.000000
+
+Epoch: 140 Episode: 0
+Epsilon Greedy: 0.287228
+Reward: 0.748602
+Loss: 0.532832
+Learning Rate: 0.000000
+
+Epoch: 141 Episode: 0
+Epsilon Greedy: 0.287228
+Reward: 0.879487
+Loss: 0.741043
+Learning Rate: 0.000000
+
+Epoch: 142 Episode: 0
+Epsilon Greedy: 0.287228
+Reward: 0.880797
+Loss: 0.743301
+Learning Rate: 0.000000
+
+Epoch: 142 Episode: 100
+Epsilon Greedy: 0.287228
+Reward: 0.709715
+Loss: 0.469273
+Learning Rate: 0.000000
+
+Epoch: 144 Episode: 0
+Epsilon Greedy: 0.287228
+Reward: 0.879487
+Loss: 0.741043
+Learning Rate: 0.000000
+
+Epoch: 144 Episode: 100
+Epsilon Greedy: 0.287228
+Reward: 0.612081
+Loss: 0.340703
+Learning Rate: 0.000000
+
+Epoch: 145 Episode: 0
+Epsilon Greedy: 0.297129
+Reward: 0.728609
+Loss: 0.506182
+Learning Rate: 0.000000
+
+Epoch: 146 Episode: 0
+Epsilon Greedy: 0.297129
+Reward: 0.879487
+Loss: 0.743634
+Learning Rate: 0.000000
+
+Epoch: 147 Episode: 0
+Epsilon Greedy: 0.297129
+Reward: 0.880797
+Loss: 0.745896
+Learning Rate: 0.000000
+
+Epoch: 148 Episode: 0
+Epsilon Greedy: 0.297129
+Reward: 0.879487
+Loss: 0.743634
+Learning Rate: 0.000000
+
+Epoch: 149 Episode: 0
+Epsilon Greedy: 0.297129
+Reward: 0.879487
+Loss: 0.743634
+Learning Rate: 0.000000
+
+Epoch: 150 Episode: 0
+Epsilon Greedy: 0.307030
+Reward: 0.811592
+Loss: 0.633538
+Learning Rate: 0.000000
+
+Epoch: 151 Episode: 0
+Epsilon Greedy: 0.307030
+Reward: 0.879487
+Loss: 0.746230
+Learning Rate: 0.000000
+
+Epoch: 151 Episode: 100
+Epsilon Greedy: 0.307030
+Reward: 0.728612
+Loss: 0.503486
+Learning Rate: 0.000000
+
+Epoch: 152 Episode: 0
+Epsilon Greedy: 0.307030
+Reward: 0.879487
+Loss: 0.746230
+Learning Rate: 0.000000
+
+Epoch: 153 Episode: 0
+Epsilon Greedy: 0.307030
+Reward: 0.879487
+Loss: 0.746230
+Learning Rate: 0.000000
+
+Epoch: 154 Episode: 0
+Epsilon Greedy: 0.307030
+Reward: 0.879487
+Loss: 0.746230
+Learning Rate: 0.000000
+
+Epoch: 155 Episode: 0
+Epsilon Greedy: 0.316931
+Reward: 0.731225
+Loss: 0.514216
+Learning Rate: 0.000000
+
+Epoch: 156 Episode: 0
+Epsilon Greedy: 0.316931
+Reward: 0.879487
+Loss: 0.748831
+Learning Rate: 0.000000
+
+Epoch: 157 Episode: 0
+Epsilon Greedy: 0.316931
+Reward: 0.879487
+Loss: 0.748831
+Learning Rate: 0.000000
+
+Epoch: 159 Episode: 0
+Epsilon Greedy: 0.316931
+Reward: 0.879487
+Loss: 0.748831
+Learning Rate: 0.000000
+
+Epoch: 159 Episode: 100
+Epsilon Greedy: 0.316931
+Reward: 0.577737
+Loss: 0.315016
+Learning Rate: 0.000000
+
+Epoch: 159 Episode: 200
+Epsilon Greedy: 0.316931
+Reward: 0.500103
+Loss: 0.230923
+Learning Rate: 0.000000
+
+Epoch: 161 Episode: 0
+Epsilon Greedy: 0.326832
+Reward: 0.879487
+Loss: 0.751436
+Learning Rate: 0.000000
+
+Epoch: 162 Episode: 0
+Epsilon Greedy: 0.326832
+Reward: 0.879487
+Loss: 0.751436
+Learning Rate: 0.000000
+
+Epoch: 162 Episode: 100
+Epsilon Greedy: 0.326832
+Reward: 0.721364
+Loss: 0.495705
+Learning Rate: 0.000000
+
+Epoch: 163 Episode: 0
+Epsilon Greedy: 0.326832
+Reward: 0.879487
+Loss: 0.751436
+Learning Rate: 0.000000
+
+Epoch: 163 Episode: 100
+Epsilon Greedy: 0.326832
+Reward: 0.507755
+Loss: 0.241317
+Learning Rate: 0.000000
+
+Epoch: 164 Episode: 0
+Epsilon Greedy: 0.326832
+Reward: 0.880797
+Loss: 0.753709
+Learning Rate: 0.000000
+
+Epoch: 165 Episode: 0
+Epsilon Greedy: 0.336733
+Reward: 0.789978
+Loss: 0.606605
+Learning Rate: 0.000000
+
+Epoch: 166 Episode: 0
+Epsilon Greedy: 0.336733
+Reward: 0.879487
+Loss: 0.754045
+Learning Rate: 0.000000
+
+Epoch: 166 Episode: 100
+Epsilon Greedy: 0.336733
+Reward: 0.590022
+Loss: 0.326830
+Learning Rate: 0.000000
+
+Epoch: 166 Episode: 200
+Epsilon Greedy: 0.336733
+Reward: 0.589841
+Loss: 0.320279
+Learning Rate: 0.000000
+
+Epoch: 169 Episode: 0
+Epsilon Greedy: 0.336733
+Reward: 0.879487
+Loss: 0.754045
+Learning Rate: 0.000000
+
+Epoch: 170 Episode: 0
+Epsilon Greedy: 0.346634
+Reward: 0.733443
+Loss: 0.523912
+Learning Rate: 0.000000
+
+Epoch: 171 Episode: 0
+Epsilon Greedy: 0.346634
+Reward: 0.879487
+Loss: 0.756660
+Learning Rate: 0.000000
+
+Epoch: 172 Episode: 0
+Epsilon Greedy: 0.346634
+Reward: 0.879487
+Loss: 0.756660
+Learning Rate: 0.000000
+
+Epoch: 172 Episode: 100
+Epsilon Greedy: 0.346634
+Reward: 0.532930
+Loss: 0.269996
+Learning Rate: 0.000000
+
+Epoch: 172 Episode: 200
+Epsilon Greedy: 0.346634
+Reward: 0.530298
+Loss: 0.267948
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 0
+Epsilon Greedy: 0.346634
+Reward: 0.880797
+Loss: 0.758941
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 100
+Epsilon Greedy: 0.346634
+Reward: 0.738372
+Loss: 0.519247
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 200
+Epsilon Greedy: 0.346634
+Reward: 0.731059
+Loss: 0.508494
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 300
+Epsilon Greedy: 0.346634
+Reward: 0.693967
+Loss: 0.423682
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 400
+Epsilon Greedy: 0.346634
+Reward: 0.589841
+Loss: 0.278159
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 500
+Epsilon Greedy: 0.346634
+Reward: 0.521560
+Loss: 0.206301
+Learning Rate: 0.000000
+
+Epoch: 173 Episode: 600
+Epsilon Greedy: 0.346634
+Reward: 0.541231
+Loss: 0.200920
+Learning Rate: 0.000000
+
