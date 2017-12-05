@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 import argparse
+import datetime
 
 import numpy as np
 
@@ -27,6 +28,10 @@ def main():
     dqn_quad.gamma = args.gamma
     if args.load_model:
         dqn_quad.load_wts('dqn_quad.pth')
+
+    with open('dqn_outputs.txt', 'a') as the_file:
+        log_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        the_file.write('\n************* SAVE FILE %s *************\n' % log_time)
 
     epoch = 0
     while epoch < epoch_size:
@@ -89,13 +94,15 @@ def main():
                     the_file.write('Epsilon Greedy: %f\n' % dqn_quad.eps)
                     the_file.write('Reward: %f\n' % reward)
                     the_file.write('Loss: %f\n' % float(dqn_quad.loss.data[0]))
+                    the_file.write('Learning Rate: %f\n' % float(dqn_quad.scheduler.get_lr()[0]))
                     the_file.write('\n')
         print("Epoch reset")
         epoch += 1
-        if epoch % 100 == 0:
+        if epoch % 10 == 0:
             dqn_quad.save_wts('dqn_quad.pth', epoch)
-        if epoch % 50 == 0:
-            dqn_quad.eps += 0.001
+        if epoch % 5 == 0:
+            dqn_quad.eps += (1. / (1. + dqn_quad.eps_decay * epoch_size))
+            dqn_quad.gamma += (1. / (1. + dqn_quad.gamma_decay * epoch_size))
             control_quad.reset(rand_target=True)
         else:
             control_quad.reset()

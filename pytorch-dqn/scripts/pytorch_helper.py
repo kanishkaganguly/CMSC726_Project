@@ -5,6 +5,7 @@ import os
 import numpy as np
 import torch
 from torch.autograd import Variable
+from torch.optim.lr_scheduler import StepLR
 
 
 class QuadDQN(object):
@@ -18,10 +19,13 @@ class QuadDQN(object):
         self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
                                          torch.nn.Linear(self.hidden, self.action))
         self.loss_fn = torch.nn.MSELoss(size_average=False)
-        self.learning_rate = 1e-4
+        self.learning_rate = 1.0
         self.eps = 0.1
-        self.gamma = 0.9
+        self.eps_decay = 0.01
+        self.gamma = 0.6
+        self.gamma_decay = 0.01
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
+        self.scheduler = StepLR(self.optim, step_size=1000, gamma=0.1)
         self.loss = 0.0
 
     # Predict next action
@@ -40,9 +44,11 @@ class QuadDQN(object):
 
     # Do backprop
     def backprop(self):
+        print("Learning Rate: %f" % self.scheduler.get_lr()[0])
         self.optim.zero_grad()
         self.loss.backward()
-        self.optim.step()
+        self.scheduler.step()
+        # self.optim.step()
 
     # Get reward
     def get_reward(self, curr_state, target_state):
