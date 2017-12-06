@@ -27,31 +27,31 @@ class QuadHelper(object):
         self.sim_quad.start_sim()
         print("Ready to fly...")
 
-    def move_quad(self, direction):
+    def move_quad(self, direction, step_size=0.05):
         if direction == "FWD":
             move_to = self.quad_state
-            move_to[0] += 0.05
+            move_to[0] += step_size
         if direction == "BCK":
             move_to = self.quad_state
-            move_to[0] -= 0.05
+            move_to[0] -= step_size
         if direction == "RGT":
             move_to = self.quad_state
-            move_to[1] += 0.05
+            move_to[1] += step_size
         if direction == "LFT":
             move_to = self.quad_state
-            move_to[1] -= 0.05
+            move_to[1] -= step_size
         if direction == "UP":
             move_to = self.quad_state
-            move_to[2] += 0.05
+            move_to[2] += step_size
         if direction == "DWN":
             move_to = self.quad_state
-            move_to[2] -= 0.05
+            move_to[2] -= step_size
         if direction == "ROT_CW":
             move_to = self.quad_state
-            move_to[3] += 0.05
+            move_to[3] += step_size
         if direction == "ROT_CCW":
             move_to = self.quad_state
-            move_to[3] -= 0.05
+            move_to[3] -= step_size
 
         print("Moving %s" % direction)
         self.states_quad.set_state(self.sim_quad.clientID, self.quad_handle, move_to)
@@ -66,14 +66,32 @@ class QuadHelper(object):
         self.sim_quad.reset()
         self.quad_state = np.zeros(4)
         if not rand_target:
-            self.target_state = np.array([2.0, 0.0, 3.0, 0.0])
+            self.SetTarget([2.0, 0.0, 3.0, 0.0])
         else:
             x_rand = (10 + 10) * np.random.random_sample() - 10
             y_rand = (10 + 10) * np.random.random_sample() - 10
             z_rand = (10) * np.random.random_sample() - 0
-            self.target_state = np.array([x_rand, y_rand, z_rand, 0.0])
+            self.SetTarget([x_rand, y_rand, z_rand, 0.0])
+
+    def SetTarget(self, target):
+        self.target_state = np.array(target)
         print("New target state: (%f,%f,%f,%f)" % (
             self.target_state[0], self.target_state[2], self.target_state[2], self.target_state[3]))
+
+    def GetTargetState(self):
+        return self.target_state
+
+    def ReachedTarget(self):
+
+        curr_state = self.get_state()
+        deviation_x = np.linalg.norm(curr_state[0] - self.target_state[0])
+        deviation_y = np.linalg.norm(curr_state[1] - self.target_state[1])
+        deviation_z = np.linalg.norm(curr_state[2] - self.target_state[2])
+        deviation_yaw = np.linalg.norm(curr_state[3] - self.target_state[3])
+
+        total = deviation_x + deviation_y + deviation_z + deviation_yaw
+
+        return total < 0.1
 
     def get_state(self):
         return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)

@@ -17,37 +17,39 @@ def write_data(dqn_quad, epoch, reward, iteration):
         the_file.write('Learning Rate: %f\n' % float(dqn_quad.scheduler.get_lr()[0]))
         the_file.write('\n')
 
-def run_one_epoch(dqn_quad, control_quad, epoch):
-    for i in range(dqn_quad.episode_size):
-        print("Epoch: %d Episode %d" % (epoch, i))
-        print("Epsilon Greedy: %f" % dqn_quad.eps)
-        print("DQN Discount Factor: %f" % dqn_quad.gamma)
+def run_one_episode(dqn_quad, control_quad, epoch_id, ep_id, mode):
+    print("Epoch: %d Episode %d" % (epoch_id, ep_id))
+    print("Epsilon Greedy: %f" % dqn_quad.eps)
+    print("DQN Discount Factor: %f" % dqn_quad.gamma)
 
-        # Get current state
-        print("Getting current state")
-        curr_state = np.array(control_quad.get_state(), dtype=np.float32)
+    # Get current state
+    print("Getting current state")
+    curr_state = np.array(control_quad.get_state(), dtype=np.float32)
 
-        # Get action q_values
-        print("Getting predicted q_values")
-        pred_q = dqn_quad.predict_action(curr_state)
+    # Get action q_values
+    print("Getting predicted q_values")
+    pred_q = dqn_quad.predict_action(curr_state)
 
-        # Get action with max q_value
-        print("Getting best action")
-        max_q_idx = np.argmax(pred_q)
-        max_q = np.amax(pred_q)
+    # Get action with max q_value
+    print("Getting best action")
+    max_q_idx = np.argmax(pred_q)
+    max_q = np.amax(pred_q)
 
-        # Do action
-        print("Moving quadcopter")
-        control_quad.move_quad(dqn_quad.do_action(max_q_idx))
+    # Do action
+    print("Moving quadcopter")
+    control_quad.move_quad(dqn_quad.do_action(max_q_idx))
 
-        # Get new state
-        print("Getting new state")
-        new_state = control_quad.get_state()
+    # Get new state
+    print("Getting new state")
+    new_state = control_quad.get_state()
 
-        # Test out of bounds
-        test_state = control_quad.get_state()
-        if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or test_state[2] > 5.0 or test_state[2] < 0.0:
-            print("Quadcopter out of bounds")
+    # Test out of bounds
+    test_state = control_quad.get_state()
+    if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or test_state[2] > 5.0 or test_state[2] < 0.0:
+        print("Quadcopter out of bounds")
+        if mode == 'test':
+            return 'Failure'
+        elif mode == 'train':
             # Get reward
             print("Getting reward")
             reward = -50
@@ -61,25 +63,45 @@ def run_one_epoch(dqn_quad, control_quad, epoch):
             print("Backpropagation")
             dqn_quad.backprop()
             print('\n')
-            break
+            return 'break'
         else:
-            # Get reward
-            print("Getting reward")
-            reward = dqn_quad.get_reward(new_state, control_quad.target_state)
-            # Set target q_values for backprop
-            print("Setting target values")
-            target_q = np.copy(pred_q)
-            target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
-            print("Computing loss")
-            dqn_quad.get_loss(target_q, pred_q)
-            # Do backprop
-            print("Backpropagation")
-            dqn_quad.backprop()
-            print('\n')
+            print("Running episode in invalid mode.")
+    elif mode == 'train':
+        # Get reward
+        print("Getting reward")
+        reward = dqn_quad.get_reward(new_state, control_quad.GetTargetState())
+        # Set target q_values for backprop
+        print("Setting target values")
+        target_q = np.copy(pred_q)
+        target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
+        print("Computing loss")
+        dqn_quad.get_loss(target_q, pred_q)
 
-        if i % 100 == 0:
-            write_data(dqn_quad, epoch, reward, i)
+        # Do backprop
+        print("Backpropagation")
+        dqn_quad.backprop()
+        print('\n')
 
+        if ep_id % 100 == 0:
+            write_data(dqn_quad, epoch_id, reward, ep_id)
+
+    return 'continue'
+
+def run_one_epoch(dqn_quad, control_quad, epoch_id):
+    for i in range(dqn_quad.episode_size):
+        res = run_one_episode(dqn_quad, control_quad, epoch_id, i, mode='train')
+        if res == 'break':
+            break
+
+def test_quad(dqn_quad, control_quad):
+    control_quad.reset()
+    control_quad.SetTarget([2,1,1,0])
+    while(control_quad.ReachedTarget() == False):
+        res = run_one_episode(dqn_quad, control_quad, 0, 0, mode='test')
+        if res == 'Failure':
+            print('Our quadroptor failed test.')
+    if res != 'Failure':
+        print("Our quadroptor has reached the test target.")
 
 def main():
     parser = argparse.ArgumentParser()
@@ -123,7 +145,9 @@ def main():
                 control_quad.reset()
             print('\n')
 
-        # TODO: ADD TEST CODE HERE
+        # Test our trained quadrotor
+        test_quad(dqn_quad, control_quad)
+
         print("V-REP Exited...")
 
 if __name__ == '__main__':
