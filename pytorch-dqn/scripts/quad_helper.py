@@ -87,6 +87,9 @@ class QuadHelper(object):
     def get_target_state(self):
         return self.states_quad.get_state(self.sim_quad.clientID, self.target_handle)
 
+    def get_quad_state(self):
+        return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)
+
     def check_target_reached(self):
         curr_state = self.get_quad_state()
         deviation_x = np.linalg.norm(curr_state[0] - self.target_state[0])
@@ -97,6 +100,3 @@ class QuadHelper(object):
         total = deviation_x + deviation_y + deviation_z + deviation_yaw
 
         return total < 0.1
-
-    def get_quad_state(self):
-        return self.states_quad.get_state(self.sim_quad.clientID, self.quad_handle)

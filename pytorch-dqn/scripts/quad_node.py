@@ -13,7 +13,7 @@ def main():
     parser.add_argument("--epoch_size", type=int, default=10000, help="Total training epochs")
     parser.add_argument("--episode_size", type=int, default=100000, help="Training episodes per epoch")
     parser.add_argument("--epsilon", type=float, default=0.01, help="Greedy Epsilon starting value")
-    parser.add_argument("--gamma", type=float, default=0.1, help="DQN gamma starting value")
+    parser.add_argument("--gamma", type=float, default=0.01, help="DQN gamma starting value")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
     args = parser.parse_args()

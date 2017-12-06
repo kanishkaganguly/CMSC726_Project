@@ -18,6 +18,7 @@ class Quad(object):
             the_file.write('\n')
 
     def run_one_episode(self, curr_epoch, curr_episode):
+        res = {}
         print("Epoch: %d Episode %d" % (curr_epoch, curr_episode))
         print("Epsilon Greedy: %f" % self.dqn_quad.eps)
         print("DQN Discount Factor: %f" % self.dqn_quad.gamma)
@@ -44,18 +45,20 @@ class Quad(object):
         new_state = self.control_quad.get_quad_state()
 
         # Test out of bounds
-        if abs(new_state[0]) > 10.0 or abs(new_state[1]) > 10.0 or new_state[2] > 5.0 or new_state[2] < 0.0:
+        if abs(new_state[0]) > 10.0 or abs(new_state[1]) > 10.0 or not 0.0 <= new_state[2] <= 5.0:
             print("Quadcopter out of bounds")
             if self.mode == 'test':
-                return 'Failure'
+                res['status'] = 'fail'
             elif self.mode == 'train':
                 # Get reward
                 print("Getting reward")
                 reward = -50
+                res['reset'] = True
         else:
             # Get reward
             print("Getting reward")
             reward = self.dqn_quad.get_reward(new_state, self.control_quad.get_target_state())
+            res['reset'] = False
 
         # Set target q_values for backprop
         print("Setting target q_values")
@@ -72,7 +75,7 @@ class Quad(object):
         if curr_episode % 100 == 0:
             self.write_data(curr_epoch, reward, curr_episode)
 
-        return 'continue'
+        return res
 
     def task_every_n_epochs(self, curr_epoch):
         if curr_epoch % 10 == 0:
@@ -81,14 +84,12 @@ class Quad(object):
             self.dqn_quad.eps += (1. / (1. + self.dqn_quad.eps_decay * self.epoch_size))
             self.dqn_quad.gamma += (1. / (1. + self.dqn_quad.gamma_decay * self.epoch_size))
             self.control_quad.reset(rand_target=True)
-        else:
-            self.control_quad.reset()
 
     def run_one_epoch(self, curr_epoch):
         for i in range(self.dqn_quad.episode_size):
             res = self.run_one_episode(curr_epoch, i)
-            if res == 'break':
-                break
+            if res['reset']:
+                self.control_quad.reset()
 
     def test_quad(self):
         self.control_quad.reset()
@@ -97,10 +98,10 @@ class Quad(object):
         self.dqn_quad.eps = 1.0
         while not self.control_quad.check_target_reached():
             res = self.run_one_episode(100, 100)
-            if res == 'Failure':
+            if res['status'] == 'fail':
                 print('Our quadrotor failed test.')
                 break
             else:
                 print('Continuing test.')
-        if res != 'Failure':
-            print("Our quadrotor has reached the test target.")
+
+        print("Our quadrotor has reached the test target.")
