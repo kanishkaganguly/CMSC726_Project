@@ -1614,3 +1614,221 @@ Reward: 0.678377
 Loss: 0.111585
 Learning Rate: 0.100000
 
+Epoch: 0 Episode: 1900
+Epsilon Greedy: 0.010000
+Reward: 0.615288
+Loss: 0.057331
+Learning Rate: 0.100000
+
+Epoch: 0 Episode: 2000
+Epsilon Greedy: 0.010000
+Reward: 0.629227
+Loss: 0.062984
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2100
+Epsilon Greedy: 0.010000
+Reward: 0.660087
+Loss: 0.101548
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2200
+Epsilon Greedy: 0.010000
+Reward: 0.660429
+Loss: 0.111451
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2300
+Epsilon Greedy: 0.010000
+Reward: 0.687845
+Loss: 0.146107
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2400
+Epsilon Greedy: 0.010000
+Reward: 0.675611
+Loss: 0.125140
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2500
+Epsilon Greedy: 0.010000
+Reward: 0.676749
+Loss: 0.090216
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2600
+Epsilon Greedy: 0.010000
+Reward: 0.655522
+Loss: 0.097177
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2700
+Epsilon Greedy: 0.010000
+Reward: 0.644159
+Loss: 0.062329
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2800
+Epsilon Greedy: 0.010000
+Reward: 0.602406
+Loss: 0.051038
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 2900
+Epsilon Greedy: 0.010000
+Reward: 0.685404
+Loss: 0.156826
+Learning Rate: 0.010000
+
+Epoch: 0 Episode: 3000
+Epsilon Greedy: 0.010000
+Reward: 0.658133
+Loss: 0.084919
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3100
+Epsilon Greedy: 0.010000
+Reward: 0.675611
+Loss: 0.169210
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3200
+Epsilon Greedy: 0.010000
+Reward: 0.671478
+Loss: 0.164676
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3300
+Epsilon Greedy: 0.010000
+Reward: 0.645573
+Loss: 0.176567
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3400
+Epsilon Greedy: 0.010000
+Reward: 0.561069
+Loss: 0.075754
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3500
+Epsilon Greedy: 0.010000
+Reward: 0.557370
+Loss: 0.063146
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3600
+Epsilon Greedy: 0.010000
+Reward: 0.518762
+Loss: 0.034964
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3700
+Epsilon Greedy: 0.010000
+Reward: 0.544570
+Loss: 0.050113
+Learning Rate: 0.001000
+
+Epoch: 0 Episode: 3800
+Epsilon Greedy: 0.010000
+Reward: 0.549835
+Loss: 0.071629
+Learning Rate: 0.001000
+
+
+************* SAVE FILE 2017-12-06 14:20:28 *************
+Epoch: 0 Episode: 0
+Epsilon Greedy: 0.010000
+Reward: -50.000000
+Loss: 2547.130615
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 100
+Epsilon Greedy: 0.010000
+Reward: 0.683680
+Loss: 0.239476
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 200
+Epsilon Greedy: 0.010000
+Reward: 0.688378
+Loss: 0.237311
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 300
+Epsilon Greedy: 0.010000
+Reward: 0.646277
+Loss: 0.149957
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 400
+Epsilon Greedy: 0.010000
+Reward: 0.668167
+Loss: 0.228726
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 500
+Epsilon Greedy: 0.010000
+Reward: 0.663546
+Loss: 0.217659
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 600
+Epsilon Greedy: 0.010000
+Reward: 0.656976
+Loss: 0.111571
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 700
+Epsilon Greedy: 0.010000
+Reward: 0.615744
+Loss: 0.098937
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 800
+Epsilon Greedy: 0.010000
+Reward: 0.654202
+Loss: 0.185290
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 900
+Epsilon Greedy: 0.010000
+Reward: 0.646277
+Loss: 0.184248
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1000
+Epsilon Greedy: 0.010000
+Reward: 0.608230
+Loss: 0.124309
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1100
+Epsilon Greedy: 0.010000
+Reward: 0.626077
+Loss: 0.165438
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1200
+Epsilon Greedy: 0.010000
+Reward: 0.581005
+Loss: 0.107316
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1300
+Epsilon Greedy: 0.010000
+Reward: 0.621668
+Loss: 0.125689
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1400
+Epsilon Greedy: 0.010000
+Reward: 0.580610
+Loss: 0.039789
+Learning Rate: 1.000000
+
+Epoch: 0 Episode: 1500
+Epsilon Greedy: 0.010000
+Reward: 0.518153
+Loss: 0.035119
+Learning Rate: 1.000000
+
