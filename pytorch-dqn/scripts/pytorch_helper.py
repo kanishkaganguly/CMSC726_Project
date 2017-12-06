@@ -22,7 +22,7 @@ class QuadDQN(object):
         self.learning_rate = 1.0
         self.eps = 0.1
         self.eps_decay = 0.01
-        self.gamma = 0.6
+        self.gamma = 0.1
         self.gamma_decay = 0.01
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.scheduler = StepLR(self.optim, step_size=1000, gamma=0.1)
@@ -102,7 +102,8 @@ class QuadDQN(object):
             'state_dict': self.model.state_dict(),
             'optimizer' : self.optim.state_dict(),
             'epoch'     : epoch,
-            'epsilon'   : self.eps
+            'epsilon'   : self.eps,
+            'gamma'     : self.gamma
         }
         torch.save(saveme, savefile)
 
@@ -114,5 +115,6 @@ class QuadDQN(object):
             self.model.load_state_dict(checkpoint['state_dict'])
             self.optim.load_state_dict(checkpoint['optimizer'])
             self.eps = checkpoint['epsilon']
+            self.gamma = checkpoint['gamma']
         else:
             return 0
