@@ -5,14 +5,15 @@ import threading
 import time
 
 import vrep
-
+import platform
 
 class SimHelper(object):
     def __init__(self):
-        self.start_vrep()
+        if platform.system() != 'Darwin':
+            self.start_vrep()
         self.setup_vrep_remote()
-        self.check_vrep()
-
+        if platform.system() != 'Darwin':
+            self.check_vrep()
     '''
     Turn on V-REP application
     '''
