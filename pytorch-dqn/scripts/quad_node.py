@@ -110,6 +110,8 @@ def main():
             else:
                 control_quad.reset()
             print('\n')
+
+        # DO TESTING HERE
         print("V-REP Exited...")
 
 
