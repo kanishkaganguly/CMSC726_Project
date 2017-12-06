@@ -25,7 +25,7 @@ class QuadDQN(object):
         self.gamma = 0.1
         self.gamma_decay = 0.01
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        self.scheduler = StepLR(self.optim, step_size=10000, gamma=0.1)
+        self.scheduler = StepLR(self.optim, step_size=self.episode_size, gamma=0.1)
         self.loss = 0.0
 
     # Predict next action
