@@ -8,6 +8,78 @@ import vrep
 from pytorch_helper import QuadDQN
 from quad_helper import QuadHelper
 
+def write_data(dqn_quad, epoch, reward, iteration):
+    with open('dqn_outputs.txt', 'a') as the_file:
+        the_file.write('Epoch: %d Episode: %d\n' % (epoch, iteration))
+        the_file.write('Epsilon Greedy: %f\n' % dqn_quad.eps)
+        the_file.write('Reward: %f\n' % reward)
+        the_file.write('Loss: %f\n' % float(dqn_quad.loss.data[0]))
+        the_file.write('Learning Rate: %f\n' % float(dqn_quad.scheduler.get_lr()[0]))
+        the_file.write('\n')
+
+def run_one_epoch(dqn_quad, control_quad, epoch):
+    for i in range(dqn_quad.episode_size):
+        print("Epoch: %d Episode %d" % (epoch, i))
+        print("Epsilon Greedy: %f" % dqn_quad.eps)
+        print("DQN Discount Factor: %f" % dqn_quad.gamma)
+
+        # Get current state
+        print("Getting current state")
+        curr_state = np.array(control_quad.get_state(), dtype=np.float32)
+
+        # Get action q_values
+        print("Getting predicted q_values")
+        pred_q = dqn_quad.predict_action(curr_state)
+
+        # Get action with max q_value
+        print("Getting best action")
+        max_q_idx = np.argmax(pred_q)
+        max_q = np.amax(pred_q)
+
+        # Do action
+        print("Moving quadcopter")
+        control_quad.move_quad(dqn_quad.do_action(max_q_idx))
+
+        # Get new state
+        print("Getting new state")
+        new_state = control_quad.get_state()
+
+        # Test out of bounds
+        test_state = control_quad.get_state()
+        if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or test_state[2] > 5.0 or test_state[2] < 0.0:
+            print("Quadcopter out of bounds")
+            # Get reward
+            print("Getting reward")
+            reward = -50
+            # Set target q_values for backprop
+            print("Setting target values")
+            target_q = np.copy(pred_q)
+            target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
+            print("Computing loss")
+            dqn_quad.get_loss(target_q, pred_q)
+            # Do backprop
+            print("Backpropagation")
+            dqn_quad.backprop()
+            print('\n')
+            break
+        else:
+            # Get reward
+            print("Getting reward")
+            reward = dqn_quad.get_reward(new_state, control_quad.target_state)
+            # Set target q_values for backprop
+            print("Setting target values")
+            target_q = np.copy(pred_q)
+            target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
+            print("Computing loss")
+            dqn_quad.get_loss(target_q, pred_q)
+            # Do backprop
+            print("Backpropagation")
+            dqn_quad.backprop()
+            print('\n')
+
+        if i % 100 == 0:
+            write_data(dqn_quad, epoch, reward, i)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -28,7 +100,7 @@ def main():
     dqn_quad.eps = args.epsilon
     dqn_quad.gamma = args.gamma
 
-    if args.load_model:
+    if args.load_model == True:
         dqn_quad.load_wts('dqn_quad.pth')
 
     while (vrep.simxGetConnectionId(control_quad.sim_quad.clientID) != -1):
@@ -38,67 +110,7 @@ def main():
 
         epoch = 0
         while epoch < epoch_size:
-            for i in range(dqn_quad.episode_size):
-                print("Epoch: %d Episode %d" % (epoch, i))
-                print("Epsilon Greedy: %f" % dqn_quad.eps)
-                print("DQN Discount Factor: %f" % dqn_quad.gamma)
-                # Get current state
-                print("Getting current state")
-                curr_state = np.array(control_quad.get_state(), dtype=np.float32)
-                # Get action q_values
-                print("Getting predicted q_values")
-                pred_q = dqn_quad.predict_action(curr_state)
-                # Get action with max q_value
-                print("Getting best action")
-                max_q_idx = np.argmax(pred_q)
-                max_q = np.amax(pred_q)
-                # Do action
-                print("Moving quadcopter")
-                control_quad.move_quad(dqn_quad.do_action(max_q_idx))
-                # Get new state
-                print("Getting new state")
-                new_state = control_quad.get_state()
-
-                # Test out of bounds
-                test_state = control_quad.get_state()
-                if abs(test_state[0]) > 10.0 or abs(test_state[1]) > 10.0 or test_state[2] > 5.0 or test_state[2] < 0.0:
-                    print("Quadcopter out of bounds")
-                    # Get reward
-                    print("Getting reward")
-                    reward = -50
-                    # Set target q_values for backprop
-                    print("Setting target values")
-                    target_q = np.copy(pred_q)
-                    target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
-                    print("Computing loss")
-                    dqn_quad.get_loss(target_q, pred_q)
-                    # Do backprop
-                    print("Backpropagation")
-                    dqn_quad.backprop()
-                    print('\n')
-                    break
-                else:
-                    # Get reward
-                    print("Getting reward")
-                    reward = dqn_quad.get_reward(new_state, control_quad.target_state)
-                    # Set target q_values for backprop
-                    print("Setting target values")
-                    target_q = np.copy(pred_q)
-                    target_q[max_q_idx] = reward + dqn_quad.gamma * max_q
-                    print("Computing loss")
-                    dqn_quad.get_loss(target_q, pred_q)
-                    # Do backprop
-                    print("Backpropagation")
-                    dqn_quad.backprop()
-                    print('\n')
-                if i % 100 == 0:
-                    with open('dqn_outputs.txt', 'a') as the_file:
-                        the_file.write('Epoch: %d Episode: %d\n' % (epoch, i))
-                        the_file.write('Epsilon Greedy: %f\n' % dqn_quad.eps)
-                        the_file.write('Reward: %f\n' % reward)
-                        the_file.write('Loss: %f\n' % float(dqn_quad.loss.data[0]))
-                        the_file.write('Learning Rate: %f\n' % float(dqn_quad.scheduler.get_lr()[0]))
-                        the_file.write('\n')
+            run_one_epoch(dqn_quad, control_quad, epoch)
             print("Epoch reset")
             epoch += 1
             if epoch % 10 == 0:
@@ -111,9 +123,8 @@ def main():
                 control_quad.reset()
             print('\n')
 
-        # DO TESTING HERE
+        # TODO: ADD TEST CODE HERE
         print("V-REP Exited...")
-
 
 if __name__ == '__main__':
     main()
