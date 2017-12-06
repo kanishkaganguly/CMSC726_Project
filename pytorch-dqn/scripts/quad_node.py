@@ -97,9 +97,12 @@ def test_quad(dqn_quad, control_quad):
     control_quad.reset()
     control_quad.SetTarget([2,1,1,0])
     while(control_quad.ReachedTarget() == False):
-        res = run_one_episode(dqn_quad, control_quad, 0, 0, mode='test')
+        res = run_one_episode(dqn_quad, control_quad, 100, 100, mode='test')
         if res == 'Failure':
             print('Our quadroptor failed test.')
+            break
+        else:
+            print('Continuing test.')
     if res != 'Failure':
         print("Our quadroptor has reached the test target.")
 
