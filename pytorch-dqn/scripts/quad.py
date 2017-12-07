@@ -2,13 +2,18 @@ import numpy as np
 
 
 class Quad(object):
-    def __init__(self, dqn_quad, control_quad):
+    def __init__(self, dqn_quad, control_quad, visualizer):
         self.mode = "train"
         self.dqn_quad = dqn_quad
         self.control_quad = control_quad
+        self.visualizer = visualizer
         self.epoch_size = 0
 
     def write_data(self, epoch, reward, iteration):
+        self.visualizer.append_plots('epsilon', self.dqn_quad.eps, iteration)
+        self.visualizer.append_plots('gamma', self.dqn_quad.gamma, iteration)
+        self.visualizer.append_plots('learning_rate', float(self.dqn_quad.scheduler.get_lr()[0]), iteration)
+
         with open('dqn_outputs.txt', 'a') as the_file:
             the_file.write('Epoch: %d Episode: %d\n' % (epoch, iteration))
             the_file.write('Epsilon Greedy: %f\n' % self.dqn_quad.eps)

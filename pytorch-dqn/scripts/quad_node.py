@@ -6,6 +6,7 @@ import vrep
 from pytorch_helper import QuadDQN
 from quad import Quad
 from quad_helper import QuadHelper
+from visualizer import Visualizer
 
 
 def main():
@@ -31,7 +32,8 @@ def main():
     # Initialize classes
     control_quad = QuadHelper()
     dqn_quad = QuadDQN(args.cuda)
-    main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad)
+    viz = Visualizer()
+    main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad, visualizer=viz)
 
     # Argument parsing
     main_quad.epoch_size = args.epoch_size
