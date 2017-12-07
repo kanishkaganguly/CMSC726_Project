@@ -16,7 +16,7 @@ def main():
     parser.add_argument("--gamma", type=float, default=0.01, help="DQN gamma starting value")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
-    parser.add_argument("--display", action='store_false', default=True, help="Show V-REP display")
+    parser.add_argument("--nodisplay", action='store_true', default=False, help="Show V-REP display")
     args = parser.parse_args()
 
     print("Using Parameters:\n")
@@ -38,8 +38,8 @@ def main():
     dqn_quad.gamma = args.gamma
     if args.load_model == True:
         dqn_quad.load_wts('dqn_quad.pth')
-    if args.display == False:
-        control_quad.sim_quad.display_enabled(args.display)
+    if args.nodisplay:
+        control_quad.sim_quad.display_disabled()
 
     while (vrep.simxGetConnectionId(control_quad.sim_quad.clientID) != -1):
         with open('dqn_outputs.txt', 'a') as the_file:

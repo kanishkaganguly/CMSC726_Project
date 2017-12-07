@@ -119,6 +119,7 @@ class SimHelper(object):
         self.stop_sim()
         time.sleep(0.1)
         self.start_sim()
+        self.display_disabled()
         return
 
     ''' 
@@ -141,8 +142,8 @@ class SimHelper(object):
     Turn off V-REP display
     '''
 
-    def display_enabled(self, enabled=True):
-        vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_display_enabled, enabled,
+    def display_disabled(self):
+        vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_display_enabled, False,
                                      vrep.simx_opmode_oneshot_wait)
         vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_browser_visible, False,
                                      vrep.simx_opmode_oneshot_wait)
