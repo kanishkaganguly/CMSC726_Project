@@ -10,7 +10,7 @@ from torch.optim.lr_scheduler import StepLR
 
 class QuadDQN(object):
     def __init__(self):
-        self.episode_size = 100000
+        self.episode_size = 50000
         self.input = 4
         self.action = 8
         self.hidden = 16
@@ -109,7 +109,7 @@ class QuadDQN(object):
 
     # Load weights
     def load_wts(self, savefile):
-        print("Loading saved model: %s" % savefile)
+        print("Loading saved model: %s\n" % savefile)
         if os.path.isfile(savefile):
             checkpoint = torch.load(savefile)
             self.model.load_state_dict(checkpoint['state_dict'])

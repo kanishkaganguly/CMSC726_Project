@@ -63,7 +63,7 @@ class QuadHelper(object):
             self.step()
 
     def step(self):
-        self.sim_quad.step_sim(self.sim_quad.clientID)
+        self.sim_quad.step_sim()
 
     def reset(self, rand_target=False):
         self.sim_quad.reset()

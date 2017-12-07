@@ -78,9 +78,8 @@ class Quad(object):
         return res
 
     def task_every_n_epochs(self, curr_epoch):
-        if curr_epoch % 10 == 0:
+        if curr_epoch % 2 == 0:
             self.dqn_quad.save_wts('dqn_quad.pth', curr_epoch)
-        if curr_epoch % 5 == 0:
             self.dqn_quad.eps += (1. / (1. + self.dqn_quad.eps_decay * self.epoch_size))
             self.dqn_quad.gamma += (1. / (1. + self.dqn_quad.gamma_decay * self.epoch_size))
             self.control_quad.reset(rand_target=True)

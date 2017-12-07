@@ -107,8 +107,8 @@ class SimHelper(object):
     Step V-REP simulation
     '''
 
-    def step_sim(self, clientID):
-        vrep.simxSynchronousTrigger(clientID)
+    def step_sim(self):
+        vrep.simxSynchronousTrigger(self.clientID)
         return
 
     '''
@@ -135,4 +135,17 @@ class SimHelper(object):
 
     def load_scene(self, scene_name):
         vrep.simxLoadScene(self.clientID, scene_name + ".ttt", 0xFF, vrep.simx_opmode_blocking)
+        return
+
+    '''
+    Turn off V-REP display
+    '''
+
+    def display_enabled(self, enabled=True):
+        vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_display_enabled, enabled,
+                                     vrep.simx_opmode_oneshot_wait)
+        vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_browser_visible, False,
+                                     vrep.simx_opmode_oneshot_wait)
+        vrep.simxSetBooleanParameter(self.clientID, vrep.sim_boolparam_hierarchy_visible, False,
+                                     vrep.simx_opmode_oneshot_wait)
         return
