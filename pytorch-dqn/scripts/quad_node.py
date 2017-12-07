@@ -17,6 +17,7 @@ def main():
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
     parser.add_argument("--nodisplay", action='store_true', default=False, help="Show V-REP display")
+    parser.add_argument("--cuda", action='store_true', default=False, help="Use CUDA")
     args = parser.parse_args()
 
     print("Using Parameters:\n")
@@ -25,10 +26,11 @@ def main():
     print("Epsilon: %f \n" % args.epsilon)
     print("Gamma: %f \n" % args.gamma)
     print("Testing Phase: %s \n" % str(args.test))
+    print("Using CUDA: %s\n" % str(args.cuda))
 
     # Initialize classes
     control_quad = QuadHelper()
-    dqn_quad = QuadDQN()
+    dqn_quad = QuadDQN(args.cuda)
     main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad)
 
     # Argument parsing
@@ -36,7 +38,7 @@ def main():
     dqn_quad.episode_size = args.episode_size
     dqn_quad.eps = args.epsilon
     dqn_quad.gamma = args.gamma
-    if args.load_model == True:
+    if args.load_model:
         dqn_quad.load_wts('dqn_quad.pth')
     if args.nodisplay:
         control_quad.sim_quad.display_disabled()

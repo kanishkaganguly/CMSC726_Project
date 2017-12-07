@@ -9,16 +9,25 @@ from torch.optim.lr_scheduler import StepLR
 
 
 class QuadDQN(object):
-    def __init__(self):
+    def __init__(self, cuda):
+        self.cuda = cuda
+
         self.episode_size = 50000
         self.input = 4
         self.action = 8
         self.hidden = 16
-        self.x = Variable(torch.randn(1, self.input))
-        self.y = Variable(torch.randn(1, self.action), requires_grad=False)
-        self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
-                                         torch.nn.Linear(self.hidden, self.action))
-        self.loss_fn = torch.nn.MSELoss(size_average=False)
+        if self.cuda:
+            self.x = Variable(torch.randn(1, self.input)).cuda()
+            self.y = Variable(torch.randn(1, self.action), requires_grad=False).cuda()
+            self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
+                                             torch.nn.Linear(self.hidden, self.action)).cuda()
+            self.loss_fn = torch.nn.MSELoss(size_average=False).cuda()
+        else:
+            self.x = Variable(torch.randn(1, self.input))
+            self.y = Variable(torch.randn(1, self.action), requires_grad=False)
+            self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
+                                             torch.nn.Linear(self.hidden, self.action))
+            self.loss_fn = torch.nn.MSELoss(size_average=False)
         self.learning_rate = 1.0
         self.eps = 0.1
         self.eps_decay = 0.01
@@ -30,14 +39,23 @@ class QuadDQN(object):
 
     # Predict next action
     def predict_action(self, state):
-        self.x = torch.from_numpy(state)
-        self.y = self.model(Variable(self.x))
-        return self.y.data.numpy()
+        if self.cuda:
+            self.x = torch.from_numpy(state).cuda()
+            self.y = self.model(Variable(self.x)).cuda()
+            return self.y.data.cpu().numpy()
+        else:
+            self.x = torch.from_numpy(state)
+            self.y = self.model(Variable(self.x))
+            return self.y.data.numpy()
 
     # Get distance loss after action
     def get_loss(self, target, predicted):
-        self.y_pred = Variable(torch.from_numpy(predicted), requires_grad=True)
-        self.y_tgt = Variable(torch.from_numpy(target), requires_grad=False)
+        if self.cuda:
+            self.y_pred = Variable(torch.from_numpy(predicted), requires_grad=True).cuda()
+            self.y_tgt = Variable(torch.from_numpy(target), requires_grad=False).cuda()
+        else:
+            self.y_pred = Variable(torch.from_numpy(predicted), requires_grad=True)
+            self.y_tgt = Variable(torch.from_numpy(target), requires_grad=False)
         self.loss = self.loss_fn(self.y_pred, self.y_tgt)
         print("Loss: %f" % self.loss.data[0])
         return
