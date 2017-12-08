@@ -11,14 +11,15 @@ from visualizer import Visualizer
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--epoch_size", type=int, default=10000, help="Total training epochs")
-    parser.add_argument("--episode_size", type=int, default=100000, help="Training episodes per epoch")
+    parser.add_argument("--epoch_size", type=int, default=10, help="Total training epochs")
+    parser.add_argument("--episode_size", type=int, default=50000, help="Training episodes per epoch")
     parser.add_argument("--epsilon", type=float, default=0.01, help="Greedy Epsilon starting value")
     parser.add_argument("--gamma", type=float, default=0.01, help="DQN gamma starting value")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
     parser.add_argument("--nodisplay", action='store_true', default=False, help="Show V-REP display")
     parser.add_argument("--cuda", action='store_true', default=False, help="Use CUDA")
+    parser.add_argument("--viz", action='store_true', default=False, help="Use Visdom Visualizer")
     args = parser.parse_args()
 
     print("Using Parameters:\n")
@@ -31,13 +32,14 @@ def main():
 
     # Initialize classes
     control_quad = QuadHelper()
-    dqn_quad = QuadDQN(args.cuda)
-    viz = Visualizer()
-    main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad, visualizer=viz)
+    dqn_quad = QuadDQN(args.cuda, args.epoch_size, args.episode_size)
+    if args.viz:
+        viz = Visualizer()
+        main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad, visualizer=viz)
+    else:
+        main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad, visualizer=None)
 
     # Argument parsing
-    main_quad.epoch_size = args.epoch_size
-    dqn_quad.episode_size = args.episode_size
     dqn_quad.eps = args.epsilon
     dqn_quad.gamma = args.gamma
     if args.load_model:
@@ -60,7 +62,7 @@ def main():
         else:
             # Train quadcopter
             epoch = 0
-            while epoch < main_quad.epoch_size:
+            while epoch < dqn_quad.epoch_size:
                 main_quad.run_one_epoch(epoch)
                 print("Epoch reset")
                 epoch += 1

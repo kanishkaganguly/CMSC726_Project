@@ -9,10 +9,10 @@ from torch.optim.lr_scheduler import StepLR
 
 
 class QuadDQN(object):
-    def __init__(self, cuda):
+    def __init__(self, cuda, epoch_size, episode_size):
         self.cuda = cuda
-
-        self.episode_size = 50000
+        self.epoch_size = epoch_size
+        self.episode_size = episode_size
         self.input = 4
         self.action = 8
         self.hidden = 16
@@ -28,11 +28,13 @@ class QuadDQN(object):
             self.model = torch.nn.Sequential(torch.nn.Linear(self.input, self.hidden), torch.nn.ReLU(),
                                              torch.nn.Linear(self.hidden, self.action))
             self.loss_fn = torch.nn.MSELoss(size_average=False)
+
         self.learning_rate = 1.0
         self.eps = 0.1
-        self.eps_decay = 0.01
+        self.eps_list = np.linspace(self.eps, 1.0, self.epoch_size)
         self.gamma = 0.1
-        self.gamma_decay = 0.01
+        self.gamma_list = np.linspace(self.gamma, 1.0, self.epoch_size)
+
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
         self.scheduler = StepLR(self.optim, step_size=self.episode_size, gamma=0.1)
         self.loss = 0.0
@@ -66,7 +68,6 @@ class QuadDQN(object):
         self.optim.zero_grad()
         self.loss.backward()
         self.scheduler.step()
-        # self.optim.step()
 
     # Get reward
     def get_reward(self, curr_state, target_state):
@@ -84,7 +85,7 @@ class QuadDQN(object):
         reward_z = math.exp(-deviation_z ** 2 / (2 * sigma_z))
         reward_yaw = math.exp(-deviation_yaw ** 2 / (2 * sigma_yaw))
 
-        reward = self.sigmoid(0.6 * reward_x + 0.6 * reward_y + 0.9 * reward_z + 0.2 * reward_yaw)
+        reward = self.sigmoid(0.9 * reward_x + 0.9 * reward_y + 0.9 * reward_z + 0.1 * reward_yaw)
         print("Reward: %f" % reward)
         return reward
 

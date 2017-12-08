@@ -7,13 +7,13 @@ class Quad(object):
         self.dqn_quad = dqn_quad
         self.control_quad = control_quad
         self.visualizer = visualizer
-        self.epoch_size = 0
         self.display_disabled = False
 
     def write_data(self, epoch, reward, iteration):
-        self.visualizer.append_plots('epsilon', self.dqn_quad.eps, iteration)
-        self.visualizer.append_plots('gamma', self.dqn_quad.gamma, iteration)
-        self.visualizer.append_plots('learning_rate', float(self.dqn_quad.scheduler.get_lr()[0]), iteration)
+        if self.visualizer is not None:
+            self.visualizer.append_plots('epsilon', self.dqn_quad.eps, iteration)
+            self.visualizer.append_plots('gamma', self.dqn_quad.gamma, iteration)
+            self.visualizer.append_plots('learning_rate', float(self.dqn_quad.scheduler.get_lr()[0]), iteration)
 
         with open('dqn_outputs.txt', 'a') as the_file:
             the_file.write('Epoch: %d Episode: %d\n' % (epoch, iteration))
@@ -83,11 +83,18 @@ class Quad(object):
     def task_every_n_epochs(self, curr_epoch):
         if curr_epoch % 1 == 0:
             self.dqn_quad.save_wts('dqn_quad.pth', curr_epoch)
-            self.dqn_quad.eps += (1. / (1. + self.dqn_quad.eps_decay * self.epoch_size)) if self.dqn_quad.eps < 1.0 \
-                else 1.0
-            self.dqn_quad.gamma += (1. / (1. + self.dqn_quad.gamma_decay * self.epoch_size)) if self.dqn_quad.gamma < \
-                                                                                                1.0 \
-                else 1.0
+            self.dqn_quad.eps = self.dqn_quad.eps_list[curr_epoch]
+            self.dqn_quad.gamma = self.dqn_quad.gamma_list[curr_epoch]
+            # if self.dqn_quad.eps < 1.0:
+            #     self.dqn_quad.eps /= (1. / (1. + self.dqn_quad.eps_decay * curr_epoch))
+            # else:
+            #     self.dqn_quad.eps = 1.0
+            #
+            # if self.dqn_quad.gamma < 1.0:
+            #     self.dqn_quad.gamma /= (1. / (1. + self.dqn_quad.gamma_decay * curr_epoch))
+            # else:
+            #     self.dqn_quad.gamma = 1.0
+
             self.control_quad.reset(rand_target=True, display_disabled=self.display_disabled)
 
     def run_one_epoch(self, curr_epoch):
