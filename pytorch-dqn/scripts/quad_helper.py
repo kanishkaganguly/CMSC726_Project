@@ -14,9 +14,13 @@ class QuadHelper(object):
         self.y_target_limits = [-5, 5]
         self.z_target_limits = [1, 5]
 
+        self.display_disabled = False
+
         print("Initializing simulator")
         self.sim_quad = SimHelper()
         self.sim_quad.load_scene('quad_scene')
+        if self.display_disabled:
+            self.sim_quad.display_disabled()
 
         print("Fetching quad, target handles")
         self.quad_handle = self.sim_quad.get_handle('Quadricopter_target')
@@ -65,8 +69,8 @@ class QuadHelper(object):
     def step(self):
         self.sim_quad.step_sim()
 
-    def reset(self, rand_target=False):
-        self.sim_quad.reset()
+    def reset(self, rand_target=False, display_disabled=False):
+        self.sim_quad.reset(display_disabled)
         self.quad_state = np.zeros(4)
         if rand_target:
             x_rand = np.random.uniform(self.x_target_limits[0], self.x_target_limits[1])

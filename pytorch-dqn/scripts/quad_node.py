@@ -43,7 +43,8 @@ def main():
     if args.load_model:
         dqn_quad.load_wts('dqn_quad.pth')
     if args.nodisplay:
-        control_quad.sim_quad.display_disabled()
+        control_quad.display_disabled = True
+        main_quad.display_disabled = True
 
     while (vrep.simxGetConnectionId(control_quad.sim_quad.clientID) != -1):
         with open('dqn_outputs.txt', 'a') as the_file:

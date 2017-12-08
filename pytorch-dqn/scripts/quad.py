@@ -8,6 +8,7 @@ class Quad(object):
         self.control_quad = control_quad
         self.visualizer = visualizer
         self.epoch_size = 0
+        self.display_disabled = False
 
     def write_data(self, epoch, reward, iteration):
         self.visualizer.append_plots('epsilon', self.dqn_quad.eps, iteration)
@@ -52,13 +53,10 @@ class Quad(object):
         # Test out of bounds
         if abs(new_state[0]) > 10.0 or abs(new_state[1]) > 10.0 or not 0.0 <= new_state[2] <= 5.0:
             print("Quadcopter out of bounds")
-            if self.mode == 'test':
-                res['status'] = 'fail'
-            elif self.mode == 'train':
-                # Get reward
-                print("Getting reward")
-                reward = -50
-                res['reset'] = True
+            # Get reward
+            print("Getting reward")
+            reward = -50
+            res['reset'] = True
         else:
             # Get reward
             print("Getting reward")
@@ -83,29 +81,31 @@ class Quad(object):
         return res
 
     def task_every_n_epochs(self, curr_epoch):
-        if curr_epoch % 2 == 0:
+        if curr_epoch % 1 == 0:
             self.dqn_quad.save_wts('dqn_quad.pth', curr_epoch)
-            self.dqn_quad.eps += (1. / (1. + self.dqn_quad.eps_decay * self.epoch_size))
-            self.dqn_quad.gamma += (1. / (1. + self.dqn_quad.gamma_decay * self.epoch_size))
-            self.control_quad.reset(rand_target=True)
+            self.dqn_quad.eps += (1. / (1. + self.dqn_quad.eps_decay * self.epoch_size)) if self.dqn_quad.eps < 1.0 \
+                else 1.0
+            self.dqn_quad.gamma += (1. / (1. + self.dqn_quad.gamma_decay * self.epoch_size)) if self.dqn_quad.gamma < \
+                                                                                                1.0 \
+                else 1.0
+            self.control_quad.reset(rand_target=True, display_disabled=self.display_disabled)
 
     def run_one_epoch(self, curr_epoch):
         for i in range(self.dqn_quad.episode_size):
             res = self.run_one_episode(curr_epoch, i)
             if res['reset']:
-                self.control_quad.reset()
+                self.control_quad.reset(display_disabled=self.display_disabled)
 
     def test_quad(self):
-        self.control_quad.reset()
+        self.control_quad.reset(display_disabled=self.display_disabled)
         self.control_quad.set_target_state([2, 1, 1, 0])
         self.dqn_quad.gamma = 0.8
         self.dqn_quad.eps = 1.0
+        test_epoch = 0
+        test_episode = 0
         while not self.control_quad.check_target_reached():
-            res = self.run_one_episode(100, 100)
-            if res['status'] == 'fail':
-                print('Our quadrotor failed test.')
-                break
-            else:
-                print('Continuing test.')
-
+            res = self.run_one_episode(test_epoch, test_episode)
+            if res['reset']:
+                self.control_quad.reset(display_disabled=self.display_disabled)
+            test_episode += 1
         print("Our quadrotor has reached the test target.")

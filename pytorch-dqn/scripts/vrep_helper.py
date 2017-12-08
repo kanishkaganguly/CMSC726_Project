@@ -115,11 +115,12 @@ class SimHelper(object):
     Reset V-REP simulation
     '''
 
-    def reset(self):
+    def reset(self, display_disabled):
         self.stop_sim()
         time.sleep(0.1)
         self.start_sim()
-        self.display_disabled()
+        if display_disabled:
+            self.display_disabled()
         return
 
     ''' 
