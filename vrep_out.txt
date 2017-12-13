@@ -47,19 +47,21 @@ Plugin 'ReflexxesTypeII': loading...
 Plugin 'ReflexxesTypeII': load succeeded.
 Plugin 'RemoteApi': loading...
 Starting a remote API server on port 19999
-0x1cacc70 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1cac8b0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca9830 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca8950 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca8470 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca70f0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca6820 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x168ec20 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca6cd0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca75d0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca7f90 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1ca9350 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
-0x1caa1f0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x10d78d0) ): Attempt to set a screen on a child window.
+0x2701db0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x27019f0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fe970 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fda90 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fd5b0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fc230 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fb960 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x1e14ac0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fbe10 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fc710 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fd0d0 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26fe490 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+0x26ff330 void QWindowPrivate::setTopLevelScreen(QScreen*, bool) ( QScreen(0x1b27d30) ): Attempt to set a screen on a child window.
+qt.network.ssl: QSslSocket: cannot resolve SSLv2_client_method
+qt.network.ssl: QSslSocket: cannot resolve SSLv2_server_method
 Plugin 'RemoteApi': load succeeded.
 Plugin 'SDF': loading...
 Plugin 'SDF': load succeeded.
@@ -74,8 +76,6 @@ Plugin 'Urdf': load succeeded.
 Plugin 'Vision': loading...
 Plugin 'Vision': load succeeded.
 Using the 'MeshCalc' plugin.
-Initializing the Bullet physics engine in plugin 'DynamicsBullet_2_78'...
-Engine version: 2.78
-Plugin version: 9
-Initialization successful.
+Checking for an updated V-REP version...
+This V-REP version is up-to-date.
 Simulator ended.

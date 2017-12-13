@@ -13,8 +13,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--epoch_size", type=int, default=10, help="Total training epochs")
     parser.add_argument("--episode_size", type=int, default=50000, help="Training episodes per epoch")
-    parser.add_argument("--epsilon", type=float, default=0.01, help="Greedy Epsilon starting value")
-    parser.add_argument("--gamma", type=float, default=0.01, help="DQN gamma starting value")
+    parser.add_argument("--epsilon", type=float, default=0.1, help="Greedy Epsilon starting value")
+    parser.add_argument("--gamma", type=float, default=0.99, help="DQN gamma starting value")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
     parser.add_argument("--nodisplay", action='store_true', default=False, help="Show V-REP display")
@@ -72,7 +72,7 @@ def main():
 
             # Test quadrotor
             main_quad.mode = "test"
-            main_quad.test_quad(dqn_quad, control_quad)
+            main_quad.test_quad()
 
     control_quad.sim_quad.exit_sim()
     print("V-REP Exited...")

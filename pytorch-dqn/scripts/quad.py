@@ -13,14 +13,16 @@ class Quad(object):
         if self.visualizer is not None:
             self.visualizer.append_plots('epsilon', self.dqn_quad.eps, iteration)
             self.visualizer.append_plots('gamma', self.dqn_quad.gamma, iteration)
-            self.visualizer.append_plots('learning_rate', float(self.dqn_quad.scheduler.get_lr()[0]), iteration)
+            # self.visualizer.append_plots('learning_rate', float(self.dqn_quad.scheduler.get_lr()[0]), iteration)
 
         with open('dqn_outputs.txt', 'a') as the_file:
             the_file.write('Epoch: %d Episode: %d\n' % (epoch, iteration))
             the_file.write('Epsilon Greedy: %f\n' % self.dqn_quad.eps)
             the_file.write('Reward: %f\n' % reward)
             the_file.write('Loss: %f\n' % float(self.dqn_quad.loss.data[0]))
-            the_file.write('Learning Rate: %f\n' % float(self.dqn_quad.scheduler.get_lr()[0]))
+            # the_file.write('Learning Rate: %f\n' % float(self.dqn_quad.scheduler.get_lr()[0]))
+            the_file.write('Learning Rate: %f\n' % float(self.dqn_quad.learning_rate))
+
             the_file.write('\n')
 
     def run_one_episode(self, curr_epoch, curr_episode):
@@ -60,7 +62,7 @@ class Quad(object):
         else:
             # Get reward
             print("Getting reward")
-            reward = self.dqn_quad.get_reward(new_state, self.control_quad.get_target_state())
+            reward = self.dqn_quad.get_reward(new_state, curr_state, self.control_quad.get_target_state())
             res['reset'] = False
 
         # Set target q_values for backprop
@@ -83,17 +85,8 @@ class Quad(object):
     def task_every_n_epochs(self, curr_epoch):
         if curr_epoch % 1 == 0:
             self.dqn_quad.save_wts('dqn_quad.pth', curr_epoch)
-            self.dqn_quad.eps = self.dqn_quad.eps_list[curr_epoch]
-            self.dqn_quad.gamma = self.dqn_quad.gamma_list[curr_epoch]
-            # if self.dqn_quad.eps < 1.0:
-            #     self.dqn_quad.eps /= (1. / (1. + self.dqn_quad.eps_decay * curr_epoch))
-            # else:
-            #     self.dqn_quad.eps = 1.0
-            #
-            # if self.dqn_quad.gamma < 1.0:
-            #     self.dqn_quad.gamma /= (1. / (1. + self.dqn_quad.gamma_decay * curr_epoch))
-            # else:
-            #     self.dqn_quad.gamma = 1.0
+            self.dqn_quad.eps = self.dqn_quad.eps_list[curr_epoch - 1]
+            self.dqn_quad.gamma = self.dqn_quad.gamma_list[curr_epoch - 1]
 
             self.control_quad.reset(rand_target=True, display_disabled=self.display_disabled)
 

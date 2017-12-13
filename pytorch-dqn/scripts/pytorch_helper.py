@@ -5,7 +5,6 @@ import os
 import numpy as np
 import torch
 from torch.autograd import Variable
-from torch.optim.lr_scheduler import StepLR
 
 
 class QuadDQN(object):
@@ -29,14 +28,15 @@ class QuadDQN(object):
                                              torch.nn.Linear(self.hidden, self.action))
             self.loss_fn = torch.nn.MSELoss(size_average=False)
 
-        self.learning_rate = 1.0
+        self.learning_rate = 0.1
         self.eps = 0.1
-        self.eps_list = np.linspace(self.eps, 1.0, self.epoch_size)
+        self.eps_list = np.linspace(self.eps, 1.0, self.epoch_size, endpoint=True)
         self.gamma = 0.1
-        self.gamma_list = np.linspace(self.gamma, 1.0, self.epoch_size)
+        self.gamma_list = np.linspace(self.gamma, 0.85, self.epoch_size, endpoint=True)
 
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        self.scheduler = StepLR(self.optim, step_size=self.episode_size, gamma=0.1)
+        # self.scheduler = StepLR(self.optim, step_size=self.episode_size, gamma=0.1)
+
         self.loss = 0.0
 
     # Predict next action
@@ -64,28 +64,54 @@ class QuadDQN(object):
 
     # Do backprop
     def backprop(self):
-        print("Learning Rate: %f" % self.scheduler.get_lr()[0])
+        # print("Learning Rate: %f" % self.scheduler.get_lr()[0])
+        print("Learning Rate: %f" % self.learning_rate)
+
         self.optim.zero_grad()
         self.loss.backward()
-        self.scheduler.step()
+        self.optim.step()
+        # self.scheduler.step()
 
     # Get reward
-    def get_reward(self, curr_state, target_state):
-        deviation_x = np.linalg.norm(curr_state[0] - target_state[0])
-        deviation_y = np.linalg.norm(curr_state[1] - target_state[1])
-        deviation_z = np.linalg.norm(curr_state[2] - target_state[2])
-        deviation_yaw = np.linalg.norm(curr_state[3] - target_state[3])
+    def get_reward(self, curr_state, prev_state, target_state):
+        prev_deviation_x = np.linalg.norm(prev_state[0] - target_state[0])
+        prev_deviation_y = np.linalg.norm(prev_state[1] - target_state[1])
+        prev_deviation_z = np.linalg.norm(prev_state[2] - target_state[2])
+        prev_deviation_yaw = np.linalg.norm(prev_state[3] - target_state[3])
 
-        sigma_x = 0.1
-        sigma_y = 0.1
-        sigma_z = 0.01
-        sigma_yaw = 0.1
-        reward_x = math.exp(-deviation_x ** 2 / (2 * sigma_x))
-        reward_y = math.exp(-deviation_y ** 2 / (2 * sigma_y))
-        reward_z = math.exp(-deviation_z ** 2 / (2 * sigma_z))
-        reward_yaw = math.exp(-deviation_yaw ** 2 / (2 * sigma_yaw))
+        curr_deviation_x = np.linalg.norm(curr_state[0] - target_state[0])
+        curr_deviation_y = np.linalg.norm(curr_state[1] - target_state[1])
+        curr_deviation_z = np.linalg.norm(curr_state[2] - target_state[2])
+        curr_deviation_yaw = np.linalg.norm(curr_state[3] - target_state[3])
 
-        reward = self.sigmoid(0.9 * reward_x + 0.9 * reward_y + 0.9 * reward_z + 0.1 * reward_yaw)
+        if curr_deviation_x <= prev_deviation_x:
+            reward_x = 1.0
+        else:
+            reward_x = -1.0
+        if curr_deviation_y <= prev_deviation_y:
+            reward_y = 1.0
+        else:
+            reward_y = -1.0
+        if curr_deviation_z <= prev_deviation_z:
+            reward_z = 1.0
+        else:
+            reward_z = -1.0
+        if curr_deviation_yaw <= prev_deviation_yaw:
+            reward_yaw = 1.0
+        else:
+            reward_yaw = -1.0
+
+        reward = np.tanh(reward_x + reward_y + reward_z + reward_yaw)
+        # sigma_x = 0.1
+        # sigma_y = 0.1
+        # sigma_z = 0.01
+        # sigma_yaw = 0.1
+        # reward_x = math.exp(-deviation_x ** 2 / (2 * sigma_x))
+        # reward_y = math.exp(-deviation_y ** 2 / (2 * sigma_y))
+        # reward_z = math.exp(-deviation_z ** 2 / (2 * sigma_z))
+        # reward_yaw = math.exp(-deviation_yaw ** 2 / (2 * sigma_yaw))
+        #
+        # reward = self.sigmoid(0.9 * reward_x + 0.9 * reward_y + 0.9 * reward_z + 0.1 * reward_yaw)
         print("Reward: %f" % reward)
         return reward
 
