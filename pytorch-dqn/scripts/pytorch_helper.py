@@ -35,9 +35,23 @@ class QuadDQN(object):
         self.gamma_list = np.linspace(self.gamma, 0.85, self.epoch_size, endpoint=True)
 
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        # self.scheduler = StepLR(self.optim, step_size=self.episode_size, gamma=0.1)
-
         self.loss = 0.0
+
+        self.replay_buffer = []
+        self.replay_state = {}
+        self.buffer_size = 100
+        self.curr_buffer_pointer = 0
+
+    # Replay Buffer
+    def push_to_buffer(self, curr_state, reward, next_state):
+        self.replay_state['curr_state'] = curr_state
+        self.replay_state['next_state'] = next_state
+        self.replay_state['reward'] = reward
+        self.replay_buffer[self.curr_buffer_pointer % self.buffer_size] = self.replay_state
+
+    def pop_from_buffer(self):
+        val = self.replay_buffer.pop()
+        return val['next_state'], val['curr_state'], val['reward']
 
     # Predict next action
     def predict_action(self, state):
@@ -64,25 +78,23 @@ class QuadDQN(object):
 
     # Do backprop
     def backprop(self):
-        # print("Learning Rate: %f" % self.scheduler.get_lr()[0])
         print("Learning Rate: %f" % self.learning_rate)
 
         self.optim.zero_grad()
         self.loss.backward()
         self.optim.step()
-        # self.scheduler.step()
 
     # Get reward
-    def get_reward(self, curr_state, prev_state, target_state):
-        prev_deviation_x = np.linalg.norm(prev_state[0] - target_state[0])
-        prev_deviation_y = np.linalg.norm(prev_state[1] - target_state[1])
-        prev_deviation_z = np.linalg.norm(prev_state[2] - target_state[2])
-        prev_deviation_yaw = np.linalg.norm(prev_state[3] - target_state[3])
+    def get_reward(self, new_state, curr_state, target_state):
+        prev_deviation_x = np.linalg.norm(curr_state[0] - target_state[0])
+        prev_deviation_y = np.linalg.norm(curr_state[1] - target_state[1])
+        prev_deviation_z = np.linalg.norm(curr_state[2] - target_state[2])
+        prev_deviation_yaw = np.linalg.norm(curr_state[3] - target_state[3])
 
-        curr_deviation_x = np.linalg.norm(curr_state[0] - target_state[0])
-        curr_deviation_y = np.linalg.norm(curr_state[1] - target_state[1])
-        curr_deviation_z = np.linalg.norm(curr_state[2] - target_state[2])
-        curr_deviation_yaw = np.linalg.norm(curr_state[3] - target_state[3])
+        curr_deviation_x = np.linalg.norm(new_state[0] - target_state[0])
+        curr_deviation_y = np.linalg.norm(new_state[1] - target_state[1])
+        curr_deviation_z = np.linalg.norm(new_state[2] - target_state[2])
+        curr_deviation_yaw = np.linalg.norm(new_state[3] - target_state[3])
 
         if curr_deviation_x <= prev_deviation_x:
             reward_x = 1.0
@@ -101,17 +113,8 @@ class QuadDQN(object):
         else:
             reward_yaw = -1.0
 
-        reward = np.tanh(reward_x + reward_y + reward_z + reward_yaw)
-        # sigma_x = 0.1
-        # sigma_y = 0.1
-        # sigma_z = 0.01
-        # sigma_yaw = 0.1
-        # reward_x = math.exp(-deviation_x ** 2 / (2 * sigma_x))
-        # reward_y = math.exp(-deviation_y ** 2 / (2 * sigma_y))
-        # reward_z = math.exp(-deviation_z ** 2 / (2 * sigma_z))
-        # reward_yaw = math.exp(-deviation_yaw ** 2 / (2 * sigma_yaw))
-        #
-        # reward = self.sigmoid(0.9 * reward_x + 0.9 * reward_y + 0.9 * reward_z + 0.1 * reward_yaw)
+        reward = np.tanh(0.9 * reward_x + 0.9 * reward_y + 0.6 * reward_z + 0.1 * reward_yaw)
+
         print("Reward: %f" % reward)
         return reward
 
