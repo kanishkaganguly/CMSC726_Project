@@ -15,6 +15,7 @@ def main():
     parser.add_argument("--episode_size", type=int, default=50000, help="Training episodes per epoch")
     parser.add_argument("--epsilon", type=float, default=0.1, help="Greedy Epsilon starting value")
     parser.add_argument("--gamma", type=float, default=0.99, help="DQN gamma starting value")
+    parser.add_argument("--replay_buffer", type=float, default=100, help="Replay buffer size")
     parser.add_argument("--load_model", action='store_true', default=False, help="Load saved model")
     parser.add_argument("--test", action='store_true', default=False, help="Testing phase")
     parser.add_argument("--nodisplay", action='store_true', default=False, help="Show V-REP display")
@@ -22,12 +23,13 @@ def main():
     parser.add_argument("--viz", action='store_true', default=False, help="Use Visdom Visualizer")
     args = parser.parse_args()
 
-    print("Using Parameters:\n")
-    print("Epoch Size: %d \n" % args.epoch_size)
-    print("Episode Size: %d \n" % args.episode_size)
-    print("Epsilon: %f \n" % args.epsilon)
-    print("Gamma: %f \n" % args.gamma)
-    print("Testing Phase: %s \n" % str(args.test))
+    print("Using Parameters:")
+    print("Epoch Size: %d" % args.epoch_size)
+    print("Episode Size: %d" % args.episode_size)
+    print("Epsilon: %f" % args.epsilon)
+    print("Gamma: %f" % args.gamma)
+    print("Replay buffer size: %f" % args.replay_buffer)
+    print("Testing Phase: %s" % str(args.test))
     print("Using CUDA: %s\n" % str(args.cuda))
 
     # Initialize classes
@@ -40,6 +42,7 @@ def main():
         main_quad = Quad(dqn_quad=dqn_quad, control_quad=control_quad, visualizer=None)
 
     # Argument parsing
+    dqn_quad.buffer_size = args.replay_buffer
     dqn_quad.eps = args.epsilon
     dqn_quad.gamma = args.gamma
     if args.load_model:

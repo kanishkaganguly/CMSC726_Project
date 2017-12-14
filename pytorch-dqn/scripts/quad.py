@@ -68,18 +68,26 @@ class Quad(object):
         # Set target q_values for backprop
         print("Setting target q_values")
         target_q = np.copy(pred_q)
-        target_q[max_q_idx] = reward + self.dqn_quad.gamma * max_q
-        print("Computing loss")
-        self.dqn_quad.get_loss(target_q, pred_q)
 
-        # Do backprop
-        print("Backpropagation")
-        self.dqn_quad.backprop()
+        # Replay buffer training
+        if curr_episode % self.dqn_quad.buffer_size == 0 and len(self.dqn_quad.replay_buffer) > 0:
+            print("Training from replay buffer")
+            self.dqn_quad.curr_buffer_pointer = 0
+            for i in range(len(self.dqn_quad.replay_buffer)):
+                target_q, pred_q, reward, max_q_idx = self.dqn_quad.pop_from_buffer()
+                target_q[max_q_idx] = reward + self.dqn_quad.gamma * max_q
+                print("Computing loss")
+                self.dqn_quad.get_loss(target_q, pred_q)
+
+                # Do backprop
+                print("Backpropagation")
+                self.dqn_quad.backprop()
+
+        else:
+            print("Adding to replay buffer")
+            self.dqn_quad.push_to_buffer(target_q, pred_q, max_q_idx, reward)
+            self.dqn_quad.curr_buffer_pointer += 1
         print('\n')
-
-        if curr_episode % 100 == 0:
-            self.write_data(curr_epoch, reward, curr_episode)
-
         return res
 
     def task_every_n_epochs(self, curr_epoch):

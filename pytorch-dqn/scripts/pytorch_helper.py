@@ -43,15 +43,16 @@ class QuadDQN(object):
         self.curr_buffer_pointer = 0
 
     # Replay Buffer
-    def push_to_buffer(self, curr_state, reward, next_state):
-        self.replay_state['curr_state'] = curr_state
-        self.replay_state['next_state'] = next_state
+    def push_to_buffer(self, target, pred, max_q_idx, reward):
+        self.replay_state['target'] = target
+        self.replay_state['pred'] = pred
+        self.replay_state['max_q_idx'] = max_q_idx
         self.replay_state['reward'] = reward
-        self.replay_buffer[self.curr_buffer_pointer % self.buffer_size] = self.replay_state
+        self.replay_buffer.insert(self.curr_buffer_pointer % self.buffer_size, self.replay_state)
 
     def pop_from_buffer(self):
         val = self.replay_buffer.pop()
-        return val['next_state'], val['curr_state'], val['reward']
+        return val['target'], val['pred'], val['reward'], val['max_q_idx']
 
     # Predict next action
     def predict_action(self, state):
